@@ -11,12 +11,14 @@ import { AppRoutingModule } from './/app-routing.module';
 import { Ranking2Component } from './ranking2/ranking2.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryJugadorService }  from './lista-jugadores';
+import { PrincipalComponent } from './principal/principal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RankingComponent,
-    Ranking2Component
+    Ranking2Component,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
