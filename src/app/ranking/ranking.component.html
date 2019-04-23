@@ -20,10 +20,19 @@
             <option *ngFor="let pais of paisesJugadoras" value="{{pais}}"> {{pais}} </option>
           </select>
         </div>
+        
         <div class="input-group ml-5 col-6" aria-label="Búsqueda por Nombre">
-          <input type="text" class="form-control" placeholder="Nombre del Jugador" name="buscar" #barraBusqueda>
-          <button class="btn btn-primary" (click)="buscarJugador(barraBusqueda.value)">O</button>
+          <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+         
+          <ul class="search-result">
+            <li *ngFor="let jugador of jugadores$ | async" >
+              <a routerLink="/bio/{{jugador.id}}">
+                {{jugador.nombre}}
+              </a>
+            </li>
+          </ul>
         </div>
+
       </div>
     </div>
   </div>
@@ -43,7 +52,7 @@
         <tbody>
           <tr *ngFor="let jugador of jugadores">
             <td> {{jugador.ranking}} </td>
-            <td> {{jugador.nombre}} </td>
+            <a routerLink="/bio/{{jugador.id}}"><td> {{jugador.nombre}} </td></a>
             <td> {{jugador.nacionalidad}} </td>
             <td> {{jugador.edad}} </td>
             <td> {{jugador.puntos}} </td>

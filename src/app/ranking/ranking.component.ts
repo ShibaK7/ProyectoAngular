@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { Jugador } from '../jugador';
 import { JugadorService } from '../jugador.service';
@@ -21,24 +23,52 @@ export class RankingComponent implements OnInit {
   private totalPaginasF: number;
   private filtradoPais: boolean = false;
 
+  jugadores: Jugador[];
+  jugadores$: Observable<Jugador[]>;
+  private searchTerms = new Subject<string>();
+
   constructor(private jugadorService: JugadorService, private jugadoraService: JugadoraService) {
    }
 
   ngOnInit() {
+    this.getJugadores();
+    this.getPaginasMasculino();
     this.genero = "masculino";
     this.paisSeleccionado = null;
-    this.totalPaginasM = this.jugadorService.getJugadores().length / this.registrosPorPagina;
     this.totalPaginasF = this.jugadoraService.getJugadoras().length / this.registrosPorPagina;
+
+    this.jugadores$ = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+ 
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+ 
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.jugadorService.searchJugadores(term)),
+    );
   }
 
-  get jugadores(): Jugador[] {
+  getJugadores(): void {
     let indice = (this.numeroPaginaM -1)*this.registrosPorPagina;
 
-    return this.jugadorService.getJugadores(this.paisSeleccionado).slice(indice, indice+this.registrosPorPagina);
+    this.jugadorService.getJugadores()
+        .subscribe(jugadores => 
+          this.jugadores = jugadores.filter(jugador => this.paisSeleccionado == null || this.paisSeleccionado == jugador.nacionalidad).slice(indice, indice+this.registrosPorPagina))
+  }
+
+  getPaginasMasculino(): void {
+    this.jugadorService.getJugadores().subscribe( jugadores =>
+      this.totalPaginasM = jugadores.length / this.registrosPorPagina
+    )
   }
 
   get paisesJugadores(): string[] {
     return this.jugadorService.getPaisesJugadores();
+  }
+
+  search(term: string): void {
+    this.searchTerms.next(term);
   }
 
   get jugadoras(): Jugadora[] {
@@ -56,6 +86,7 @@ export class RankingComponent implements OnInit {
     {
       this.paisSeleccionado=null;
       this.filtradoPais=false;
+      this.getJugadores();
     }
     else
     {
@@ -63,26 +94,16 @@ export class RankingComponent implements OnInit {
       this.filtradoPais=true;
       this.numeroPaginaM=1;
       this.numeroPaginaF=1;
+      this.getJugadores();
     }
   }
-
-  buscarJugador(nombre: string) {
-    console.log(this.jugadorService.getJugador(nombre).ranking);
-  }
-    
-  /*get paginaJugadores(): number[] {
-    return Array(Math.ceil(this.jugadorService.getJugadores(this.paisSeleccionado).length / this.registrosPorPagina)).fill(0).map((x, i) => i + 1);
-  }*/
-
-  /*get paginaJugadoras(): number[] {
-    return Array(Math.ceil(this.jugadoraService.getJugadoras(this.paisSeleccionado).length / this.registrosPorPagina)).fill(0).map((x, i) => i + 1);
-  }*/
 
   avanzarPagina(genero: number) {
     if(genero===1)
     {
       if(this.numeroPaginaM < this.totalPaginasM)
         this.numeroPaginaM++;
+        this.getJugadores();
     }
     else
     {
@@ -96,6 +117,7 @@ export class RankingComponent implements OnInit {
     {
       if(this.numeroPaginaM > 1)
       this.numeroPaginaM--;
+      this.getJugadores();
     }
     else
     {
@@ -108,6 +130,7 @@ export class RankingComponent implements OnInit {
     if(genero===1)
     {
       this.numeroPaginaM = this.totalPaginasM;
+      this.getJugadores();
     }
     else
     {
@@ -119,6 +142,7 @@ export class RankingComponent implements OnInit {
     if(genero===1)
     {
       this.numeroPaginaM = 1;
+      this.getJugadores();
     }
     else
     {
@@ -133,6 +157,7 @@ export class RankingComponent implements OnInit {
       this.paisSeleccionado=null; 
       this.numeroPaginaM=1;
       this.filtradoPais=false;
+      this.getJugadores();
     }
     else
     {

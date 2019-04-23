@@ -1,22 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RankingComponent } from './ranking/ranking.component';
-import { JUGADORES } from './lista-jugadores';
+//import { JUGADORES } from './lista-jugadores';
 import { JUGADORAS } from './lista-jugadoras';
+import { AppRoutingModule } from './/app-routing.module';
+import { Ranking2Component } from './ranking2/ranking2.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryJugadorService }  from './lista-jugadores';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RankingComponent
+    RankingComponent,
+    Ranking2Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryJugadorService, { dataEncapsulation: false }
+    )
   ],
-  providers: [RankingComponent, JUGADORES, JUGADORAS],
+  providers: [RankingComponent, JUGADORAS],
   exports: [RankingComponent],
-  bootstrap: [AppComponent,
-    RankingComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
