@@ -27,15 +27,21 @@ export class RankingComponent implements OnInit {
   jugadores$: Observable<Jugador[]>;
   private searchTerms = new Subject<string>();
 
+  busqueda$: Observable<any[]>;
+
+  jugadoras: Jugadora[];
+  jugadoras$: Observable<Jugadora[]>;
+
   constructor(private jugadorService: JugadorService, private jugadoraService: JugadoraService) {
    }
 
   ngOnInit() {
     this.getJugadores();
     this.getPaginasMasculino();
+    this.getJugadoras();
+    this.getPaginasFemenino();
     this.genero = "masculino";
     this.paisSeleccionado = null;
-    this.totalPaginasF = this.jugadoraService.getJugadoras().length / this.registrosPorPagina;
 
     this.jugadores$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
@@ -45,7 +51,19 @@ export class RankingComponent implements OnInit {
       distinctUntilChanged(),
  
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.jugadorService.searchJugadores(term)),
+      switchMap((term: string) => 
+      this.jugadorService.searchJugadores(term))
+    );
+    this.jugadoras$ = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+ 
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+ 
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => 
+      this.jugadoraService.searchJugadoras(term))
     );
   }
 
@@ -71,10 +89,18 @@ export class RankingComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
-  get jugadoras(): Jugadora[] {
+  getJugadoras(): void {
     let indice = (this.numeroPaginaF -1)*this.registrosPorPagina;
 
-    return this.jugadoraService.getJugadoras(this.paisSeleccionado).slice(indice, indice+this.registrosPorPagina);
+    this.jugadoraService.getJugadoras()
+        .subscribe(jugadoras => 
+          this.jugadoras = jugadoras.filter(jugadora => this.paisSeleccionado == null || this.paisSeleccionado == jugadora.nacionalidad).slice(indice, indice+this.registrosPorPagina))
+  }
+
+  getPaginasFemenino(): void {
+    this.jugadoraService.getJugadoras().subscribe( jugadoras =>
+      this.totalPaginasF = jugadoras.length / this.registrosPorPagina
+    )
   }
 
   get paisesJugadoras(): string[] {
@@ -87,6 +113,7 @@ export class RankingComponent implements OnInit {
       this.paisSeleccionado=null;
       this.filtradoPais=false;
       this.getJugadores();
+      this.getJugadoras();
     }
     else
     {
@@ -95,6 +122,7 @@ export class RankingComponent implements OnInit {
       this.numeroPaginaM=1;
       this.numeroPaginaF=1;
       this.getJugadores();
+      this.getJugadoras();
     }
   }
 
@@ -109,6 +137,7 @@ export class RankingComponent implements OnInit {
     {
       if(this.numeroPaginaF < this.totalPaginasF)
         this.numeroPaginaF++;
+        this.getJugadoras();
     }
   }
 
@@ -123,6 +152,7 @@ export class RankingComponent implements OnInit {
     {
       if(this.numeroPaginaF > 1)
       this.numeroPaginaF--;
+      this.getJugadoras();
     }
   }
 
@@ -135,6 +165,7 @@ export class RankingComponent implements OnInit {
     else
     {
       this.numeroPaginaF = this.totalPaginasF;
+      this.getJugadoras();
     }
   }
 
@@ -147,6 +178,7 @@ export class RankingComponent implements OnInit {
     else
     {
       this.numeroPaginaF = 1;
+      this.getJugadoras();
     }
   }
 
@@ -165,6 +197,7 @@ export class RankingComponent implements OnInit {
       this.paisSeleccionado=null; 
       this.numeroPaginaF=1;
       this.filtradoPais=false;
+      this.getJugadoras();
     }
   }
 }

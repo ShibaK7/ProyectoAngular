@@ -5,35 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Jugador } from './jugador';
 
-@Injectable({
-  providedIn: 'root'
-})
-/*export class JugadorService {
-
-  private jugadores: Jugador[] = [];
-  private paisesJugadores: string[] = [];
-
-  constructor(private listaJugadores: JUGADORES) {
-    listaJugadores.getJugadores().subscribe(data => {
-      this.jugadores = data;
-      this.paisesJugadores = data.map(p => p.nacionalidad)
-      .filter((c, index, array) => array.indexOf(c) == index).sort();
-    });
-   }
-
-  getJugadores(nacionalidad: string = null): Jugador[] {
-    return this.jugadores.filter(jugador => nacionalidad == null || nacionalidad == jugador.nacionalidad);
-  }
-
-  getJugador(nombre: string): Jugador {
-    return this.jugadores.find(jugador => jugador.nombre == nombre);
-  }
-
-  getPaisesJugadores(): string[] {
-    return this.paisesJugadores;
-  }
-}*/
-
+@Injectable({ providedIn: 'root' })
 export class JugadorService {
 
   private heroesUrl = 'api/JUGADORES';
@@ -88,9 +60,4 @@ export class JugadorService {
       return of(result as T);
     };
   }
-
-  /*getJugador(id: number): Observable<Jugador> {
-    // TODO: send the message _after_ fetching the hero
-    return of(JUGADORES.find(jugador => jugador.id === id));
-  }*/
 }
