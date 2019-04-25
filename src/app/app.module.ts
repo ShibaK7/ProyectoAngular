@@ -12,13 +12,17 @@ import { Ranking2Component } from './ranking2/ranking2.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryJugadorService }  from './lista-jugadores';
 import { PrincipalComponent } from './principal/principal.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NoticiaComponent } from './noticia/noticia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RankingComponent,
     Ranking2Component,
-    PrincipalComponent
+    PrincipalComponent,
+    NavbarComponent,
+    NoticiaComponent
   ],
   imports: [
     BrowserModule,
