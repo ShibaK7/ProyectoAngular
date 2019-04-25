@@ -14,6 +14,9 @@ import { InMemoryJugadorService }  from './lista-jugadores';
 import { PrincipalComponent } from './principal/principal.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoticiaComponent } from './noticia/noticia.component';
+import { ResultadosComponent } from './resultados/resultados.component';
+import { CompletosComponent } from './resultados/completos/completos.component';
+import { RecientesComponent } from './resultados/recientes/recientes.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { NoticiaComponent } from './noticia/noticia.component';
     Ranking2Component,
     PrincipalComponent,
     NavbarComponent,
-    NoticiaComponent
+    NoticiaComponent,
+    ResultadosComponent,
+    CompletosComponent,
+    RecientesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,6 @@ import { NoticiaComponent } from './noticia/noticia.component';
   ],
   providers: [RankingComponent, JUGADORAS],
   exports: [RankingComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ResultadosComponent]
 })
 export class AppModule { }
