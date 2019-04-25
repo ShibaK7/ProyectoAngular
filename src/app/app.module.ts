@@ -5,12 +5,12 @@ import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RankingComponent } from './ranking/ranking.component';
-//import { JUGADORES } from './lista-jugadores';
-import { JUGADORAS } from './lista-jugadoras';
-import { AppRoutingModule } from './/app-routing.module';
 import { Ranking2Component } from './ranking2/ranking2.component';
+
+import { AppRoutingModule } from './/app-routing.module';
+
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryJugadorService }  from './lista-jugadores';
+import { InMemoryInformacionService }  from './basededatos';
 
 @NgModule({
   declarations: [
@@ -24,10 +24,9 @@ import { InMemoryJugadorService }  from './lista-jugadores';
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryJugadorService, { dataEncapsulation: false }
-    )
+      InMemoryInformacionService, { dataEncapsulation: false })
   ],
-  providers: [RankingComponent, JUGADORAS],
+  providers: [RankingComponent],
   exports: [RankingComponent],
   bootstrap: [AppComponent]
 })

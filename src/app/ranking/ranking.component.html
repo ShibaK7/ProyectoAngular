@@ -1,41 +1,55 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-10 mx-auto">
+<div class="row">
+    <div class="btn-group ml-5">
+      <button type="radio" name="genero" class="btn btn-generico" value="masculino"
+        (click)="resetGenero(1)">Masculino</button>
+      <button type="radio" name="genero" class="btn btn-generico" value="femenino"
+        (click)="resetGenero(2)">Femenino</button>
+    </div>
+
+    <div *ngIf="genero==='masculino'" class="ml-5 mr-5" aria-label="Selección de Paises">
+      <select (change)="cambiarPaisSeleccionado($event.target.value)">
+        <option value=""> Todos los Paises </option>
+        <option *ngFor="let pais of paisesJugadores" value="{{pais}}"> {{pais}} </option>
+      </select>
+    </div>
+    <div *ngIf="genero==='femenino'" class="ml-5 mr-5" aria-label="Selección de Paises">
+      <select (change)="cambiarPaisSeleccionado($event.target.value)">
+        <option value=""> Todos los Paises </option>
+        <option *ngFor="let pais of paisesJugadoras" value="{{pais}}"> {{pais}} </option>
+      </select>
+    </div>
+</div>
+
+<input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+<ul class="search-result">
+  <li *ngFor="let jugador of jugadores$ | async">
+    <a routerLink="/masculino/{{jugador.id}}">
+      {{jugador.nombre}}
+    </a>
+  </li>
+  <li *ngFor="let jugadora of jugadoras$ | async">
+    <a routerLink="/bio/{{jugadora.id}}">
+      {{jugadora.nombre}}
+    </a>
+  </li>
+</ul>
+
+<!--<div class="col-10 mx-auto">
       <div class="btn-toolbar mt-5 mb-3 ml-0 mr-5" role="toolbar" aria-label="Filtrado de Ranking">
         <div class="btn-group" role="group" aria-label="Selección de Género">
-          <button type="radio" name="genero" class="btn btn-primary" value="masculino"
-            (click)="resetGenero(1)">Masculino</button>
-          <button type="radio" name="genero" class="btn btn-primary" value="femenino"
-            (click)="resetGenero(2)">Femenino</button>
-        </div>
-        <div *ngIf="genero==='masculino'" class="input-group ml-5 mr-5" aria-label="Selección de Paises">
-          <select (change)="cambiarPaisSeleccionado($event.target.value)">
-            <option value=""> Todos los Paises </option>
-            <option *ngFor="let pais of paisesJugadores" value="{{pais}}"> {{pais}} </option>
-          </select>
-        </div>
-        <div *ngIf="genero==='femenino'" class="input-group ml-5 mr-5" aria-label="Selección de Paises">
-          <select (change)="cambiarPaisSeleccionado($event.target.value)">
-            <option value=""> Todos los Paises </option>
-            <option *ngFor="let pais of paisesJugadoras" value="{{pais}}"> {{pais}} </option>
-          </select>
+          
         </div>
         
+        
         <div class="input-group ml-5 col-6" aria-label="Búsqueda por Nombre">
-          <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-         
-          <ul class="search-result">
-            <li *ngFor="let jugador of jugadores$ | async" >
-              <a routerLink="/bio/{{jugador.id}}">
-                {{jugador.nombre}}
-              </a>
-            </li>
-          </ul>
+          
         </div>
 
       </div>
-    </div>
-  </div>
+    </div>-->
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-10 mx-auto">
       <table *ngIf="genero==='masculino'" class="table table-hover">
@@ -52,7 +66,9 @@
         <tbody>
           <tr *ngFor="let jugador of jugadores">
             <td> {{jugador.ranking}} </td>
-            <a routerLink="/bio/{{jugador.id}}"><td> {{jugador.nombre}} </td></a>
+            <a routerLink="/masculino/{{jugador.id}}">
+              <td> {{jugador.nombre}} </td>
+            </a>
             <td> {{jugador.nacionalidad}} </td>
             <td> {{jugador.edad}} </td>
             <td> {{jugador.puntos}} </td>
@@ -64,17 +80,17 @@
   </div>
   <div class="row">
     <div class="mx-auto" *ngIf="genero==='masculino' && filtradoPais===false">
-      <button (click)="regresarPrincipio(1)" class="btn btn-primary">
+      <button (click)="regresarPrincipio(1)" class="btn btn-generico">
         &lt; &lt;
       </button>
-      <button (click)="regresarPagina(1)" class="btn btn-primary">
+      <button (click)="regresarPagina(1)" class="btn btn-generico">
         &lt;
       </button>
-        {{numeroPaginaM}} de {{totalPaginasM}}
-      <button (click)="avanzarPagina(1)" class="btn btn-primary">
+      {{numeroPaginaM}} de {{totalPaginasM}}
+      <button (click)="avanzarPagina(1)" class="btn btn-generico">
         &gt;
       </button>
-      <button (click)="avanzarFinal(1)" class="btn btn-primary">
+      <button (click)="avanzarFinal(1)" class="btn btn-generico">
         &gt; &gt;
       </button>
     </div>
@@ -103,17 +119,17 @@
   </div>
   <div class="row">
     <div class="mx-auto" *ngIf="genero==='femenino' && filtradoPais===false">
-      <button (click)="regresarPrincipio(2)" class="btn btn-primary">
+      <button (click)="regresarPrincipio(2)" class="btn btn-generico">
         &lt; &lt;
       </button>
-      <button (click)="regresarPagina(2)" class="btn btn-primary">
+      <button (click)="regresarPagina(2)" class="btn btn-generico">
         &lt;
       </button>
-        {{numeroPaginaF}} de {{totalPaginasF}}
-      <button (click)="avanzarPagina(2)" class="btn btn-primary">
+      {{numeroPaginaF}} de {{totalPaginasF}}
+      <button (click)="avanzarPagina(2)" class="btn btn-generico">
         &gt;
       </button>
-      <button (click)="avanzarFinal(2)" class="btn btn-primary">
+      <button (click)="avanzarFinal(2)" class="btn btn-generico">
         &gt; &gt;
       </button>
     </div>

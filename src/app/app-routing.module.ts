@@ -7,7 +7,7 @@ import { Ranking2Component } from './ranking2/ranking2.component'
 const routes: Routes = [
   { path: '', redirectTo: '/ranking', pathMatch: 'full' },
   { path: 'ranking', component: RankingComponent },
-  { path: 'bio/:id', component: Ranking2Component }
+  { path: 'masculino/:id', component: Ranking2Component }
 ];
 
 @NgModule({

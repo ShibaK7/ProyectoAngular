@@ -4,7 +4,7 @@
     border-left: 1px solid gray;
     border-right: 1px solid gray;
     width: 195px;
-    height: 16px;
+    height: 25px;
     padding: 5px;
     background-color: white;
     cursor: pointer;
@@ -25,15 +25,23 @@
     color: white;
   }
   .search-result li a:active {
-    color: white;
+    color: rgb(255, 255, 255);
   }
   #search-box {
     width: 200px;
-    height: 20px;
+    height: 30px;
   }
-  
   
   ul.search-result {
     margin-top: 0;
     padding-left: 0;
+  }
+
+  .btn-generico {
+    background-color: #32606D;
+    color: white;
+  }
+
+  .btn-generico:hover {
+    background-color: #238A8A;
   }
