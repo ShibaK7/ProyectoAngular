@@ -11,12 +11,18 @@ import { AppRoutingModule } from './/app-routing.module';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryInformacionService }  from './basededatos';
+import { PrincipalComponent } from './principal/principal.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NoticiaComponent } from './noticia/noticia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RankingComponent,
-    Ranking2Component
+    Ranking2Component,
+    PrincipalComponent,
+    NavbarComponent,
+    NoticiaComponent
   ],
   imports: [
     BrowserModule,
