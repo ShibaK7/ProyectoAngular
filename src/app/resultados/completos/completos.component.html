@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <div class="btn-toolbar mt-5 mb-3 ml-0 mr-5" role="toolbar" aria-label="Filtrado de Resultados">
+        <div class="btn-group" role="group" aria-label="Selección de Tipo">
+          <button type="radio" name="tipo" class="btn btn-primary" value="individual"
+            (click)="tipo='individual'; generoSeleccionado=null; numeroPagina=1;">Individuales</button>
+          <button type="radio" name="tipo" class="btn btn-primary" value="dobles"
+            (click)="tipo='dobles'; generoSeleccionado=null; numeroPagina=1;">Dobles</button>
+        </div>
+        <div class="input-group ml-5 mr-2" aria-label="Selección de Género">
+          <select (change)="cambiarGeneroSeleccionado($event.target.value)">
+            <option value="">Género</option>
+            <option *ngFor="let genero of generoIndividuales" value="{{genero}}"> {{genero}} </option>
+          </select>
+        </div>
+        <div class="input-group ml-5 mr-2" aria-label="Selección de Torneo">
+            <select (change)="cambiarTorneoSeleccionado($event.target.value)">
+              <option value="">Todos los torneos</option>
+              <option *ngFor="let torneo of torneosIndividuales" value="{{torneo}}"> {{torneo}} </option>
+            </select>
+        </div>
+        <div class="input-group ml-5 col-6" aria-label="Búsqueda por Nombre">
+          <input type="text" class="form-control" placeholder="Buscar" name="buscar">
+        </div>
+      </div>
+    </div>
+  </div>
