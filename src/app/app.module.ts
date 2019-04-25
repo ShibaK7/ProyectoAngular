@@ -14,6 +14,7 @@ import { InMemoryJugadorService }  from './lista-jugadores';
 import { PrincipalComponent } from './principal/principal.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoticiaComponent } from './noticia/noticia.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NoticiaComponent } from './noticia/noticia.component';
     Ranking2Component,
     PrincipalComponent,
     NavbarComponent,
-    NoticiaComponent
+    NoticiaComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
