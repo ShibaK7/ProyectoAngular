@@ -14,13 +14,10 @@ import { InMemoryJugadorService }  from './lista-jugadores';
 import { PrincipalComponent } from './principal/principal.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoticiaComponent } from './noticia/noticia.component';
-<<<<<<< HEAD
 import { ContactoComponent } from './contacto/contacto.component';
-=======
 import { ResultadosComponent } from './resultados/resultados.component';
 import { CompletosComponent } from './resultados/completos/completos.component';
 import { RecientesComponent } from './resultados/recientes/recientes.component';
->>>>>>> Rebeca
 
 @NgModule({
   declarations: [
@@ -30,13 +27,10 @@ import { RecientesComponent } from './resultados/recientes/recientes.component';
     PrincipalComponent,
     NavbarComponent,
     NoticiaComponent,
-<<<<<<< HEAD
-    ContactoComponent
-=======
+    ContactoComponent,
     ResultadosComponent,
     CompletosComponent,
     RecientesComponent
->>>>>>> Rebeca
   ],
   imports: [
     BrowserModule,
