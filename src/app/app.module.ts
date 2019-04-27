@@ -15,6 +15,8 @@ import { PrincipalComponent } from './principal/principal.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { PieComponent } from './pie/pie.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ContactoComponent } from './contacto/contacto.component';
     PrincipalComponent,
     NavbarComponent,
     NoticiaComponent,
-    ContactoComponent
+    ContactoComponent,
+    PieComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
