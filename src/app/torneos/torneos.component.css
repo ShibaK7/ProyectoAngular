@@ -246,11 +246,11 @@
       border-top-left-radius: 3px;
       border-top-right-radius: 3px; }
       .card__picture--1 {
-        background-image: linear-gradient(to right bottom, #32606D, #28b485), url(../../../../assets/img/estadio-1.jpg); }
+        background-image: linear-gradient(to right bottom, #32606D, #28b485), url(../../assets/img/estadio-1.jpg); }
       .card__picture--2 {
-        background-image: linear-gradient(to right bottom, #32606D, #28b485), url(../../../../assets/img/estadio-4.jpg); }
+        background-image: linear-gradient(to right bottom, #32606D, #28b485), url(../../assets/img/estadio-4.jpg); }
       .card__picture--3 {
-        background-image: linear-gradient(to right bottom, #32606D, #28b485), url(../../../../assets/img/estadio-5.jpg); }
+        background-image: linear-gradient(to right bottom, #32606D, #28b485), url(../../assets/img/estadio-5.jpg); }
     .card__heading {
       font-size: 2rem;
       font-weight: 300;

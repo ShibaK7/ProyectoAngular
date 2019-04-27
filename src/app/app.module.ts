@@ -19,6 +19,9 @@ import { ResultadosComponent } from './resultados/resultados.component';
 import { CompletosComponent } from './resultados/completos/completos.component';
 import { RecientesComponent } from './resultados/recientes/recientes.component';
 
+import { TorneosComponent } from './torneos/torneos.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,8 @@ import { RecientesComponent } from './resultados/recientes/recientes.component';
     ContactoComponent,
     ResultadosComponent,
     CompletosComponent,
-    RecientesComponent
+    RecientesComponent,
+    TorneosComponent
   ],
   imports: [
     BrowserModule,
