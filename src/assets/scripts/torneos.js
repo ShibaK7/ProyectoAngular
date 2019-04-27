@@ -1,8 +1,16 @@
-var x = 5;
-var y = 6;
-var z = x + y;
-document.getElementById("demo").innerHTML = "The value of z is: " + z;
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
 
-function myTest() {
-    alert("Welcome");
-}
+
+
+  var modal = document.getElementById('modal-wrapper');
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
