@@ -8,17 +8,12 @@
           <button type="radio" name="tipo" class="btn btn-primary" value="dobles"
             (click)="tipo='dobles'; generoSeleccionado=null; numeroPagina=1;">Dobles</button>
         </div>
-        <div class="input-group ml-5 mr-2" aria-label="Selección de Género">
-          <select (change)="cambiarGeneroSeleccionado($event.target.value)">
+        <div *ngIf="tipo==='individual'" class="input-group ml-5 mr-5 " aria-label="Slección de Género">
+          <select name="sources" id="sources" class="custom-select sources"
+            (change)="cambiarGeneroSeleccionado($event.target.value)">
             <option value="">Género</option>
             <option *ngFor="let genero of generoIndividuales" value="{{genero}}"> {{genero}} </option>
           </select>
-        </div>
-        <div class="input-group ml-5 mr-2" aria-label="Selección de Torneo">
-            <select (change)="cambiarTorneoSeleccionado($event.target.value)">
-              <option value="">Todos los torneos</option>
-              <option *ngFor="let torneo of torneosIndividuales" value="{{torneo}}"> {{torneo}} </option>
-            </select>
         </div>
         <div class="input-group ml-5 col-6" aria-label="Búsqueda por Nombre">
           <input type="text" class="form-control" placeholder="Buscar" name="buscar">
@@ -26,3 +21,89 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table *ngIf="tipo==='individual'" class="table table-hover">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th></th>
+            <th scope="col">Jugador 1</th>
+            <th></th>
+            <th scope="col">Jugador 2</th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col">5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let individual of individuales">
+            <td><img [src]="individual.bandera1"></td>
+            <td> {{individual.jugador1}} </td>
+            <td><img [src]="individual.bandera2"></td>
+            <td> {{individual.jugador2}} </td>
+            <td> {{individual.uno}} </td>
+            <td> {{individual.dos}} </td>
+            <td> {{individual.tres}} </td>
+            <td> {{individual.cuatro}} </td>
+            <td> {{individual.cinco}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto" *ngIf="tipo==='individual' && filtradoGenero===false">
+      <button (click)="regresarPrincipio(1)" class="btn btn-generico">
+        &lt; &lt;
+      </button>
+      <button (click)="regresarPagina(1)" class="btn btn-generico">
+        &lt;
+      </button>
+      {{numeroPaginaI}} de {{totalPaginasI}}
+      <button (click)="avanzarPagina(1)" class="btn btn-generico">
+        &gt;
+      </button>
+      <button (click)="avanzarFinal(1)" class="btn btn-generico">
+        &gt; &gt;
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table *ngIf="tipo==='dobles'" class="table table-hover">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th scope="col">Equipo 1 </th>
+            <th scope="col">Equipo 2</th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col">5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doble of dobles">
+            <td > {{doble.jugador1}}, {{doble.jugador2}}</td>
+            <td > {{doble.jugador3}}, {{doble.jugador4}}</td>
+            <td > {{doble.uno}} </td>
+            <td> {{doble.dos}} </td>
+            <td > {{doble.tres}} </td>
+            <td > {{doble.cuatro}} </td>
+            <td > {{doble.cinco}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 mx-auto" *ngIf="tipo==='dobles'">
+      <button *ngFor="let pagina of paginaDobles" (click)="cambiarPagina(pagina)" class="btn btn-warning"
+        [class.active]="pagina == selectedPage">
+        {{pagina}}
+      </button>
+    </div>
+  </div>
+</div>
