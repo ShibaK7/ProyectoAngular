@@ -1,137 +1,132 @@
-<div class="row">
+<app-navbar></app-navbar>
+
+<div class="row mx-auto py-5 my-3 fondo1" id="filtradoPrincipal">
   <div class="btn-group ml-5">
     <button type="radio" name="genero" class="btn btn-generico" value="masculino"
-      (click)="resetGenero(1)">Masculino</button>
+      (click)="resetGenero(1);">Masculino</button>
     <button type="radio" name="genero" class="btn btn-generico" value="femenino"
       (click)="resetGenero(2)">Femenino</button>
   </div>
 
-  <div *ngIf="genero==='masculino'" class="ml-5 mr-5" aria-label="Selección de Paises">
+  <div *ngIf="genero==='masculino'" class="ml-5 mr-5 select" aria-label="Selección de Paises">
     <select (change)="cambiarPaisSeleccionado($event.target.value)">
       <option value=""> Todos los Paises </option>
       <option *ngFor="let pais of paisesJugadores" value="{{pais}}"> {{pais}} </option>
     </select>
   </div>
-  <div *ngIf="genero==='femenino'" class="ml-5 mr-5" aria-label="Selección de Paises">
+  <div *ngIf="genero==='femenino'" class="ml-5 mr-5 select" aria-label="Selección de Paises">
     <select (change)="cambiarPaisSeleccionado($event.target.value)">
       <option value=""> Todos los Paises </option>
       <option *ngFor="let pais of paisesJugadoras" value="{{pais}}"> {{pais}} </option>
     </select>
   </div>
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" class="ml-5" placeholder="Búsqueda por nombre" />
+
+  <ul class="search-result">
+    <li *ngFor="let jugador of jugadores$ | async">
+      <a routerLink="/masculino/{{jugador.id}}">
+        {{jugador.nombre}}
+      </a>
+    </li>
+    <li *ngFor="let jugadora of jugadoras$ | async">
+      <a routerLink="/femenino/{{jugadora.id}}">
+        {{jugadora.nombre}}
+      </a>
+    </li>
+  </ul>
 </div>
 
-<input #searchBox id="search-box" (input)="search(searchBox.value)" />
 
-<ul class="search-result">
-<li *ngFor="let jugador of jugadores$ | async">
-  <a routerLink="/masculino/{{jugador.id}}">
-    {{jugador.nombre}}
-  </a>
-</li>
-<li *ngFor="let jugadora of jugadoras$ | async">
-  <a routerLink="/bio/{{jugadora.id}}">
-    {{jugadora.nombre}}
-  </a>
-</li>
-</ul>
-
-<!--<div class="col-10 mx-auto">
-    <div class="btn-toolbar mt-5 mb-3 ml-0 mr-5" role="toolbar" aria-label="Filtrado de Ranking">
-      <div class="btn-group" role="group" aria-label="Selección de Género">
-        
-      </div>
-      
-      
-      <div class="input-group ml-5 col-6" aria-label="Búsqueda por Nombre">
-        
-      </div>
-
+<div class="container-fluid fondo">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table *ngIf="genero==='masculino'" class="table my-5">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th scope="col">Posicion</th>
+            <th scope="col">Jugador</th>
+            <th scope="col">País</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Puntos</th>
+            <th scope="col">Torneos Jugados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jugador of jugadores" class="text-dark">
+            <td> {{jugador.ranking}} </td>
+            <td>
+              <a routerLink="/masculino/{{jugador.id}}">
+                {{jugador.nombre}}
+              </a>
+            </td>
+            <td> {{jugador.nacionalidad}} </td>
+            <td> {{jugador.edad}} </td>
+            <td> {{jugador.puntos}} </td>
+            <td> {{jugador.torneosJugados}} </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>-->
-
-<div class="container-fluid">
-<div class="row">
-  <div class="col-10 mx-auto">
-    <table *ngIf="genero==='masculino'" class="table table-hover">
-      <thead class="bg-dark text-white">
-        <tr>
-          <th scope="col">Posicion</th>
-          <th scope="col">Jugador</th>
-          <th scope="col">País</th>
-          <th scope="col">Edad</th>
-          <th scope="col">Puntos</th>
-          <th scope="col">Torneos Jugados</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let jugador of jugadores">
-          <td> {{jugador.ranking}} </td>
-          <a routerLink="/masculino/{{jugador.id}}">
-            <td> {{jugador.nombre}} </td>
-          </a>
-          <td> {{jugador.nacionalidad}} </td>
-          <td> {{jugador.edad}} </td>
-          <td> {{jugador.puntos}} </td>
-          <td> {{jugador.torneosJugados}} </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-</div>
-<div class="row">
-  <div class="mx-auto" *ngIf="genero==='masculino' && filtradoPais===false">
-    <button (click)="regresarPrincipio(1)" class="btn btn-generico">
-      &lt; &lt;
-    </button>
-    <button (click)="regresarPagina(1)" class="btn btn-generico">
-      &lt;
-    </button>
-    {{numeroPaginaM}} de {{totalPaginasM}}
-    <button (click)="avanzarPagina(1)" class="btn btn-generico">
-      &gt;
-    </button>
-    <button (click)="avanzarFinal(1)" class="btn btn-generico">
-      &gt; &gt;
-    </button>
+  <div class="row">
+    <div class="mx-auto" *ngIf="genero==='masculino' && filtradoPais===false">
+      <button (click)="regresarPrincipio(1)" class="btn btn-generico">
+        &lt; &lt;
+      </button>
+      <button (click)="regresarPagina(1)" class="btn btn-generico">
+        &lt;
+      </button>
+      {{numeroPaginaM}} de {{totalPaginasM}}
+      <button (click)="avanzarPagina(1)" class="btn btn-generico">
+        &gt;
+      </button>
+      <button (click)="avanzarFinal(1)" class="btn btn-generico">
+        &gt; &gt;
+      </button>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-10 mx-auto">
-    <table *ngIf="genero==='femenino'" class="table table-hover">
-      <thead class="bg-dark text-white">
-        <tr>
-          <th scope="col">Posicion</th>
-          <th scope="col">Jugadora</th>
-          <th scope="col">País</th>
-          <th scope="col">Edad</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let jugadora of jugadoras">
-          <td> {{jugadora.ranking}} </td>
-          <td> {{jugadora.nombre}} </td>
-          <td> {{jugadora.nacionalidad}} </td>
-          <td> {{jugadora.edad}} </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table *ngIf="genero==='femenino'" class="table my-5">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th scope="col">Posicion</th>
+            <th scope="col">Jugadora</th>
+            <th scope="col">País</th>
+            <th scope="col">Edad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jugadora of jugadoras" class="text-dark">
+            <td> {{jugadora.ranking}} </td>
+            <td> 
+              <a routerLink="/femenino/{{jugadora.id}}">
+                {{jugadora.nombre}} 
+              </a>
+            </td>
+            <td> {{jugadora.nacionalidad}} </td>
+            <td> {{jugadora.edad}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="mx-auto" *ngIf="genero==='femenino' && filtradoPais===false">
-    <button (click)="regresarPrincipio(2)" class="btn btn-generico">
-      &lt; &lt;
-    </button>
-    <button (click)="regresarPagina(2)" class="btn btn-generico">
-      &lt;
-    </button>
-    {{numeroPaginaF}} de {{totalPaginasF}}
-    <button (click)="avanzarPagina(2)" class="btn btn-generico">
-      &gt;
-    </button>
-    <button (click)="avanzarFinal(2)" class="btn btn-generico">
-      &gt; &gt;
-    </button>
+  <div class="row">
+    <div class="mx-auto" *ngIf="genero==='femenino' && filtradoPais===false">
+      <button (click)="regresarPrincipio(2)" class="btn btn-generico">
+        &lt; &lt;
+      </button>
+      <button (click)="regresarPagina(2)" class="btn btn-generico">
+        &lt;
+      </button>
+      {{numeroPaginaF}} de {{totalPaginasF}}
+      <button (click)="avanzarPagina(2)" class="btn btn-generico">
+        &gt;
+      </button>
+      <button (click)="avanzarFinal(2)" class="btn btn-generico">
+        &gt; &gt;
+      </button>
+    </div>
   </div>
-</div>
 </div>

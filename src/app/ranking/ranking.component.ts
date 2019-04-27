@@ -27,8 +27,6 @@ export class RankingComponent implements OnInit {
   jugadores$: Observable<Jugador[]>;
   private searchTerms = new Subject<string>();
 
-  busqueda$: Observable<any[]>;
-
   jugadoras: Jugadora[];
   jugadoras$: Observable<Jugadora[]>;
 

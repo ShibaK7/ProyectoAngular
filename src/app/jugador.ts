@@ -6,4 +6,8 @@ export class Jugador {
     edad: number;
     puntos: number;
     torneosJugados: number;
+    foto: string;
+    biografia: string;
+    partidos: string;
+    torneos: string;
 }

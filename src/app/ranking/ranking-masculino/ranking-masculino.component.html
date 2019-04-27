@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class=" col-12 mx-auto p-5">
+    <div class="card bg-dark">
+      <img class="card-img-top rounded" src="{{jugador.foto}}" alt="Card image">
+      <div class="card-body">
+        <div class="mx-auto">
+          <h4 class="card-title mx-auto">{{jugador.nombre}}</h4>
+        </div>
+        <div class="card">
+          <div class="card-header mx-auto">
+            <div class="btn-group">
+              <button class="btn btn-generico">BIOGRAFIA</button>
+              <button class="btn btn-generico">PARTIDOS</button>
+              <button class="btn btn-generico">TORNEOS</button>
+            </div>
+          </div>
+          <div class="card-body">
+
+          </div>
+        </div>
+        <div class="card-footer">
+          <a routerLink="/ranking" class="btn btn-generico">Regresar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

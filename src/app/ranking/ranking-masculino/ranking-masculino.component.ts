@@ -2,21 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { JugadorService } from '../jugador.service';
-import { Jugador } from '../jugador';
+import { JugadorService } from '../../jugador.service';
+import { Jugador } from '../../jugador';
 
 @Component({
-  selector: 'app-ranking2',
-  templateUrl: './ranking2.component.html',
-  styleUrls: ['./ranking2.component.css']
+  selector: 'app-ranking-masculino',
+  templateUrl: './ranking-masculino.component.html',
+  styleUrls: ['./ranking-masculino.component.css']
 })
-export class Ranking2Component implements OnInit {
+export class RankingMasculinoComponent implements OnInit {
 
   jugador: Jugador;
 
   constructor(private route: ActivatedRoute, private jugadorService: JugadorService, private location: Location) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getJugador();
   }
   
