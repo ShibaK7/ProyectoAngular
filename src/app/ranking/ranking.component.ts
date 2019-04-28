@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-
 import { Jugador } from '../jugador';
 import { JugadorService } from '../jugador.service';
 import { Jugadora } from '../jugadora';

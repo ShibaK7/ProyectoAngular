@@ -4,21 +4,16 @@
       <div class="btn-toolbar mt-5 mb-3 ml-0 mr-5" role="toolbar" aria-label="Filtrado de Resultados">
         <div class="btn-group" role="group" aria-label="Selección de Tipo">
           <button type="radio" name="tipo" class="btn btn-primary" value="individual"
-            (click)="tipo='individual'; generoSeleccionado=null; numeroPagina=1;">Individuales</button>
+            (click)="resetTipo(1)">Individuales</button>
           <button type="radio" name="tipo" class="btn btn-primary" value="dobles"
-            (click)="tipo='dobles'; generoSeleccionado=null; numeroPagina=1;">Dobles</button>
+            (click)="resetTipo(2)">Dobles</button>
         </div>
-        <div class="input-group ml-5 mr-2" aria-label="Selección de Género">
-          <select (change)="cambiarGeneroSeleccionado($event.target.value)">
+        <div *ngIf="tipo==='individual'" class="input-group ml-5 mr-5 " aria-label="Slección de Género">
+          <select name="sources" id="sources" class="custom-select sources"
+            (change)="cambiarGeneroSeleccionado($event.target.value)">
             <option value="">Género</option>
             <option *ngFor="let genero of generoIndividuales" value="{{genero}}"> {{genero}} </option>
           </select>
-        </div>
-        <div class="input-group ml-5 mr-2" aria-label="Selección de Torneo">
-            <select (change)="cambiarTorneoSeleccionado($event.target.value)">
-              <option value="">Todos los torneos</option>
-              <option *ngFor="let torneo of torneosIndividuales" value="{{torneo}}"> {{torneo}} </option>
-            </select>
         </div>
         <div class="input-group ml-5 col-6" aria-label="Búsqueda por Nombre">
           <input type="text" class="form-control" placeholder="Buscar" name="buscar">
@@ -26,3 +21,132 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table *ngIf="tipo==='individual'" class="table table-hover">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th></th>
+            <th scope="col">Jugador 1</th>
+            <th></th>
+            <th scope="col">Jugador 2</th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col">5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let individual of individuales">
+            <td><img [src]="individual.bandera1"></td>
+            <td> {{individual.jugador1}} </td>
+            <td><img [src]="individual.bandera2"></td>
+            <td> {{individual.jugador2}} </td>
+            <td> {{individual.j1s1}} - {{individual.j2s1}} </td>
+            <td> {{individual.j1s2}} - {{individual.j2s2}} </td>
+            <td> {{individual.j1s3}} - {{individual.j2s3}} </td>
+            <td> {{individual.j1s4}} - {{individual.j2s4}} </td>
+            <td> {{individual.j1s5}} - {{individual.j2s5}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto" *ngIf="tipo==='individual' && filtradoGenero===false">
+      <button (click)="regresarPrincipio(1)" class="btn btn-generico">
+        &lt; &lt;
+      </button>
+      <button (click)="regresarPagina(1)" class="btn btn-generico">
+        &lt;
+      </button>
+      {{numeroPaginaI}} de {{totalPaginasI}}
+      <button (click)="avanzarPagina(1)" class="btn btn-generico">
+        &gt;
+      </button>
+      <button (click)="avanzarFinal(1)" class="btn btn-generico">
+        &gt; &gt;
+      </button>
+    </div>
+  </div>
+  <div class="row">
+      <div class="mx-auto" *ngIf="tipo==='individual' && filtradoGenero===true">
+        <button (click)="regresarPrincipio(1)" class="btn btn-generico">
+          &lt; &lt;
+        </button>
+        <button (click)="regresarPagina(1)" class="btn btn-generico">
+          &lt;
+        </button>
+        {{numeroPaginasFiltradasI}} de {{totalPaginasFiltradasI}}
+        <button (click)="avanzarPagina(1)" class="btn btn-generico">
+          &gt;
+        </button>
+        <button (click)="avanzarFinal(1)" class="btn btn-generico">
+          &gt; &gt;
+        </button>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table *ngIf="tipo==='dobles'" class="table table-hover">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th scope="col">Equipo 1 </th>
+            <th scope="col">Equipo 2</th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col">5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doble of dobles">
+            <td > {{doble.jugador1}}, {{doble.jugador2}}</td>
+            <td > {{doble.jugador3}}, {{doble.jugador4}}</td>
+            <td > {{doble.uno}} </td>
+            <td> {{doble.dos}} </td>
+            <td > {{doble.tres}} </td>
+            <td > {{doble.cuatro}} </td>
+            <td > {{doble.cinco}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+      <div class="mx-auto" *ngIf="tipo==='dobles' && filtradoGenero===false">
+        <button (click)="regresarPrincipio(2)" class="btn btn-generico">
+          &lt; &lt;
+        </button>
+        <button (click)="regresarPagina(2)" class="btn btn-generico">
+          &lt;
+        </button>
+        {{numeroPaginaD}} de {{totalPaginasD}}
+        <button (click)="avanzarPagina(2)" class="btn btn-generico">
+          &gt;
+        </button>
+        <button (click)="avanzarFinal(2)" class="btn btn-generico">
+          &gt; &gt;
+        </button>
+      </div>
+    </div>
+    <div class="row">
+        <div class="mx-auto" *ngIf="tipo==='dobles' && filtradoGenero===true">
+          <button (click)="regresarPrincipio(2)" class="btn btn-generico">
+            &lt; &lt;
+          </button>
+          <button (click)="regresarPagina(2)" class="btn btn-generico">
+            &lt;
+          </button>
+          {{numeroPaginasFiltradasD}} de {{totalPaginasFiltradasD}}
+          <button (click)="avanzarPagina(2)" class="btn btn-generico">
+            &gt;
+          </button>
+          <button (click)="avanzarFinal(2)" class="btn btn-generico">
+            &gt; &gt;
+          </button>
+        </div>
+      </div>
+</div>
