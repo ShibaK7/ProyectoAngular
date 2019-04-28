@@ -20,6 +20,8 @@ import { CompletosComponent } from './resultados/completos/completos.component';
 import { RecientesComponent } from './resultados/recientes/recientes.component';
 
 import { TorneosComponent } from './torneos/torneos.component';
+import { FooterComponent } from './footer/footer.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { TorneosComponent } from './torneos/torneos.component';
     ResultadosComponent,
     CompletosComponent,
     RecientesComponent,
-    TorneosComponent
+    TorneosComponent,
+    FooterComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
