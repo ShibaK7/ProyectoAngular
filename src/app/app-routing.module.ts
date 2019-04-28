@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PrincipalComponent } from './principal/principal.component';
 import { RankingComponent } from './ranking/ranking.component';
-import { Ranking2Component } from './ranking2/ranking2.component'
+import { RankingMasculinoComponent } from './ranking/ranking-masculino/ranking-masculino.component'
+import { RankingFemeninoComponent } from './ranking/ranking-femenino/ranking-femenino.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/principal', pathMatch: 'full' },
   { path: 'ranking', component: RankingComponent },
-  { path: 'bio/:id', component: Ranking2Component },
+  { path: 'masculino/:id', component: RankingMasculinoComponent },
+  { path: 'femenino/:id', component: RankingFemeninoComponent},
   { path: 'principal', component: PrincipalComponent}
 ];
 
