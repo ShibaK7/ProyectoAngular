@@ -8,6 +8,6 @@ export class Jugador {
     torneosJugados: number;
     foto: string;
     biografia: string;
-    partidos: string;
     torneos: string;
+    curiosidad: string;
 }

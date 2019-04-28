@@ -7,3 +7,7 @@
   .btn-generico:hover {
     background-color: #48B48F;
   }
+
+  .carta-centrada {
+    text-align: center;
+  }

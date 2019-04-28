@@ -12,13 +12,13 @@
         </div>
 
           <div *ngIf="genero==='masculino'" class="select mr-5" aria-label="Selección de Paises">
-            <select (change)="cambiarPaisSeleccionado($event.target.value)">
+            <select (change)="cambiarPaisSeleccionado($event.target.value)" id="select">
               <option value=""> Todos los Paises </option>
               <option *ngFor="let pais of paisesJugadores" value="{{pais}}"> {{pais}} </option>
             </select>
           </div>
           <div *ngIf="genero==='femenino'" class="select mr-5" aria-label="Selección de Paises">
-            <select (change)="cambiarPaisSeleccionado($event.target.value)">
+            <select (change)="cambiarPaisSeleccionado($event.target.value)" id="select">
               <option value=""> Todos los Paises </option>
               <option *ngFor="let pais of paisesJugadoras" value="{{pais}}"> {{pais}} </option>
             </select>

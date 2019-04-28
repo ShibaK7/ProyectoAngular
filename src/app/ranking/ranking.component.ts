@@ -312,6 +312,8 @@ export class RankingComponent implements OnInit {
       this.numeroPaginaM=1;
       this.filtradoPais=false;
       this.getJugadores();
+      /*var selector = document.getElementById("select") as HTMLElement;
+      selector.selectedIndex = 0;*/
     }
     else
     {
@@ -320,6 +322,8 @@ export class RankingComponent implements OnInit {
       this.numeroPaginaF=1;
       this.filtradoPais=false;
       this.getJugadoras();
+      /*var selector = document.getElementById("select") as HTMLElement;
+      selector.selectedIndex = 0;*/
     }
   }
 }

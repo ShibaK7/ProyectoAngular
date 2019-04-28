@@ -12,17 +12,24 @@ import { Jugador } from '../../jugador';
 })
 export class RankingMasculinoComponent implements OnInit {
 
-  jugador: Jugador;
+  private jugador: Jugador;
+  private opcionSeleccionada: number;
 
   constructor(private route: ActivatedRoute, private jugadorService: JugadorService, private location: Location) { }
 
   ngOnInit() {
     this.getJugador();
+    this.opcionSeleccionada = 1;
   }
   
   getJugador(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.jugadorService.getJugador(id)
       .subscribe(jugador => this.jugador = jugador);
+  }
+
+  cambiarSeleccion(opcionElegida: number)
+  {
+    this.opcionSeleccionada = opcionElegida;
   }
 }
