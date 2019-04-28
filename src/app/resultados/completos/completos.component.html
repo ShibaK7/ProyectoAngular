@@ -4,9 +4,9 @@
       <div class="btn-toolbar mt-5 mb-3 ml-0 mr-5" role="toolbar" aria-label="Filtrado de Resultados">
         <div class="btn-group" role="group" aria-label="Selección de Tipo">
           <button type="radio" name="tipo" class="btn btn-primary" value="individual"
-            (click)="tipo='individual'; generoSeleccionado=null; numeroPagina=1;">Individuales</button>
+            (click)="resetTipo(1)">Individuales</button>
           <button type="radio" name="tipo" class="btn btn-primary" value="dobles"
-            (click)="tipo='dobles'; generoSeleccionado=null; numeroPagina=1;">Dobles</button>
+            (click)="resetTipo(2)">Dobles</button>
         </div>
         <div *ngIf="tipo==='individual'" class="input-group ml-5 mr-5 " aria-label="Slección de Género">
           <select name="sources" id="sources" class="custom-select sources"
@@ -43,11 +43,11 @@
             <td> {{individual.jugador1}} </td>
             <td><img [src]="individual.bandera2"></td>
             <td> {{individual.jugador2}} </td>
-            <td> {{individual.uno}} </td>
-            <td> {{individual.dos}} </td>
-            <td> {{individual.tres}} </td>
-            <td> {{individual.cuatro}} </td>
-            <td> {{individual.cinco}} </td>
+            <td> {{individual.j1s1}} - {{individual.j2s1}} </td>
+            <td> {{individual.j1s2}} - {{individual.j2s2}} </td>
+            <td> {{individual.j1s3}} - {{individual.j2s3}} </td>
+            <td> {{individual.j1s4}} - {{individual.j2s4}} </td>
+            <td> {{individual.j1s5}} - {{individual.j2s5}} </td>
           </tr>
         </tbody>
       </table>
@@ -70,6 +70,23 @@
       </button>
     </div>
   </div>
+  <div class="row">
+      <div class="mx-auto" *ngIf="tipo==='individual' && filtradoGenero===true">
+        <button (click)="regresarPrincipio(1)" class="btn btn-generico">
+          &lt; &lt;
+        </button>
+        <button (click)="regresarPagina(1)" class="btn btn-generico">
+          &lt;
+        </button>
+        {{numeroPaginasFiltradasI}} de {{totalPaginasFiltradasI}}
+        <button (click)="avanzarPagina(1)" class="btn btn-generico">
+          &gt;
+        </button>
+        <button (click)="avanzarFinal(1)" class="btn btn-generico">
+          &gt; &gt;
+        </button>
+      </div>
+    </div>
   <div class="row">
     <div class="col-10 mx-auto">
       <table *ngIf="tipo==='dobles'" class="table table-hover">
@@ -99,11 +116,37 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-10 mx-auto" *ngIf="tipo==='dobles'">
-      <button *ngFor="let pagina of paginaDobles" (click)="cambiarPagina(pagina)" class="btn btn-warning"
-        [class.active]="pagina == selectedPage">
-        {{pagina}}
-      </button>
+      <div class="mx-auto" *ngIf="tipo==='dobles' && filtradoGenero===false">
+        <button (click)="regresarPrincipio(2)" class="btn btn-generico">
+          &lt; &lt;
+        </button>
+        <button (click)="regresarPagina(2)" class="btn btn-generico">
+          &lt;
+        </button>
+        {{numeroPaginaD}} de {{totalPaginasD}}
+        <button (click)="avanzarPagina(2)" class="btn btn-generico">
+          &gt;
+        </button>
+        <button (click)="avanzarFinal(2)" class="btn btn-generico">
+          &gt; &gt;
+        </button>
+      </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="mx-auto" *ngIf="tipo==='dobles' && filtradoGenero===true">
+          <button (click)="regresarPrincipio(2)" class="btn btn-generico">
+            &lt; &lt;
+          </button>
+          <button (click)="regresarPagina(2)" class="btn btn-generico">
+            &lt;
+          </button>
+          {{numeroPaginasFiltradasD}} de {{totalPaginasFiltradasD}}
+          <button (click)="avanzarPagina(2)" class="btn btn-generico">
+            &gt;
+          </button>
+          <button (click)="avanzarFinal(2)" class="btn btn-generico">
+            &gt; &gt;
+          </button>
+        </div>
+      </div>
 </div>
