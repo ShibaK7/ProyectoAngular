@@ -1,9 +1,9 @@
 /* HeroSearch private styles */
 .search-result li {
-  border-top: 1px solid #32606D;
-  border-bottom: 1px solid #32606D;
-  border-left: 1px solid #32606D;
-  border-right: 1px solid #32606D;
+  border-top: 0px solid #32606D;
+  border-bottom: 0px solid #32606D;
+  border-left: 0px solid #32606D;
+  border-right: 0px solid #32606D;
   width: 195px;
   height: 40px;
   padding: 5px;
