@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
+//import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
 
 
 declare const myTest: any;
 declare var $: any;
-import * as $ from 'jquery';
+//import * as $ from 'jquery';
 
 @Component({
   selector: 'app-torneos',

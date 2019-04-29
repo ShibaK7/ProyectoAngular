@@ -3,7 +3,26 @@ img
     width: 35px;
     height: 35px;
 }
-td,th
+td
 {
     text-align: center;
+}
+#equipo
+{
+    text-align: left;
+}
+
+#head
+{
+    text-align: left;
+}
+
+#indi
+{
+    text-align: center;
+}
+
+#versus
+{
+    text-align: left;
 }

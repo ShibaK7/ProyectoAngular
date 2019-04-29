@@ -8,11 +8,18 @@
           <button type="radio" name="tipo" class="btn btn-primary" value="dobles"
             (click)="resetTipo(2)">Dobles</button>
         </div>
-        <div *ngIf="tipo==='individual'" class="input-group ml-5 mr-5 " aria-label="Slección de Género">
+        <div *ngIf="tipo==='individual'" class="input-group ml-5 mr-5 " aria-label="Selección de Género">
           <select name="sources" id="sources" class="custom-select sources"
             (change)="cambiarGeneroSeleccionado($event.target.value)">
             <option value="">Género</option>
             <option *ngFor="let genero of generoIndividuales" value="{{genero}}"> {{genero}} </option>
+          </select>
+        </div>
+        <div *ngIf="tipo==='dobles'" class="input-group ml-5 mr-5 " aria-label="Selección de Género">
+          <select name="sources" id="sources" class="custom-select sources"
+            (change)="cambiarGeneroSeleccionado($event.target.value)">
+            <option value="">Género</option>
+            <option *ngFor="let genero of generoDobles" value="{{genero}}"> {{genero}} </option>
           </select>
         </div>
         <div class="input-group ml-5 col-6" aria-label="Búsqueda por Nombre">
@@ -24,7 +31,7 @@
   <div class="row">
     <div class="col-10 mx-auto">
       <table *ngIf="tipo==='individual'" class="table table-hover">
-        <thead class="bg-dark text-white">
+        <thead id="indi" class="bg-dark text-white">
           <tr>
             <th></th>
             <th scope="col">Jugador 1</th>
@@ -90,9 +97,10 @@
   <div class="row">
     <div class="col-10 mx-auto">
       <table *ngIf="tipo==='dobles'" class="table table-hover">
-        <thead class="bg-dark text-white">
+        <thead id="head" class="bg-dark text-white">
           <tr>
             <th scope="col">Equipo 1 </th>
+            <th></th>
             <th scope="col">Equipo 2</th>
             <th scope="col">1</th>
             <th scope="col">2</th>
@@ -103,13 +111,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let doble of dobles">
-            <td > {{doble.jugador1}}, {{doble.jugador2}}</td>
-            <td > {{doble.jugador3}}, {{doble.jugador4}}</td>
-            <td > {{doble.uno}} </td>
-            <td> {{doble.dos}} </td>
-            <td > {{doble.tres}} </td>
-            <td > {{doble.cuatro}} </td>
-            <td > {{doble.cinco}} </td>
+            <td id="equipo"> <img [src]="doble.bandera1">  {{doble.jugador1}}<br><img [src]="doble.bandera2">  {{doble.jugador2}} </td>
+            <td id="versus">vs</td>
+            <td id="equipo"> <img [src]="doble.bandera3">  {{doble.jugador3}}<br><img [src]="doble.bandera4">  {{doble.jugador4}} </td>
+            <td id="equipo"><br> {{doble.e1s1}} - {{doble.e2s1}} </td>
+            <td id="equipo"><br> {{doble.e1s2}} - {{doble.e2s2}} </td>
+            <td id=equipo><br> {{doble.e1s3}} - {{doble.e2s3}} </td>
+            <td id=equipo><br> {{doble.e1s4}} - {{doble.e2s4}} </td>
+            <td id=equipo><br> {{doble.e1s5}} - {{doble.e2s5}} </td>
           </tr>
         </tbody>
       </table>
