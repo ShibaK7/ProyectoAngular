@@ -15,7 +15,7 @@ export class RankingComponent implements OnInit {
 
   private genero: string = "";
   private paisSeleccionado: string = null;
-  private registrosPorPagina: number = 8;
+  private registrosPorPagina: number = 10;
   private numeroPaginaM: number = 1;
   private totalPaginasM: number;
   private numeroPaginaF: number = 1;
