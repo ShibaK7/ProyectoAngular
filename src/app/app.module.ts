@@ -30,6 +30,7 @@ import { InicioComponent } from './inicio/inicio.component';
     AppComponent,
     RankingComponent,
     RankingMasculinoComponent,
+    RankingFemeninoComponent,
     PrincipalComponent,
     NavbarComponent,
     NoticiaComponent,
