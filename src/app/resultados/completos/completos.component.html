@@ -1,35 +1,52 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row fondo1 mt-4 mb-1" id="filtradoPrincipal">
     <div class="col-10 mx-auto">
-      <div class="btn-toolbar mt-5 mb-3 ml-0 mr-5" role="toolbar" aria-label="Filtrado de Resultados">
-        <div class="btn-group" role="group" aria-label="Selección de Tipo">
-          <button type="radio" name="tipo" class="btn btn-primary" value="individual"
+      <div class="btn-toolbar">
+        <div class="btn-group mr-5">
+          <button type="radio" name="tipo" class="btn btn-generico" value="individual"
             (click)="resetTipo(1)">Individuales</button>
-          <button type="radio" name="tipo" class="btn btn-primary" value="dobles"
+          <button type="radio" name="tipo" class="btn btn-generico" value="dobles"
             (click)="resetTipo(2)">Dobles</button>
         </div>
-        <div *ngIf="tipo==='individual'" class="input-group ml-5 mr-5 " aria-label="Slección de Género">
-          <select name="sources" id="sources" class="custom-select sources"
-            (change)="cambiarGeneroSeleccionado($event.target.value)">
+
+        <div *ngIf="tipo==='individual'" class="select mr-5 col-2 " aria-label="Selección de Género">
+          <select (change)="cambiarGeneroSeleccionado($event.target.value)" id="select">
             <option value="">Género</option>
             <option *ngFor="let genero of generoIndividuales" value="{{genero}}"> {{genero}} </option>
           </select>
         </div>
-        <div class="input-group ml-5 col-6" aria-label="Búsqueda por Nombre">
-          <input type="text" class="form-control" placeholder="Buscar" name="buscar">
+        <div *ngIf="tipo==='dobles'" class="select mr-5 col-2" aria-label="Selección de Género">
+          <select (change)="cambiarGeneroSeleccionado($event.target.value)" id="select">
+            <option value="">Género</option>
+            <option *ngFor="let genero of generoDobles" value="{{genero}}"> {{genero}} </option>
+          </select>
         </div>
+        <div *ngIf="tipo==='individual'" class="select mr-5 col-4 " aria-label="Selección de Torneo">
+            <select (change)="cambiarTorneoSeleccionado($event.target.value)" id="select">
+              <option value="">Todos los torneos</option>
+              <option *ngFor="let torneo of torneoIndividuales" value="{{torneo}}"> {{torneo}} </option>
+            </select>
+          </div>
+          <div *ngIf="tipo==='dobles'" class="select mr-5 col-4" aria-label="Selección de Torneo">
+            <select (change)="cambiarTorneoSeleccionado($event.target.value)" id="select">
+              <option value="">Todos los torneos</option>
+              <option *ngFor="let torneo of torneoDobles" value="{{torneo}}"> {{torneo}} </option>
+            </select>
+          </div>
       </div>
     </div>
   </div>
+  <div class="fondo">
   <div class="row">
     <div class="col-10 mx-auto">
-      <table *ngIf="tipo==='individual'" class="table table-hover">
-        <thead class="bg-dark text-white">
+      <table *ngIf="tipo==='individual'" class="table my-5">
+        <thead id="indi" class="bg-dark text-white">
           <tr>
+            <th>Torneo</th>
             <th></th>
-            <th scope="col">Jugador 1</th>
+            <th scope="col">Competidor</th>
             <th></th>
-            <th scope="col">Jugador 2</th>
+            <th scope="col">Competidor</th>
             <th scope="col">1</th>
             <th scope="col">2</th>
             <th scope="col">3</th>
@@ -38,7 +55,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let individual of individuales">
+          <tr *ngFor="let individual of individuales" class="text-dark">
+            <td>{{individual.torneo}} </td>
             <td><img [src]="individual.bandera1"></td>
             <td> {{individual.jugador1}} </td>
             <td><img [src]="individual.bandera2"></td>
@@ -55,43 +73,44 @@
   </div>
   <div class="row">
     <div class="mx-auto" *ngIf="tipo==='individual' && filtradoGenero===false">
-      <button (click)="regresarPrincipio(1)" class="btn btn-generico">
-        &lt; &lt;
+      <button (click)="regresarPrincipio(1)" class="btn btn-generico mr-1 ml-1">
+        Inicio
       </button>
-      <button (click)="regresarPagina(1)" class="btn btn-generico">
-        &lt;
+      <button (click)="regresarPagina(1)" class="btn btn-generico mr-1 ml-1">
+        Anterior
       </button>
       {{numeroPaginaI}} de {{totalPaginasI}}
-      <button (click)="avanzarPagina(1)" class="btn btn-generico">
-        &gt;
+      <button (click)="avanzarPagina(1)" class="btn btn-generico mr-1 ml-1">
+        Siguiente
       </button>
-      <button (click)="avanzarFinal(1)" class="btn btn-generico">
-        &gt; &gt;
+      <button (click)="avanzarFinal(1)" class="btn btn-generico mr-1 ml-1">
+        Final
       </button>
     </div>
   </div>
   <div class="row">
       <div class="mx-auto" *ngIf="tipo==='individual' && filtradoGenero===true">
-        <button (click)="regresarPrincipio(1)" class="btn btn-generico">
-          &lt; &lt;
+        <button (click)="regresarPrincipio(1)" class="btn btn-generico mr-1 ml-1">
+          Inicio
         </button>
-        <button (click)="regresarPagina(1)" class="btn btn-generico">
-          &lt;
+        <button (click)="regresarPagina(1)" class="btn btn-generico mr-1 ml-1">
+          Anterior
         </button>
         {{numeroPaginasFiltradasI}} de {{totalPaginasFiltradasI}}
-        <button (click)="avanzarPagina(1)" class="btn btn-generico">
-          &gt;
+        <button (click)="avanzarPagina(1)" class="btn btn-generico mr-1 ml-1">
+          Siguiente
         </button>
-        <button (click)="avanzarFinal(1)" class="btn btn-generico">
-          &gt; &gt;
+        <button (click)="avanzarFinal(1)" class="btn btn-generico mr-1 ml-1">
+          Final
         </button>
       </div>
     </div>
   <div class="row">
     <div class="col-10 mx-auto">
-      <table *ngIf="tipo==='dobles'" class="table table-hover">
-        <thead class="bg-dark text-white">
+      <table *ngIf="tipo==='dobles'" class="table my-5">
+        <thead id="head" class="bg-dark text-white">
           <tr>
+            <th>Torneo</th>
             <th scope="col">Equipo 1 </th>
             <th scope="col">Equipo 2</th>
             <th scope="col">1</th>
@@ -102,14 +121,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let doble of dobles">
-            <td > {{doble.jugador1}}, {{doble.jugador2}}</td>
-            <td > {{doble.jugador3}}, {{doble.jugador4}}</td>
-            <td > {{doble.uno}} </td>
-            <td> {{doble.dos}} </td>
-            <td > {{doble.tres}} </td>
-            <td > {{doble.cuatro}} </td>
-            <td > {{doble.cinco}} </td>
+          <tr *ngFor="let doble of dobles" class="text-dark">
+            <td id="equipo">{{doble.torneo}}</td>
+            <td id="equipo"> <img [src]="doble.bandera1">  {{doble.jugador1}}<br><img [src]="doble.bandera2">  {{doble.jugador2}} </td>
+            <td id="equipo"> <img [src]="doble.bandera3">  {{doble.jugador3}}<br><img [src]="doble.bandera4">  {{doble.jugador4}} </td>
+            <td id="equipo"><br> {{doble.e1s1}} - {{doble.e2s1}} </td>
+            <td id="equipo"><br> {{doble.e1s2}} - {{doble.e2s2}} </td>
+            <td id=equipo><br> {{doble.e1s3}} - {{doble.e2s3}} </td>
+            <td id=equipo><br> {{doble.e1s4}} - {{doble.e2s4}} </td>
+            <td id=equipo><br> {{doble.e1s5}} - {{doble.e2s5}} </td>
           </tr>
         </tbody>
       </table>
@@ -117,35 +137,35 @@
   </div>
   <div class="row">
       <div class="mx-auto" *ngIf="tipo==='dobles' && filtradoGenero===false">
-        <button (click)="regresarPrincipio(2)" class="btn btn-generico">
-          &lt; &lt;
+        <button (click)="regresarPrincipio(2)" class="btn btn-generico mr-1 ml-1">
+          Inicio
         </button>
-        <button (click)="regresarPagina(2)" class="btn btn-generico">
-          &lt;
+        <button (click)="regresarPagina(2)" class="btn btn-generico mr-1 ml-1">
+          Anterior
         </button>
         {{numeroPaginaD}} de {{totalPaginasD}}
-        <button (click)="avanzarPagina(2)" class="btn btn-generico">
-          &gt;
+        <button (click)="avanzarPagina(2)" class="btn btn-generico mr-1 ml-1">
+          Siguiente
         </button>
-        <button (click)="avanzarFinal(2)" class="btn btn-generico">
-          &gt; &gt;
+        <button (click)="avanzarFinal(2)" class="btn btn-generico mr-1 ml-1">
+          Final
         </button>
       </div>
     </div>
     <div class="row">
         <div class="mx-auto" *ngIf="tipo==='dobles' && filtradoGenero===true">
-          <button (click)="regresarPrincipio(2)" class="btn btn-generico">
-            &lt; &lt;
+          <button (click)="regresarPrincipio(2)" class="btn btn-generico mr-1 ml-1">
+            Inicio
           </button>
-          <button (click)="regresarPagina(2)" class="btn btn-generico">
-            &lt;
+          <button (click)="regresarPagina(2)" class="btn btn-generico mr-1 ml-1">
+            Anterior
           </button>
           {{numeroPaginasFiltradasD}} de {{totalPaginasFiltradasD}}
-          <button (click)="avanzarPagina(2)" class="btn btn-generico">
-            &gt;
+          <button (click)="avanzarPagina(2)" class="btn btn-generico mr-1 ml-1">
+            Siguiente
           </button>
-          <button (click)="avanzarFinal(2)" class="btn btn-generico">
-            &gt; &gt;
+          <button (click)="avanzarFinal(2)" class="btn btn-generico mr-1 ml-1">
+            Final
           </button>
         </div>
       </div>

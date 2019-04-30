@@ -12,11 +12,14 @@ export class ResultadoDService {
   private heroesUrl = 'api/DOBLES';
   private dobles: ResultadoD[] = [];
   private generos: string[] = [];
+  private torneos: string[] = [];
 
   constructor(private http: HttpClient) {
     this.http.get<ResultadoD[]>(this.heroesUrl).subscribe(data => {
       this.dobles = data;
       this.generos = data.map(p => p.genero)
+        .filter((c, index, array) => array.indexOf(c) == index).sort();
+        this.torneos = data.map(p => p.torneo)
         .filter((c, index, array) => array.indexOf(c) == index).sort();
     });
   }
@@ -34,18 +37,23 @@ export class ResultadoDService {
     );
   }
 
-  searchJugadores(term: string): Observable<ResultadoD[]> {
+  searchJugadoresD(term: string): Observable<ResultadoD[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<ResultadoD[]>(`${this.heroesUrl}/?torneo=${term}`).pipe(
-      catchError(this.handleError<ResultadoD[]>('searchJugadores', []))
+    return this.http.get<ResultadoD[]>(`${this.heroesUrl}/?nombre=${term}`).pipe(
+      catchError(this.handleError<ResultadoD[]>('searchJugadoresD', []))
     );
   }
 
   getGeneros(): string[] {
     return this.generos;
+  }
+
+  getTorneos(): string[]
+  {
+    return this.torneos;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'ranking', component: RankingComponent },
   { path: 'masculino/:id', component: RankingMasculinoComponent },
   { path: 'femenino/:id', component: RankingFemeninoComponent},
+  { path: 'masculino/:id', component: RankingMasculinoComponent },
+  { path: 'femenino/:id', component: RankingFemeninoComponent},
   { path: 'inicio', component: InicioComponent},
   { path: 'resultados', component: ResultadosComponent },
   { path: 'contacto', component: LcontactoComponent }

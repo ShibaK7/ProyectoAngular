@@ -16,28 +16,31 @@ export class CompletosComponent implements OnInit {
 
   private tipo: string = "";
   private generoSeleccionado: string = null;
+  private torneoSeleccionado: string = null;
   private registrosPorPagina: number = 5;
   private numeroPaginaI: number = 1;
   private numeroPaginaD: number = 1;
   private numeroPaginasFiltradasI: number = 1;
   private numeroPaginasFiltradasD: number = 1;
+  private numeroPaginasTorneoI: number = 1;
+  private numeroPaginasTorneoD: number = 1;
   private totalPaginasFiltradasI: number;
   private totalPaginasFiltradasD: number;
   private totalPaginasI: number;
   private totalPaginasD: number;
+  private totalPaginasTorneoI: number;
+  private totalPaginasTorneoD: number;
   private filtradoGenero: boolean = false;
+  private filtradoTorneo: boolean = false;
 
   individuales: ResultadoI[];
   individuales$: Observable<ResultadoI[]>;
-  private searchTerms = new Subject<string>();
-
   dobles: ResultadoD[];
   dobles$: Observable<ResultadoD[]>;
+  private searchTerms = new Subject<string>();
 
 
   constructor(private resultadoIService: ResultadoIService,  private resultadoDService: ResultadoDService) { }
-
-
 
   ngOnInit() {
     this.getResultadoIndividual();
@@ -46,6 +49,20 @@ export class CompletosComponent implements OnInit {
     this.getPaginasDoble();
     this.tipo = "individual";
     this.generoSeleccionado = null;
+    this.torneoSeleccionado = null;
+
+    this.individuales$ = this.searchTerms.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((term: string) =>
+      this.resultadoIService.searchJugadoresI(term))
+    );
+    this.dobles$ = this.searchTerms.pipe(
+      debounceTime(3000),
+      distinctUntilChanged(),
+      switchMap((term: string) =>
+      this.resultadoDService.searchJugadoresD(term))
+    );
   }
 
   getResultadoIndividual(): void
@@ -72,13 +89,13 @@ export class CompletosComponent implements OnInit {
       this.resultadoDService.getJugadores().subscribe( dobles =>
       this.dobles = dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).slice(indice, indice+this.registrosPorPagina))
     }
+
     else
     {
       let indice = (this.numeroPaginasFiltradasD -1)*this.registrosPorPagina;
       this.resultadoDService.getJugadores().subscribe( dobles =>
       this.dobles = dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).slice(indice, indice+this.registrosPorPagina))
     }
-    
   }
 
   get generoIndividuales() : string[] {
@@ -123,10 +140,11 @@ export class CompletosComponent implements OnInit {
   getPaginasFiltradasDobles(): void {
     this.resultadoDService.getJugadores().subscribe( dobles =>
       {
-        if(((dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).length/this.registrosPorPagina)-(Math.trunc(dobles.length/this.registrosPorPagina)))==0)
-          this.totalPaginasD = Math.trunc(dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).length / this.registrosPorPagina)
+        if(((dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).length/this.registrosPorPagina)-(Math.trunc(dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).length/this.registrosPorPagina)))==0)
+          this.totalPaginasFiltradasD = Math.trunc(dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).length / this.registrosPorPagina)
         else
-          this.totalPaginasD = Math.trunc(dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).length / this.registrosPorPagina)+1
+          this.totalPaginasFiltradasD = Math.trunc(dobles.filter(doble => this.generoSeleccionado == null || this.generoSeleccionado == doble.genero).length / this.registrosPorPagina)+1
+          console.log(this.totalPaginasFiltradasD);
       }
     )
   }

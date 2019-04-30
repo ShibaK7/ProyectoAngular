@@ -11,9 +11,14 @@ export class ResultadoD
     jugador3: string;
     bandera4: string;
     jugador4: string;
-    uno: string;
-    dos: string;
-    tres: string;
-    cuatro: string;
-    cinco:string;
+    e1s1: number;
+    e2s1: number;
+    e1s2: number;
+    e2s2: number;
+    e1s3: number;
+    e2s3: number;
+    e1s4: number;
+    e2s4: number;
+    e1s5: number;
+    e2s5: number;
 }
