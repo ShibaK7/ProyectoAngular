@@ -25,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { InicioComponent } from './inicio/inicio.component';
     RecientesComponent,
     TorneosComponent,
     FooterComponent,
-    InicioComponent
+    InicioComponent,
+
   ],
   imports: [
     BrowserModule,

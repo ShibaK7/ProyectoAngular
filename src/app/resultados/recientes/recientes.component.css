@@ -1,7 +1,7 @@
 .blog .carousel-indicators {
 	left: 0;
 	top: auto;
-    bottom: -40px;
+    bottom: -15px;
 
 }
 
@@ -10,7 +10,7 @@
     background: #a3a3a3;
     border-radius: 50%;
     width: 10px;
-    height: 1px;
+    height: 0px;
 }
 
 .blog .carousel-indicators .active {
@@ -20,4 +20,9 @@ background: #707070;
 h3
 {
     text-align: center;
+}
+
+.container
+{
+    height: 120px;
 }

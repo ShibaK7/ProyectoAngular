@@ -1,12 +1,15 @@
 #barra
 {
   background-color: #32606D;
-  height: 80px;
+  height: 60px;
   color: white;
   text-align: center;
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
 }
 
-h1
+p
 {
-  font-size: 30px;
+  padding-top: 10px;  
 }
