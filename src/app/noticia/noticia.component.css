@@ -19,13 +19,13 @@
     }
   
   #blogCarousel {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
   }
   
   .blog .carousel-indicators {
     left: 0;
     top: 470px;
-    height: 50%;
+    height: 25%;
   }
   
   
@@ -33,7 +33,7 @@
   
   .blog .carousel-indicators li {
     background: #708198;
-    border-radius: 50%;
+    border-radius: 25%;
     width: 8px;
     height: 8px;
   }

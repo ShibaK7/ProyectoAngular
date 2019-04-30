@@ -9,7 +9,6 @@ import { Torneo } from './Torneos-Record';
 declare const myTest: any;
 declare var $: any;
 
-
 @Component({
   selector: 'app-torneos',
   templateUrl: './torneos.component.html',
