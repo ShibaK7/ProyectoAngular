@@ -1,3 +1,39 @@
-<p>
-  {{jugadora.nombre}}
-</p>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class=" col-12 mx-auto">
+    <div class="card bg-dark">
+      <img class="card-img-top rounded" src="{{jugadora.foto}}" alt="Card image">
+      <div class="card-body">
+        <div class="mx-auto">
+          <h4 class="card-title text-white carta-centrada mb-5">{{jugadora.nombre}}</h4>
+        </div>
+        <div class="card">
+          <div class="mx-auto">
+            <div class="btn-group">
+              <button class="btn btn-generico" (click)="cambiarSeleccion(1)">BIOGRAFIA</button>
+              <button class="btn btn-generico" (click)="cambiarSeleccion(2)">TORNEOS</button>
+              <button class="btn btn-generico" (click)="cambiarSeleccion(3)">CURIOSIDAD</button>
+            </div>
+          </div>
+          <div class="card-body" *ngIf="opcionSeleccionada==1">
+            {{jugadora.biografia}}
+          </div>
+          <div class="card-body" *ngIf="opcionSeleccionada==2">
+            {{jugadora.torneos}}
+          </div>
+          <div class="card-body" *ngIf="opcionSeleccionada==3">
+            {{jugadora.curiosidad}}
+          </div>
+        </div>
+        <div class="card-footer carta-centrada">
+          <a routerLink="/ranking" class="btn btn-generico mt-5">Regresar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5">
+  <app-footer></app-footer>
+</div>
