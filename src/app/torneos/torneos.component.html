@@ -348,6 +348,174 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+<!-- <div *ngFor="let torneo of torneos">
+  <p>
+    Nombre torneo:  {{torneo.nombreTorneo}}
+  </p>
+</div>
+
+
+ -->
+
+
+
+
+
+
+ <div class="container-fluid">
+    <div class="row">
+      <div class="col-11 mx-auto">
+  
+  
+          <table class="table table-hover">
+              <thead class="bg-dark text-white">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre Torneo</th>
+                    <th scope="col">Localizacion</th>
+                    <th scope="col">Fecha Inicio</th>
+                    <th scope="col">Fecha Clausura</th>
+                    <th scope="col">Tipo de Cancha</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Financiamiento Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let torneo of torneos">
+                  <td>
+                    {{torneo.id}}
+                  </td>
+                  <td>
+                    {{torneo.nombreTorneo}}
+                  </td>
+                  <td>
+                    {{torneo.lugar}}
+                  </td>
+                  <td>
+                    {{torneo.fechaInicio}}
+                  </td>
+                  <td>
+                    {{torneo.fechaFinal}}
+                  </td>
+                  <td>
+                    {{torneo.tipoCancha}}
+                  </td>
+                  <td>
+                    {{torneo.descripcion}}
+                  </td>
+                  <td>
+                    {{torneo.financiamientoTotal}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="limiter">
+      <div class="container-table100">
+        <div class="wrap-table100">
+          <div class="table100 ver1 m-b-110">
+            <div class="table100-head">
+              <table>
+                <thead>
+                  <tr class="row100 head">
+                    <th class="cell100 column1">Class name</th>
+                    <th class="cell100 column2">Type</th>
+                    <th class="cell100 column3">Hours</th>
+                    <th class="cell100 column4">Trainer</th>
+                    <th class="cell100 column5">Spots</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+  
+            <div class="table100-body js-pscroll">
+              <table>
+                <tbody>
+                  <tr class="row100 body">
+                    <td class="cell100 column1">Like a butterfly</td>
+                    <td class="cell100 column2">Boxing</td>
+                    <td class="cell100 column3">9:00 AM - 11:00 AM</td>
+                    <td class="cell100 column4">Aaron Chapman</td>
+                    <td class="cell100 column5">10</td>
+                  </tr>
+  
+                  <tr class="row100 body">
+                    <td class="cell100 column1">Mind & Body</td>
+                    <td class="cell100 column2">Yoga</td>
+                    <td class="cell100 column3">8:00 AM - 9:00 AM</td>
+                    <td class="cell100 column4">Adam Stewart</td>
+                    <td class="cell100 column5">15</td>
+                  </tr>
+  
+                  <tr class="row100 body">
+                    <td class="cell100 column1">Crit Cardio</td>
+                    <td class="cell100 column2">Gym</td>
+                    <td class="cell100 column3">9:00 AM - 10:00 AM</td>
+                    <td class="cell100 column4">Aaron Chapman</td>
+                    <td class="cell100 column5">10</td>
+                  </tr>
+  
+                  <tr class="row100 body">
+                    <td class="cell100 column1">Wheel Pose Full Posture</td>
+                    <td class="cell100 column2">Yoga</td>
+                    <td class="cell100 column3">7:00 AM - 8:30 AM</td>
+                    <td class="cell100 column4">Donna Wilson</td>
+                    <td class="cell100 column5">15</td>
+                  </tr>
+  
+                  <tr class="row100 body">
+                    <td class="cell100 column1">Playful Dancer's Flow</td>
+                    <td class="cell100 column2">Yoga</td>
+                    <td class="cell100 column3">8:00 AM - 9:00 AM</td>
+                    <td class="cell100 column4">Donna Wilson</td>
+                    <td class="cell100 column5">10</td>
+                  </tr>
+  
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+  
+
+
+
+            
     
-<router-outlet></router-outlet>
 
