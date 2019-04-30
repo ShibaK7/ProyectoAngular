@@ -1,5 +1,17 @@
+<script>
+  $(document).on("ready", inicio);
+  
+  function inicio(){
+    $("span.help-block").hide();
+    $("#btnvalidar").click(validar);
+  }
 
-<app-navbar></app-navbar>
+  function validar(){
+    var valor = document.getElementById("texto").nodeValue
+  }
+</script>
+
+
 <div id="demo" class="carousel slide" data-ride="carousel">
       
   <!-- Indicators -->
@@ -39,12 +51,11 @@
   </a>
 </div>
 <br>
-
-
 <div class="container-fluid">
 <div class="row">
 <div class="col-7">
 <div>
+  <br>
   <div class="container">
       <div class="card" style="width:100%;">
         <p  align="center"><img class="card-img-top" src="../../assets/LOGO1.png" alt="Card image" style="width:55%; height: 250px;"></p>
@@ -59,47 +70,74 @@
 </div>
 </div>
 <div class="col-5">    
-  <form action=""  id="uno">
-    <h3 align="center">Contactanos</h3>
-    <label for="exampleFormControlInput1">Usuario</label>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Nombre">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Apellidos">
-      </div>
+
+    <div class="modal-body">
+        <form [formGroup]="todoForm" (ngSubmit)="saveTodo()">
+            <h3 align="center">Contactanos</h3>
+            <div class="row">
+              <div class="col">
+                  <div class="form-group">
+                      <label for="nombre">Nombre*</label>
+                      <input type="text" id="nombre" placeholder="Nombre" class="form-control" formControlName="nombre" />
+                      <span style="color:#2C6971;" *ngIf="todoForm.controls['nombre'].touched && todoForm.controls['nombre'].errors?.required">Este campo es obligatorio.</span>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="form-group">
+                      <label for="apellido">Apellido*</label>
+                      <input type="text" id="apellido" placeholder="Apellido" class="form-control" formControlName="apellido" />
+                      <span style="color:#2C6971;" *ngIf="todoForm.controls['apellido'].touched && todoForm.controls['apellido'].errors?.required">Este campo es obligatorio.</span>
+                  </div>  
+              </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                      <label for="correo">Correo Electronico*</label>
+                      <input type="mail" id="correo" placeholder="example.com" class="form-control" formControlName="correo" />
+                      <span style="color:#2C6971;" *ngIf="todoForm.controls['correo'].touched && todoForm.controls['correo'].errors?.required">Este campo es obligatorio.</span>
+                  </div>  
+                </div>
+            </div>
+           
+            <div class="row">
+              <div class="col">
+                  <div class="form-group">
+                      <label for="asunto">Asunto*</label>
+                      <input type="text" id="asunto" placeholder="Asunto" class="form-control" formControlName="asunto" />
+                      <span style="color:#2C6971;" *ngIf="todoForm.controls['asunto'].touched && todoForm.controls['asunto'].errors?.required">Este campo es obligatorio.</span>
+                  </div>
+              </div>
+              <div class="col">
+                
+              </div>
+            </div>
+           
+            <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                      <label for="mensaje">Mensaje*</label>
+                      <textarea  id="mensaje" placeholder="Ingrese su mensaje" class="form-control" formControlName="mensaje"></textarea>
+                      <span class="alert alert-danger" style="color:#2C6971;" *ngIf="todoForm.controls['mensaje'].touched && todoForm.controls['mensaje'].errors?.required">Este campo es obligatorio.</span>
+                  </div>
+                </div>
+            </div>
+
+           <div class="modal-footer">
+              <button *ngIf="todoForm.invalid" class="btn btn-outline-dark" (click)="saveTodo()" [disabled]="todoForm.invalid">Enviar</button>
+              <button *ngIf="!todoForm.invalid" class="btn btn-ecc" (click)="saveTodo()" [disabled]="todoForm.invalid">Enviar</button>
+           </div>
+
+          </form>
     </div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
     
-    <label for="exampleFormControlInput1">Dirección de Correo</label>
-    <div class="row">
-        <div class="col">
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>
-    </div>
-   
-    <label for="exampleFormControlInput1">Asunto</label>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Asunto">
-      </div>
-      <div class="col">
-        
-      </div>
-    </div>
-   
-    <label for="exampleFormControlInput1">Mensaje</label>
-    <div class="row">
-        <div class="col">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ingrese su mensaje..."></textarea>
-        </div>
-    </div>
-   <br>
-    <div>
-        <h6 align="right"> <button class="btn btn-ecc" type="button"> Enviar</button></h6>
-    </div>
-  </form>
-  <br>
-</div>
-</div>
-</div>

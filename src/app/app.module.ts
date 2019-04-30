@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import { RecientesComponent } from './resultados/recientes/recientes.component';
 import { TorneosComponent } from './torneos/torneos.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { LcontactoComponent } from './lcontacto/lcontacto.component';
 
 
 @NgModule({
@@ -38,11 +39,13 @@ import { InicioComponent } from './inicio/inicio.component';
     RecientesComponent,
     TorneosComponent,
     FooterComponent,
-    InicioComponent
+    InicioComponent,
+    LcontactoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
