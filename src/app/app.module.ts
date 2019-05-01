@@ -24,6 +24,7 @@ import { TorneosComponent } from './torneos/torneos.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
+import { CapturistaComponent } from './capturista/capturista.component';
 
 
 
@@ -43,7 +44,8 @@ import { LcontactoComponent } from './lcontacto/lcontacto.component';
     TorneosComponent,
     FooterComponent,
     InicioComponent,
-    LcontactoComponent
+    LcontactoComponent,
+    CapturistaComponent
   ],
   imports: [
     BrowserModule,
