@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
     else{
       if(this.correo == "rebecarubio@hotmail.com" && this.pass == "rebecarubio"){
         console.log("Usuario: Rebeca");
-        this.router.navigate(['/contacto']);
+        this.router.navigate(['/capturista']);
       }
       else{
         if((this.correo != "esteban_calixto_cruz4@hotmail.com" && this.pass != "E1728C") || (this.correo == "rebecarubio@hotmail.com" && this.pass == "rebecarubio") ){
