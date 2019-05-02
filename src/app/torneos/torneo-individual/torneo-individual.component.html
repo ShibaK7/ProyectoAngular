@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+
+
+    <h2 class="heading-secondary">
+        {{torneo.nombreTorneo}}
+    </h2> 
+<img class="card-img-top rounded centro0 " src="{{torneo.foto}}" alt="Torneo Imagen">
+
+
+
+<div class="container">
+  <div class=" col-12 mx-auto">
+    <div class="card bg-dark">
+
+      <div class="card-body">
+        <div class="mx-auto">
+          <h4 class="card-title text-white carta-centrada mb-5">{{torneos.nombreTorneo}}</h4>
+        </div>
+        <div class="card">
+          <div class="mx-auto">
+            <div class="btn-group">
+              <button class="btn btn-generico" (click)="cambiarSeleccion(1)">Informacion</button>
+              <button class="btn btn-generico" (click)="cambiarSeleccion(2)">Resultados</button>
+              <button class="btn btn-generico" (click)="cambiarSeleccion(3)">Partidos</button>
+            </div>
+          </div>
+          <div class="card-body" *ngIf="opcionSeleccionada==1">
+            <h2>{{torneo.titulo}}</h2>
+            {{torneo.informacion}}
+          </div>
+          <div class="card-body" *ngIf="opcionSeleccionada==2">
+            {{torneo.descripcion}}
+          </div>
+          <div class="card-body" *ngIf="opcionSeleccionada==3">
+            #
+          </div>
+        </div>
+        <div class="card-footer carta-centrada">
+          <a routerLink="/torneos" class="btn btn-generico mt-5">Regresar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="mt-5">
+  <app-footer></app-footer>
+</div>

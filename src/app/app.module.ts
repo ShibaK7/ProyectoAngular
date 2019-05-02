@@ -23,6 +23,7 @@ import { RankingFemeninoComponent } from './ranking/ranking-femenino/ranking-fem
 import { TorneosComponent } from './torneos/torneos.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-individual.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { InicioComponent } from './inicio/inicio.component';
     RecientesComponent,
     TorneosComponent,
     FooterComponent,
-    InicioComponent
+    InicioComponent,
+    TorneoIndividualComponent
   ],
   imports: [
     BrowserModule,
