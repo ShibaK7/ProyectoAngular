@@ -25,6 +25,7 @@
     "angular-in-memory-web-api": "^0.8.0",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
+    "firebase": "^4.12.1",
     "jquery": "^3.4.0",
     "ng2-opd-popup": "^1.1.21",
     "rxjs": "6.0.0",
