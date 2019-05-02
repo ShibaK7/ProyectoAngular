@@ -25,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { CapturistaComponent } from './capturista/capturista.component';
+import { UserbarComponent } from './userbar/userbar.component';
 
 
 
@@ -45,7 +46,8 @@ import { CapturistaComponent } from './capturista/capturista.component';
     FooterComponent,
     InicioComponent,
     LcontactoComponent,
-    CapturistaComponent
+    CapturistaComponent,
+    UserbarComponent
   ],
   imports: [
     BrowserModule,
