@@ -37,18 +37,20 @@ export class NavbarComponent implements OnInit {
   public validar(){
     let user = localStorage.getItem('resp');
     console.log(user);
-    if(user == "Esteban"){
+    if(this.correo == "esteban_calixto_cruz4@hotmail.com" && this.pass == "E1728C"){
       console.log("Usuario: Esteban");
-         //this.router.navigate(['/admin']);
+         this.router.navigate(['/admin']);
     }
     else{
-      if(user == "Rebeca"){
+      if(this.correo == "rebecarubio@hotmail.com" && this.pass == "rebecarubio"){
         console.log("Usuario: Rebeca");
-        //this.router.navigate(['/contacto']);
+        this.router.navigate(['/contacto']);
       }
       else{
-        console.log("Usuario: Sin Acceso");
-        //this.router.navigate(['/principal']);
+        if((this.correo != "esteban_calixto_cruz4@hotmail.com" && this.pass != "E1728C") || (this.correo == "rebecarubio@hotmail.com" && this.pass == "rebecarubio") ){
+          this.router.navigate(['/inicio']);
+          //alert('El Usuario y la contraseña no son validos');
+        }
       }
     }
   }

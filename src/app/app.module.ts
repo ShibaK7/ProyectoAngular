@@ -25,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { AdminComponent } from './admin/admin.component';
+import { CapturistaComponent } from './capturista/capturista.component';
 
 
 
@@ -45,7 +46,8 @@ import { AdminComponent } from './admin/admin.component';
     FooterComponent,
     InicioComponent,
     LcontactoComponent,
-    AdminComponent
+    AdminComponent,
+    CapturistaComponent
   ],
   imports: [
     BrowserModule,
