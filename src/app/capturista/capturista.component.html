@@ -6,7 +6,7 @@
 
 <div class="container-fluid mt-5">
   <div class="row my-5" id="filtradoPrincipal">
-    <div class="col-12 ml-5">
+    <div class="col-10 ml-5">
       <div class="btn-toolbar">
         <div class="select" aria-label="Selección de Torneos">
           <select (change)="cambiarTorneoSeleccionado($event.target.value)" id="select">
@@ -19,7 +19,7 @@
   </div>
 
   <div class="row">
-    <div class="card bg-dark text-white my-3 col-5 mx-auto" *ngFor="let competencia of competencias">
+    <div class="card-competencia my-3 col-5 mx-auto" *ngFor="let competencia of competencias">
       <div class="card-body col-12">
         <h2 class="card-title">{{competencia.torneo}}</h2>
         <!--Eleccion de tipo de competencia-->
@@ -54,7 +54,7 @@
         <p class="card-text">Inscripción: {{competencia.costoInscripcion | currency}}</p>
         <div class="col-8 mx-auto">
           <a routerLink="/capturista" class="card-link">Jugadores Inscritos</a>
-          <a routerLink="/capturista" class="card-link">Registrar</a>
+          <a routerLink="/capturista" class="card-link" *ngIf="competencia.lugaresOcupados<competencia.cupo">Registrar</a>
         </div>
       </div>
     </div>

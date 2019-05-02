@@ -121,10 +121,10 @@ export class InMemoryInformacionService implements InMemoryDbService {
           3: Profesional
         }
       */
-      {id: 1, tipoCompetencia: 1, torneo: "Roland Garros", cupo: 16, lugaresOcupados: 0, categoria: 1, costoInscripcion: 2500, premioPrimerLugar: 10000, premioSegundoLugar: 7500, premioTercerLugar: 5000 },
+      {id: 1, tipoCompetencia: 1, torneo: "Roland Garros", cupo: 16, lugaresOcupados: 16, categoria: 1, costoInscripcion: 2500, premioPrimerLugar: 10000, premioSegundoLugar: 7500, premioTercerLugar: 5000 },
       {id: 2, tipoCompetencia: 2, torneo: "Roland Garros", cupo: 16, lugaresOcupados: 0, categoria: 2, costoInscripcion: 2500, premioPrimerLugar: 10000, premioSegundoLugar: 7500, premioTercerLugar: 5000 },
       {id: 3, tipoCompetencia: 3, torneo: "US Open", cupo: 8, lugaresOcupados: 0, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 15000, premioSegundoLugar: 10000, premioTercerLugar: 5000 },
-      {id: 4, tipoCompetencia: 4, torneo: "US Open", cupo: 8, lugaresOcupados: 0, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 15000, premioSegundoLugar: 10000, premioTercerLugar: 5000 },
+      {id: 4, tipoCompetencia: 4, torneo: "US Open", cupo: 8, lugaresOcupados: 8, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 15000, premioSegundoLugar: 10000, premioTercerLugar: 5000 },
       {id: 5, tipoCompetencia: 5, torneo: "Roland Garros", cupo: 4, lugaresOcupados: 0, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 10000, premioSegundoLugar: 8000, premioTercerLugar: 6000 }
     ];
     return { JUGADORES, JUGADORAS, INDIVIDUALES, DOBLES, COMPETENCIAS };

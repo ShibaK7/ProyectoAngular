@@ -72,3 +72,26 @@
     -o-transition: .25s all ease;
     transition: .25s all ease;
   }
+
+  .card-competencia {
+    background: #33393F;
+    color: #FFFFFF;
+    border-radius: 3mm;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .card-competencia:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
+  }
+
+  a {
+    color: #96DB80;
+  }
+
+  a:hover {
+    color: #FFFFFF;
+  }
