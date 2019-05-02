@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable, Subject, from } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap, filter } from 'rxjs/operators';
 import { ResultadoI } from '../../resultadosI';
 import { ResultadoIService } from '../../resultadosI.service';
 import { ResultadoD } from '../../resultadoD';
@@ -68,16 +68,40 @@ export class CompletosComponent implements OnInit {
   getResultadoIndividual(): void
   {
     if(!this.filtradoGenero)
-    {
-      let indice = (this.numeroPaginaI -1)*this.registrosPorPagina;
-      this.resultadoIService.getJugadores().subscribe( individuales =>
-      this.individuales = individuales.filter(individual => this.generoSeleccionado == null || this.generoSeleccionado == individual.genero).slice(indice, indice+this.registrosPorPagina)) 
+    { 
+      if(!this.filtradoTorneo)
+      {
+        let indice = (this.numeroPaginaI -1)*this.registrosPorPagina;
+        this.resultadoIService.getJugadores().subscribe( individuales =>
+        this.individuales = individuales.filter(individual => this.torneoSeleccionado == null || this.torneoSeleccionado == individual.torneo).slice(indice, indice+this.registrosPorPagina))
+        this.resultadoIService.getJugadores().subscribe(individuales =>
+        this.individuales = individuales.filter(individual => this.generoSeleccionado == null || this.generoSeleccionado == individual.genero).slice(indice, indice+this.registrosPorPagina))
+      }
+      else
+      {
+        let indice = (this.numeroPaginasTorneoI -1)*this.registrosPorPagina;
+        this.resultadoIService.getJugadores().subscribe( individuales =>
+        this.individuales = individuales.filter(individual => this.torneoSeleccionado == null || this.torneoSeleccionado == individual.torneo).slice(indice, indice+this.registrosPorPagina))
+      }
     }
     else
     {
-      let indice = (this.numeroPaginasFiltradasI -1)*this.registrosPorPagina;
-      this.resultadoIService.getJugadores().subscribe( individuales =>
-      this.individuales = individuales.filter(individual => this.generoSeleccionado == null || this.generoSeleccionado == individual.genero).slice(indice, indice+this.registrosPorPagina)) 
+      if(this.filtradoTorneo)
+      {
+        let indiceG = (this.numeroPaginasFiltradasI -1)*this.registrosPorPagina;
+        this.resultadoIService.getJugadores().subscribe(individuales =>
+        this.individuales = individuales.filter(individual => this.generoSeleccionado == null || this.generoSeleccionado == individual.genero).slice(indiceG, indiceG+this.registrosPorPagina))
+
+        let indice = (this.numeroPaginasTorneoI -1)*this.registrosPorPagina;
+        this.resultadoIService.getJugadores().subscribe(individuales =>
+        this.individuales = individuales.filter(individual => this.torneoSeleccionado == null || this.torneoSeleccionado == individual.torneo).slice(indice, indice+this.registrosPorPagina))
+      }
+      else
+      {
+        let indice = (this.numeroPaginasFiltradasI -1)*this.registrosPorPagina;
+        this.resultadoIService.getJugadores().subscribe( individuales =>
+        this.individuales = individuales.filter(individual => this.generoSeleccionado == null || this.generoSeleccionado == individual.genero).slice(indice, indice+this.registrosPorPagina)) 
+      }
     }
   }
 
@@ -100,6 +124,11 @@ export class CompletosComponent implements OnInit {
 
   get generoIndividuales() : string[] {
     return this.resultadoIService.getGeneros();
+  }
+
+  get torneoIndividuales() : string[] 
+  {
+    return this.resultadoIService.getTorneos();
   }
 
   getPaginasIndividual(): void {
@@ -151,6 +180,10 @@ export class CompletosComponent implements OnInit {
 
   get generoDobles() : string[] {
     return this.resultadoDService.getGeneros();
+  }
+
+  get torneoDobles() : string[] {
+    return this.resultadoDService.getTorneos();
   }
 
   search(term: string): void {
