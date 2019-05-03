@@ -30,6 +30,8 @@ export class TorneosComponent implements OnInit {
   private totalPaginasFiltradasF: number;
   private filtradoPais: boolean = false;
 
+  private setNombre: string = " ";
+
   private searchTerms = new Subject<string>();
 
 
