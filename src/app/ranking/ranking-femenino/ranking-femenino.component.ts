@@ -13,16 +13,23 @@ import { Jugadora } from '../../jugadora';
 export class RankingFemeninoComponent implements OnInit {
 
   jugadora: Jugadora;
+  private opcionSeleccionada: number;
 
   constructor(private route: ActivatedRoute, private jugadoraService: JugadoraService, private location: Location) { }
 
   ngOnInit() {
     this.getJugadora();
+    this.opcionSeleccionada = 1;
   }
 
   getJugadora(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.jugadoraService.getJugadora(id)
       .subscribe(jugadora => this.jugadora = jugadora);
+  }
+
+  cambiarSeleccion(opcionElegida: number)
+  {
+    this.opcionSeleccionada = opcionElegida;
   }
 }

@@ -1,7 +1,13 @@
+<script>
+ function cerrar(){
+  $('#victorModal').modal('hide'); 
+ } 
+</script>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-dark">
 
     <div class="container">
-      <a class="navbar-brand" href="./"><b>Tennis</b></a>
+      <a class="navbar-brand" href="./"><b><img src="../../assets/LOG.png">ATC</b></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -11,7 +17,7 @@
         <ul class="navbar-nav mr-auto">
         
           <li class="nav-item">
-            <a class="nav-link" href="#">Inicio 
+            <a class="nav-link" routerLink="/inicio">Inicio 
             <span class="sr-only">(current)</span></a>
           </li>
           
@@ -33,7 +39,7 @@
         
         </ul>
   
-        <a class="btn btn-outline-success d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="#">Ingresar</a>
+        <a href="#victorModal" role="button" data-toggle="modal" class="btn btn-outline-success d-lg-inline-block mb-3 mb-md-0 ml-md-3">Ingresar</a>
         <a class="btn btn-outline-info d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="#">Ayuda</a>
       
       </div>
@@ -41,5 +47,47 @@
     </div>
     
     </nav>
-    <br>
   <!---->
+
+
+  <!-- Modal / Ventana / Overlay en HTML -->
+<div id="victorModal" class="modal fade">
+  <div class="modal-dialog modal-md form-conatiner">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Inicio de Sesión</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+              <div class="modal-body">
+                  <form [formGroup]="loginForm" (ngSubmit)="agregarUsuario()"> 
+                      <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="usuario">Usuario*</label>
+                                <input [(ngModel)]="correo" type="text" id="usuario" placeholder="Usuario" class="form-control" formControlName="usuario" />
+                                <span style="color:#2C6971;" *ngIf="loginForm.controls['usuario'].touched && loginForm.controls['usuario'].errors?.required">Este campo es obligatorio.</span>
+                            </div>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                      <div class="col">
+                          <div class="form-group">
+                              <label for="clave">Contraseña*</label>
+                              <input [(ngModel)]="pass" type="password" id="clave" placeholder="Contraseña" class="form-control" formControlName="clave" />
+                              <span style="color:#2C6971;" *ngIf="loginForm.controls['clave'].touched && loginForm.controls['clave'].errors?.required">Este campo es obligatorio.</span>
+                          </div>  
+                      </div>
+                    </div>              
+                    </form>
+              </div>
+          </div>
+          <div class="modal-footer">
+<!-- Botones con validacion -->
+                  <button id="btn" type="submit" class="btn btn-outline-dark" (click)="iniciarSesion()" data-dismiss="modal" aria-hidden="true">Enviar</button>
+          </div>
+      </div>
+  </div>
+</div>
+

@@ -9,17 +9,26 @@ import { ResultadosComponent } from './resultados/resultados.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { TorneosComponent } from './torneos/torneos.component';
 import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-individual.component';
+import { LcontactoComponent } from './lcontacto/lcontacto.component';
+import { AdminComponent } from './admin/admin.component'
+import { AutenticacionService } from './servicios/autenticacion.service';
+import { CapturistaComponent } from './capturista/capturista.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'ranking', component: RankingComponent },
   { path: 'masculino/:id', component: RankingMasculinoComponent },
   { path: 'femenino/:id', component: RankingFemeninoComponent},
+  { path: 'masculino/:id', component: RankingMasculinoComponent },
+  { path: 'femenino/:id', component: RankingFemeninoComponent},
   { path: 'inicio', component: InicioComponent},
   { path: 'resultados', component: ResultadosComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'torneos', component: TorneosComponent },
-  { path: 'torneo-individual/:id', component: TorneoIndividualComponent}
+  { path: 'torneo-individual/:id', component: TorneoIndividualComponent},
+  { path: 'contacto', component: LcontactoComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'capturista', component: CapturistaComponent}
 ];
 
 @NgModule({

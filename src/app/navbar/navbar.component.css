@@ -3,3 +3,14 @@
     left: 50%;
     transform: translatex(-50%);
 }
+
+img
+{
+    width: 45px;
+    height: 45px;
+}
+
+.navbar-nav.navbar-center
+{
+    text-align: center;
+}

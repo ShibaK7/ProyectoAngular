@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -24,6 +24,10 @@ import { TorneosComponent } from './torneos/torneos.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-individual.component';
+import { LcontactoComponent } from './lcontacto/lcontacto.component';
+import { AdminComponent } from './admin/admin.component';
+import { CapturistaComponent } from './capturista/capturista.component';
+
 
 
 @NgModule({
@@ -42,11 +46,15 @@ import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-in
     TorneosComponent,
     FooterComponent,
     InicioComponent,
-    TorneoIndividualComponent
+    TorneoIndividualComponent,
+    LcontactoComponent,
+    AdminComponent,
+    CapturistaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
