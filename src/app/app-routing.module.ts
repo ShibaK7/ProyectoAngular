@@ -10,6 +10,7 @@ import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { AdminComponent } from './admin/admin.component'
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { CapturistaComponent } from './capturista/capturista.component';
+import { TorneosComponent } from './torneos/torneos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'resultados', component: ResultadosComponent },
   { path: 'contacto', component: LcontactoComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'capturista', component: CapturistaComponent}
+  { path: 'capturista', component: CapturistaComponent},
+  { path: 'torneos', component: TorneosComponent}
 ];
 
 @NgModule({
