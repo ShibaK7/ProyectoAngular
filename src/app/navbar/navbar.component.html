@@ -1,3 +1,9 @@
+<script>
+ function cerrar(){
+  $('#victorModal').modal('hide'); 
+ } 
+</script>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-dark">
 
     <div class="container">
@@ -20,7 +26,7 @@
           </li>
   
           <li class="nav-item">
-            <a class="nav-link" href="#">Torneos</a>
+            <a class="nav-link" routerLink="/torneos">Torneos</a>
           </li>
   
           <li class="nav-item">
@@ -54,12 +60,12 @@
           </div>
           <div class="modal-body">
               <div class="modal-body">
-                  <form [formGroup]="loginForm" (ngSubmit)="saveTodo() "> 
+                  <form [formGroup]="loginForm" (ngSubmit)="agregarUsuario()"> 
                       <div class="row">
                         <div class="col">
                             <div class="form-group">
                                 <label for="usuario">Usuario*</label>
-                                <input type="text" id="usuario" placeholder="Usuario" class="form-control" formControlName="usuario" />
+                                <input [(ngModel)]="correo" type="text" id="usuario" placeholder="Usuario" class="form-control" formControlName="usuario" />
                                 <span style="color:#2C6971;" *ngIf="loginForm.controls['usuario'].touched && loginForm.controls['usuario'].errors?.required">Este campo es obligatorio.</span>
                             </div>
                         </div>
@@ -69,7 +75,7 @@
                       <div class="col">
                           <div class="form-group">
                               <label for="clave">Contraseña*</label>
-                              <input type="password" id="clave" placeholder="Contraseña" class="form-control" formControlName="clave" />
+                              <input [(ngModel)]="pass" type="password" id="clave" placeholder="Contraseña" class="form-control" formControlName="clave" />
                               <span style="color:#2C6971;" *ngIf="loginForm.controls['clave'].touched && loginForm.controls['clave'].errors?.required">Este campo es obligatorio.</span>
                           </div>  
                       </div>
@@ -79,8 +85,7 @@
           </div>
           <div class="modal-footer">
 <!-- Botones con validacion -->
-                  <button *ngIf="loginForm.invalid" class="btn btn-outline-dark" (click)="saveTodo()" [disabled]="loginForm.invalid">Enviar</button>
-                  <button *ngIf="!loginForm.invalid" class="btn btn-dark" (click)="saveTodo()" [disabled]="loginForm.invalid">Enviar</button>
+                  <button id="btn" type="submit" class="btn btn-outline-dark" (click)="iniciarSesion()" data-dismiss="modal" aria-hidden="true">Enviar</button>
           </div>
       </div>
   </div>

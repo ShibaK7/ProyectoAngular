@@ -10,6 +10,10 @@ import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { Paso1Component } from './registro-torneo/paso1/paso1.component';
 import { Paso2Component } from './registro-torneo/paso2/paso2.component';
 import { Paso3Component } from './registro-torneo/paso3/paso3.component';
+import { AdminComponent } from './admin/admin.component';
+import { AutenticacionService } from './servicios/autenticacion.service';
+import { CapturistaComponent } from './capturista/capturista.component';
+import { TorneosComponent } from './torneos/torneos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -23,7 +27,10 @@ const routes: Routes = [
   { path: 'contacto', component: LcontactoComponent },
   { path: 'paso1' , component: Paso1Component },
   { path: 'paso2' , component: Paso2Component },
-  { path: 'paso3' , component: Paso3Component }
+  { path: 'paso3' , component: Paso3Component },
+  { path: 'admin', component: AdminComponent },
+  { path: 'capturista', component: CapturistaComponent},
+  { path: 'torneos', component: TorneosComponent}
 ];
 
 @NgModule({
