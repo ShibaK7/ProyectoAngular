@@ -24,6 +24,10 @@ import { TorneosComponent } from './torneos/torneos.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
+import { RegistroTorneoComponent } from './registro-torneo/registro-torneo.component';
+import { Paso1Component } from './registro-torneo/paso1/paso1.component';
+import { Paso2Component } from './registro-torneo/paso2/paso2.component';
+import { Paso3Component } from './registro-torneo/paso3/paso3.component';
 
 
 
@@ -43,7 +47,11 @@ import { LcontactoComponent } from './lcontacto/lcontacto.component';
     TorneosComponent,
     FooterComponent,
     InicioComponent,
-    LcontactoComponent
+    LcontactoComponent,
+    RegistroTorneoComponent,
+    Paso1Component,
+    Paso2Component,
+    Paso3Component
   ],
   imports: [
     BrowserModule,
