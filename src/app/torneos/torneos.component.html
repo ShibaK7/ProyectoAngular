@@ -1,6 +1,5 @@
 <app-navbar></app-navbar>
 
-
       
       <section class="section-tours">
               <div class="u-center-text u-margin-bottom-big">
@@ -16,19 +15,24 @@
                               <div class="card__picture card__picture--1">
                                   &nbsp;
                               </div>
-                              <h4 *ngFor="let torneo of torneos" class="card__heading">
-                                  <span  class="card__heading-span--1">
-                                    <!-- {{torneos.nombreTorneo[1]}} -->
-                                    QUE ONDA
+                              <h4  class="card__heading">
+                                  <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--1">
+                                    <div *ngIf="i < 1">
+                                      {{torneo.nombreTorneo }}
+                                    </div>
+                                   
+                                    
                                   </span>   
                               </h4>
                               <div class="card__details">
-                                  <ul>
-                                      <li>Doha, Catar</li>
-                                      <li>December 31 2018 - </li>
-                                      <li>January 05 2019</li>
-                                      <li>Exterior</li>
-                                      <li>Dura</li>
+                                  <ul *ngFor="let torneo of torneos;let i = index;">
+                                    <div *ngIf="i < 1">
+                                      <li>{{torneo.nacionalidad }} </li>
+                                      <li>{{torneo.fechaInicio}}</li>
+                                      <li>{{torneo.fechaFinal}}</li>
+                                      <li>Tipo de Cancha</li>
+                                      <li>{{torneo.tipoCancha}}</li>
+                                    </div>
                                   </ul>
                               </div>
                           </div>
@@ -38,11 +42,15 @@
                                           <p class="card__price-only">
                                               Compromiso Financiero
                                           </p>
-                                          <p class="card__price-value">
-                                              $1,416,205
-                                          </p>
+                                          <div *ngFor="let torneo of torneos;let i = index;">
+                                              <div *ngIf="i < 1">
+                                                  <p class="card__price-value">
+                                                      {{torneo.financiamientoTotal}}
+                                                  </p>
+                                              </div>
+                                          </div>
                                       </div>
-                                      <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper').style.display='block'">Mas informacion!</a>
+                                      <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper1').style.display='block'">Mas informacion!</a>
                                   </div>
                           </div>
                       </div>
@@ -58,17 +66,21 @@
                                           &nbsp;
                                       </div>
                                       <h4 class="card__heading">
-                                          <span class="card__heading-span--2">
-                                                  Brisbane International
+                                          <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--2">
+                                              <div *ngIf="i > 0 && i < 2">
+                                                  {{torneo.nombreTorneo }}
+                                              </div>
                                           </span>   
                                       </h4>
                                       <div class="card__details">
-                                          <ul>
-                                                <li>Brisbane, Australia</li>
-                                                <li>December 31 2018 - </li>
-                                                <li>January 06 2019</li>
-                                                <li>Exterior</li>
-                                                <li>Dura</li>
+                                          <ul *ngFor="let torneo of torneos;let i = index;">
+                                            <div *ngIf="i > 0 && i < 2">
+                                              <li>{{torneo.nacionalidad }} </li>
+                                              <li>{{torneo.fechaInicio}}</li>
+                                              <li>{{torneo.fechaFinal}}</li>
+                                              <li>Tipo de Cancha</li>
+                                              <li>{{torneo.tipoCancha}}</li>
+                                              </div>
                                           </ul>
                                       </div>
                                   </div>
@@ -78,11 +90,15 @@
                                                   <p class="card__price-only">
                                                       Compromiso Financiero 
                                                   </p>
-                                                  <p class="card__price-value">
-                                                      $589,680
-                                                  </p>
+                                                  <div *ngFor="let torneo of torneos;let i = index;">
+                                                      <div *ngIf="i > 0 && i < 2">
+                                                          <p class="card__price-value">
+                                                              {{torneo.financiamientoTotal}}
+                                                          </p>
+                                                      </div>
+                                                  </div>
                                               </div>
-                                              <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper').style.display='block'">Mas informacion!</a>
+                                              <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper2').style.display='block'">Mas informacion!</a>
                                           </div>
                                   </div>
                               </div>
@@ -97,31 +113,39 @@
                                           &nbsp;
                                       </div>
                                       <h4 class="card__heading">
-                                          <span class="card__heading-span--3">
-                                                  Tata Open Maharashtra
+                                          <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--3">
+                                            <div *ngIf="i > 1 && i < 3">
+                                                {{torneo.nombreTorneo }}
+                                            </div>
                                           </span>   
                                       </h4>
                                       <div class="card__details">
-                                          <ul>
-                                                <li>Pune, India</li>
-                                                <li>December 31 2018 - </li>
-                                                <li>January 05 2019</li>
-                                                <li>Exterior</li>
-                                                <li>Dura</li> 
-                                          </ul>
+                                        <ul *ngFor="let torneo of torneos;let i = index;">
+                                          <div *ngIf="i > 1 && i < 3">
+                                            <li>{{torneo.nacionalidad }} </li>
+                                            <li>{{torneo.fechaInicio}}</li>
+                                            <li>{{torneo.fechaFinal}}</li>
+                                            <li>Tipo de Cancha</li>
+                                            <li>{{torneo.tipoCancha}}</li>
+                                          </div>
+                                        </ul>
                                       </div>
                                   </div>
                                   <div class="card__side card__side--back card__side--back-3">
                                           <div class="card__cta">
-                                              <div class="card__price-box">
+                                              <div class="card__price-box">                                  
                                                   <p class="card__price-only">
                                                       Compromiso Financiero 
                                                   </p>
-                                                  <p class="card__price-value">
-                                                      $589,680 
-                                                  </p>
+                                                  <div *ngFor="let torneo of torneos;let i = index;">
+                                                    <div *ngIf="i > 1 && i < 3">
+                                                        <p class="card__price-value">
+                                                            {{torneo.financiamientoTotal}}
+                                                        </p>
+                                                    </div>
+                                                  </div>
                                               </div>
-                                              <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper').style.display='block'" >Mas informacion!</a>                              
+                                              <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper3').style.display='block'" >Mas informacion!</a>                              
                                           </div>
                                   </div>
                               </div>
@@ -132,26 +156,85 @@
           </section>
 
 
-          <div id="modal-wrapper" class="modal">
+          <div id="modal-wrapper1" class="modal">
                 <div class="modal-content animate">
                     <div class="popup__left">
+                      
                         <img src="../../../../assets/img/estadio-1.jpg" alt="Estadio" class="popup__img">
                         <img src="../../../../assets/img/estadio-2.jpg" alt="Estadio" class="popup__img">
                     </div>
                     <div class="popup__right">
-                        <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
-                        <h2 class="heading-secondary u-margin-bottom-small">Tata Open Maharashtra</h2>
+                        <span onclick="document.getElementById('modal-wrapper1').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                        <div *ngFor="let torneo of torneos;let i = index;">
+                            <div *ngIf="i < 1">
+                              <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
+                            </div>
+                        </div>
                         <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
-                        <p class="popup__text">
-                                Doha Celebrates Season Opener  
-                                Many of the world's best tennis players open their seasons at the Qatar ExxonMobil Open, one of two ATP World Tour events held in the Middle East. Roger Federer, Andy Murray, 
-                                Rafael Nadal and Novak Djokovic have won multiple titles at this event, with Nadal's haul including the 2014 singles title and four doubles crowns (2005, '09, '11 and '15).
-                                Djokovic won back-to-back titles in 2016 and '17.
-                        </p>
-                        <a href="#" class="btn btn--green">More Here!</a>
+
+
+
+                        <div *ngFor="let torneo of torneos;let i = index;">
+                            <div *ngIf="i < 1">
+                              <p class="popup__text">{{torneo.descripcion}}</p>
+                              <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+                            </div>
+                        </div>
+                        <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
                     </div>
                 </div>
           </div>
+
+          <div id="modal-wrapper2" class="modal">
+              <div class="modal-content animate">
+                  <div class="popup__left">
+                      <img src="../../../../assets/img/estadio-23_Chengdu_Open.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
+                      <img src="../../../../assets/img/estadio-7.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
+                  </div>
+                  <div class="popup__right">
+                      <span onclick="document.getElementById('modal-wrapper2').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                      <div *ngFor="let torneo of torneos;let i = index;">
+                          <div *ngIf="i > 0 && i < 2">
+                            <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
+                          </div>
+                      </div>
+                      
+                      <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
+                      <div *ngFor="let torneo of torneos;let i = index;">
+                          <div *ngIf="i > 0 && i < 2">
+                            <p class="popup__text">{{torneo.descripcion}}</p>
+                            <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+                          </div>
+                      </div>
+                      <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
+                  </div>
+              </div>
+        </div>
+
+        <div id="modal-wrapper3" class="modal">
+            <div class="modal-content animate">
+                <div class="popup__left">
+                    <img src="../../../../assets/img/estadio-9.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
+                    <img src="../../../../assets/img/estadio-21_Rolex_Monte-Carlo_Masters.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
+                </div>
+                <div class="popup__right">
+                    <span onclick="document.getElementById('modal-wrapper3').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                    <div *ngFor="let torneo of torneos;let i = index;">
+                        <div *ngIf="i > 1 && i < 3">
+                          <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
+                        </div>
+                    </div>
+                    <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
+                    <div *ngFor="let torneo of torneos;let i = index;">
+                        <div *ngIf="i > 1 && i < 3">
+                          <p class="popup__text">{{torneo.descripcion}}</p>
+                          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+                        </div>
+                    </div>
+                    <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
+                </div>
+            </div>
+      </div>
 
 
 
@@ -250,16 +333,6 @@
   
   
   
-
-
-
-
-
-
-
-
-
-
             
     
 <div class="mt-5">
