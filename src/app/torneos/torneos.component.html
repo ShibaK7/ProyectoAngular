@@ -1,251 +1,258 @@
 <app-navbar></app-navbar>
 
-<app-navbar></app-navbar>   
-      <section class="section-tours">
-              <div class="u-center-text u-margin-bottom-big">
-                      <h2 class="heading-secondary">
-                           Torneos mas populares
-                      </h2> 
-              </div> 
-              
-              <div class="row">
-                  <div class="col-1-of-3">
-                      <div class="card">
-                          <div class="card__side card__side--front">
-                              <div class="card__picture card__picture--1">
-                                  &nbsp;
-                              </div>
-                              <h4  class="card__heading">
-                                  <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--1">
-                                    <div *ngIf="i < 1">
-                                      {{torneo.nombreTorneo }}
-                                    </div>
-                                   
-                                    
-                                  </span>   
-                              </h4>
-                              <div class="card__details">
-                                  <ul *ngFor="let torneo of torneos;let i = index;">
-                                    <div *ngIf="i < 1">
-                                      <li>{{torneo.nacionalidad }} </li>
-                                      <li>{{torneo.fechaInicio}}</li>
-                                      <li>{{torneo.fechaFinal}}</li>
-                                      <li>Tipo de Cancha</li>
-                                      <li>{{torneo.tipoCancha}}</li>
-                                    </div>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="card__side card__side--back card__side--back-1">
-                                  <div class="card__cta">
-                                      <div class="card__price-box">
-                                          <p class="card__price-only">
-                                              Compromiso Financiero
-                                          </p>
-                                          <div *ngFor="let torneo of torneos;let i = index;">
-                                              <div *ngIf="i < 1">
-                                                  <p class="card__price-value">
-                                                      {{torneo.financiamientoTotal}}
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper1').style.display='block'">Mas informacion!</a>
-                                  </div>
-                          </div>
-                      </div>
-                  </div>
+<section class="section-tours">
+  <div class="u-center-text u-margin-bottom-big">
+    <h2 class="heading-secondary">
+      Torneos mas populares
+    </h2>
+  </div>
 
-
-
-
-                  <div class="col-1-of-3">
-                          <div class="card">
-                                  <div class="card__side card__side--front">
-                                      <div class="card__picture card__picture--2">
-                                          &nbsp;
-                                      </div>
-                                      <h4 class="card__heading">
-                                          <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--2">
-                                              <div *ngIf="i > 0 && i < 2">
-                                                  {{torneo.nombreTorneo }}
-                                              </div>
-                                          </span>   
-                                      </h4>
-                                      <div class="card__details">
-                                          <ul *ngFor="let torneo of torneos;let i = index;">
-                                            <div *ngIf="i > 0 && i < 2">
-                                              <li>{{torneo.nacionalidad }} </li>
-                                              <li>{{torneo.fechaInicio}}</li>
-                                              <li>{{torneo.fechaFinal}}</li>
-                                              <li>Tipo de Cancha</li>
-                                              <li>{{torneo.tipoCancha}}</li>
-                                              </div>
-                                          </ul>
-                                      </div>
-                                  </div>
-                                  <div class="card__side card__side--back card__side--back-2">
-                                          <div class="card__cta">
-                                              <div class="card__price-box">
-                                                  <p class="card__price-only">
-                                                      Compromiso Financiero 
-                                                  </p>
-                                                  <div *ngFor="let torneo of torneos;let i = index;">
-                                                      <div *ngIf="i > 0 && i < 2">
-                                                          <p class="card__price-value">
-                                                              {{torneo.financiamientoTotal}}
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper2').style.display='block'">Mas informacion!</a>
-                                          </div>
-                                  </div>
-                              </div>
-                  </div>
-
-
-
-                  <div class="col-1-of-3">
-                          <div class="card">
-                                  <div class="card__side card__side--front">
-                                      <div class="card__picture card__picture--3">
-                                          &nbsp;
-                                      </div>
-                                      <h4 class="card__heading">
-                                          <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--3">
-                                            <div *ngIf="i > 1 && i < 3">
-                                                {{torneo.nombreTorneo }}
-                                            </div>
-                                          </span>   
-                                      </h4>
-                                      <div class="card__details">
-                                        <ul *ngFor="let torneo of torneos;let i = index;">
-                                          <div *ngIf="i > 1 && i < 3">
-                                            <li>{{torneo.nacionalidad }} </li>
-                                            <li>{{torneo.fechaInicio}}</li>
-                                            <li>{{torneo.fechaFinal}}</li>
-                                            <li>Tipo de Cancha</li>
-                                            <li>{{torneo.tipoCancha}}</li>
-                                          </div>
-                                        </ul>
-                                      </div>
-                                  </div>
-                                  <div class="card__side card__side--back card__side--back-3">
-                                          <div class="card__cta">
-                                              <div class="card__price-box">                                  
-                                                  <p class="card__price-only">
-                                                      Compromiso Financiero 
-                                                  </p>
-                                                  <div *ngFor="let torneo of torneos;let i = index;">
-                                                    <div *ngIf="i > 1 && i < 3">
-                                                        <p class="card__price-value">
-                                                            {{torneo.financiamientoTotal}}
-                                                        </p>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                              <a class="btn btn--white nav-link" onclick="document.getElementById('modal-wrapper3').style.display='block'" >Mas informacion!</a>                              
-                                          </div>
-                                  </div>
-                              </div>
-                  </div>
-              </div>
-
-
-          </section>
-
-
-          <div id="modal-wrapper1" class="modal">
-                <div class="modal-content animate">
-                    <div class="popup__left">
-                      
-                        <img src="../../../../assets/img/estadio-1.jpg" alt="Estadio" class="popup__img">
-                        <img src="../../../../assets/img/estadio-2.jpg" alt="Estadio" class="popup__img">
-                    </div>
-                    <div class="popup__right">
-                        <span onclick="document.getElementById('modal-wrapper1').style.display='none'" class="close" title="Close PopUp">&times;</span>
-                        <div *ngFor="let torneo of torneos;let i = index;">
-                            <div *ngIf="i < 1">
-                              <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
-                            </div>
-                        </div>
-                        <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
-
-
-
-                        <div *ngFor="let torneo of torneos;let i = index;">
-                            <div *ngIf="i < 1">
-                              <p class="popup__text">{{torneo.descripcion}}</p>
-                              <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
-                            </div>
-                        </div>
-                        <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
-                    </div>
-                </div>
+  <div class="row">
+    <div class="col-1-of-3">
+      <div class="card">
+        <div class="card__side card__side--front">
+          <div class="card__picture card__picture--1">
+            &nbsp;
           </div>
-
-          <div id="modal-wrapper2" class="modal">
-              <div class="modal-content animate">
-                  <div class="popup__left">
-                      <img src="../../../../assets/img/estadio-23_Chengdu_Open.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
-                      <img src="../../../../assets/img/estadio-7.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
-                  </div>
-                  <div class="popup__right">
-                      <span onclick="document.getElementById('modal-wrapper2').style.display='none'" class="close" title="Close PopUp">&times;</span>
-                      <div *ngFor="let torneo of torneos;let i = index;">
-                          <div *ngIf="i > 0 && i < 2">
-                            <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
-                          </div>
-                      </div>
-                      
-                      <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
-                      <div *ngFor="let torneo of torneos;let i = index;">
-                          <div *ngIf="i > 0 && i < 2">
-                            <p class="popup__text">{{torneo.descripcion}}</p>
-                            <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
-                          </div>
-                      </div>
-                      <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
-                  </div>
+          <h4 class="card__heading">
+            <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--1">
+              <div *ngIf="i < 1">
+                {{torneo.nombreTorneo }}
               </div>
-        </div>
 
-        <div id="modal-wrapper3" class="modal">
-            <div class="modal-content animate">
-                <div class="popup__left">
-                    <img src="../../../../assets/img/estadio-9.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
-                    <img src="../../../../assets/img/estadio-21_Rolex_Monte-Carlo_Masters.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
+
+            </span>
+          </h4>
+          <div class="card__details">
+            <ul *ngFor="let torneo of torneos;let i = index;">
+              <div *ngIf="i < 1">
+                <li>{{torneo.nacionalidad }} </li>
+                <li>{{torneo.fechaInicio}}</li>
+                <li>{{torneo.fechaFinal}}</li>
+                <li>Tipo de Cancha</li>
+                <li>{{torneo.tipoCancha}}</li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="card__side card__side--back card__side--back-1">
+          <div class="card__cta">
+            <div class="card__price-box">
+              <p class="card__price-only">
+                Compromiso Financiero
+              </p>
+              <div *ngFor="let torneo of torneos;let i = index;">
+                <div *ngIf="i < 1">
+                  <p class="card__price-value">
+                    {{torneo.financiamientoTotal}}
+                  </p>
                 </div>
-                <div class="popup__right">
-                    <span onclick="document.getElementById('modal-wrapper3').style.display='none'" class="close" title="Close PopUp">&times;</span>
-                    <div *ngFor="let torneo of torneos;let i = index;">
-                        <div *ngIf="i > 1 && i < 3">
-                          <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
-                        </div>
-                    </div>
-                    <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
-                    <div *ngFor="let torneo of torneos;let i = index;">
-                        <div *ngIf="i > 1 && i < 3">
-                          <p class="popup__text">{{torneo.descripcion}}</p>
-                          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
-                        </div>
-                    </div>
-                    <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
-                </div>
+              </div>
             </div>
+            <a class="btn btn--white nav-link"
+              onclick="document.getElementById('modal-wrapper1').style.display='block'">Mas informacion!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-1-of-3">
+      <div class="card">
+        <div class="card__side card__side--front">
+          <div class="card__picture card__picture--2">
+            &nbsp;
+          </div>
+          <h4 class="card__heading">
+            <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--2">
+              <div *ngIf="i > 0 && i < 2">
+                {{torneo.nombreTorneo }}
+              </div>
+            </span>
+          </h4>
+          <div class="card__details">
+            <ul *ngFor="let torneo of torneos;let i = index;">
+              <div *ngIf="i > 0 && i < 2">
+                <li>{{torneo.nacionalidad }} </li>
+                <li>{{torneo.fechaInicio}}</li>
+                <li>{{torneo.fechaFinal}}</li>
+                <li>Tipo de Cancha</li>
+                <li>{{torneo.tipoCancha}}</li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="card__side card__side--back card__side--back-2">
+          <div class="card__cta">
+            <div class="card__price-box">
+              <p class="card__price-only">
+                Compromiso Financiero
+              </p>
+              <div *ngFor="let torneo of torneos;let i = index;">
+                <div *ngIf="i > 0 && i < 2">
+                  <p class="card__price-value">
+                    {{torneo.financiamientoTotal}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <a class="btn btn--white nav-link"
+              onclick="document.getElementById('modal-wrapper2').style.display='block'">Mas informacion!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-1-of-3">
+      <div class="card">
+        <div class="card__side card__side--front">
+          <div class="card__picture card__picture--3">
+            &nbsp;
+          </div>
+          <h4 class="card__heading">
+            <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--3">
+              <div *ngIf="i > 1 && i < 3">
+                {{torneo.nombreTorneo }}
+              </div>
+            </span>
+          </h4>
+          <div class="card__details">
+            <ul *ngFor="let torneo of torneos;let i = index;">
+              <div *ngIf="i > 1 && i < 3">
+                <li>{{torneo.nacionalidad }} </li>
+                <li>{{torneo.fechaInicio}}</li>
+                <li>{{torneo.fechaFinal}}</li>
+                <li>Tipo de Cancha</li>
+                <li>{{torneo.tipoCancha}}</li>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="card__side card__side--back card__side--back-3">
+          <div class="card__cta">
+            <div class="card__price-box">
+              <p class="card__price-only">
+                Compromiso Financiero
+              </p>
+              <div *ngFor="let torneo of torneos;let i = index;">
+                <div *ngIf="i > 1 && i < 3">
+                  <p class="card__price-value">
+                    {{torneo.financiamientoTotal}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <a class="btn btn--white nav-link"
+              onclick="document.getElementById('modal-wrapper3').style.display='block'">Mas informacion!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<div id="modal-wrapper1" class="modal">
+  <div class="modal-content animate">
+    <div class="popup__left">
+
+      <img src="../../../../assets/img/estadio-1.jpg" alt="Estadio" class="popup__img">
+      <img src="../../../../assets/img/estadio-2.jpg" alt="Estadio" class="popup__img">
+    </div>
+    <div class="popup__right">
+      <span onclick="document.getElementById('modal-wrapper1').style.display='none'" class="close"
+        title="Close PopUp">&times;</span>
+      <div *ngFor="let torneo of torneos;let i = index;">
+        <div *ngIf="i < 1">
+          <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
+        </div>
+      </div>
+      <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
+
+
+
+      <div *ngFor="let torneo of torneos;let i = index;">
+        <div *ngIf="i < 1">
+          <p class="popup__text">{{torneo.descripcion}}</p>
+          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+        </div>
+      </div>
+      <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
+    </div>
+  </div>
+</div>
+
+<div id="modal-wrapper2" class="modal">
+  <div class="modal-content animate">
+    <div class="popup__left">
+      <img src="../../../../assets/img/estadio-23_Chengdu_Open.jpg" alt="Estadio" class="popup__img"
+        style="height:20rem;">
+      <img src="../../../../assets/img/estadio-7.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
+    </div>
+    <div class="popup__right">
+      <span onclick="document.getElementById('modal-wrapper2').style.display='none'" class="close"
+        title="Close PopUp">&times;</span>
+      <div *ngFor="let torneo of torneos;let i = index;">
+        <div *ngIf="i > 0 && i < 2">
+          <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
+        </div>
       </div>
 
+      <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
+      <div *ngFor="let torneo of torneos;let i = index;">
+        <div *ngIf="i > 0 && i < 2">
+          <p class="popup__text">{{torneo.descripcion}}</p>
+          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+        </div>
+      </div>
+      <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
+    </div>
+  </div>
+</div>
+
+<div id="modal-wrapper3" class="modal">
+  <div class="modal-content animate">
+    <div class="popup__left">
+      <img src="../../../../assets/img/estadio-9.jpg" alt="Estadio" class="popup__img" style="height:20rem;">
+      <img src="../../../../assets/img/estadio-21_Rolex_Monte-Carlo_Masters.jpg" alt="Estadio" class="popup__img"
+        style="height:20rem;">
+    </div>
+    <div class="popup__right">
+      <span onclick="document.getElementById('modal-wrapper3').style.display='none'" class="close"
+        title="Close PopUp">&times;</span>
+      <div *ngFor="let torneo of torneos;let i = index;">
+        <div *ngIf="i > 1 && i < 3">
+          <h2 class="heading-secondary u-margin-bottom-small">{{torneo.nombreTorneo }}</h2>
+        </div>
+      </div>
+      <!-- <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please red these terms before booking</h3> -->
+      <div *ngFor="let torneo of torneos;let i = index;">
+        <div *ngIf="i > 1 && i < 3">
+          <p class="popup__text">{{torneo.descripcion}}</p>
+          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+        </div>
+      </div>
+      <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
+    </div>
+  </div>
+</div>
 
 
 
 
- <div class="container-fluid">
-    <div class="row fondo1 mt-4 mb-1">
+
+<div class="container-fluid">
+  <div class="row fondo1 mt-4 mb-1">
 
 
 
-          <!-- <div *ngIf="genero==='femenino'" class="select mr-5" aria-label="Selección de Paises">
+    <!-- <div *ngIf="genero==='femenino'" class="select mr-5" aria-label="Selección de Paises">
             <select (change)="cambiarPaisSeleccionado($event.target.value)" id="select">
               <option value=""> Todos los Paises </option>
               <option *ngFor="let torneo of torneos" value="{{torneo.nacionalidad}}"> {{torneo.nacionalidad}} </option>
@@ -255,111 +262,113 @@
 
 
 
-      <div class="col-11 mx-auto">
-  
-  
-          <table class="table table-hover">
-              <thead class="bg-dark text-white">
-                <tr>
-                    <!-- <th scope="col">ID</th> -->
-                    <th scope="col">Torneo</th>
-                    <th scope="col">Pais</th>
-                    <th scope="col">Fecha Inicio</th>
-                    <th scope="col">Fecha Clausura</th>
-                    <th scope="col">Tipo de Cancha</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Financiamiento Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let torneo of torneos" class="text-dark">
-                  <!-- <td>
+    <div class="col-11 mx-auto">
+
+
+      <table class="table table-hover">
+        <thead class="bg-dark text-white">
+          <tr>
+            <!-- <th scope="col">ID</th> -->
+            <th scope="col">Torneo</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Fecha Clausura</th>
+            <th scope="col">Tipo de Cancha</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Financiamiento Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let torneo of torneos" class="text-dark">
+            <!-- <td>
                     {{torneo.id}}
                   </td> -->
-                  <td>
-                      <a routerLink="/torneo-individual/{{torneo.id}}">
-                        {{torneo.nombreTorneo}}
-                      </a>
-                    <!-- {{torneo.nombreTorneo}} -->
-                  </td>
-                  <td>
-                    {{torneo.nacionalidad}}
-                  </td>
-                  <td>
-                    {{torneo.fechaInicio}}
-                  </td>
-                  <td>
-                    {{torneo.fechaFinal}}
-                  </td>
-                  <td>
-                    {{torneo.tipoCancha}}
-                  </td>
-                  <td>
-                    {{torneo.descripcion}}
-                  </td>
-                  <td>
-                    {{torneo.financiamientoTotal}}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-      </div>
+            <td>
+              <a routerLink="/torneo-individual/{{torneo.id}}">
+                {{torneo.nombreTorneo}}
+              </a>
+              <!-- {{torneo.nombreTorneo}} -->
+            </td>
+            <td>
+              {{torneo.nacionalidad}}
+            </td>
+            <td>
+              {{torneo.fechaInicio}}
+            </td>
+            <td>
+              {{torneo.fechaFinal}}
+            </td>
+            <td>
+              {{torneo.tipoCancha}}
+            </td>
+            <td>
+              {{torneo.descripcion}}
+            </td>
+            <td>
+              {{torneo.financiamientoTotal}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-
-
-
-    <div class="row">
-        <div class="mx-auto" *ngIf=" filtradoPais===false">
-          <button (click)="regresarPrincipio(1)" class="btn btn-generico mr-1 ml-1">
-            Inicio
-          </button>
-          <button (click)="regresarPagina(1)" class="btn btn-generico mr-1 ml-1">
-            Anterior
-          </button>
-          {{numeroPaginaF}} de {{totalPaginasF}}
-          <button (click)="avanzarPagina(1)" class="btn btn-generico mr-1 ml-1">
-            Siguiente
-          </button>
-          <button (click)="avanzarFinal(1)" class="btn btn-generico mr-1 ml-1">
-            Final
-          </button>
-        </div>
-      </div>
-
-
-
   </div>
-  
 
 
 
 
-
-
-
-
-  <p>Drag the p element back and forth between the two rectangles:</p>
-
-  <div *ngFor="let torneo of torneos" class="droptarget" (drop)="drop($event)" (dragover)="allowDrop($event)">
-  
-  
-    <p (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" id="dragtarget"> {{torneo.nombreTorneo}}</p>
-    
+  <div class="row">
+    <div class="mx-auto" *ngIf=" filtradoPais===false">
+      <button (click)="regresarPrincipio(1)" class="btn btn-generico mr-1 ml-1">
+        Inicio
+      </button>
+      <button (click)="regresarPagina(1)" class="btn btn-generico mr-1 ml-1">
+        Anterior
+      </button>
+      {{numeroPaginaF}} de {{totalPaginasF}}
+      <button (click)="avanzarPagina(1)" class="btn btn-generico mr-1 ml-1">
+        Siguiente
+      </button>
+      <button (click)="avanzarFinal(1)" class="btn btn-generico mr-1 ml-1">
+        Final
+      </button>
+    </div>
   </div>
-  
-  <div *ngFor="let torneo of torneos" class="droptarget" (drop)="drop($event)" (dragover)="allowDrop($event)"></div>
-  
-  <p style="clear:both;"><strong>Note:</strong> drag events are not supported in Internet Explorer 8 and earlier versions or Safari 5.1 and earlier versions.</p>
-  
-  <p id="demo"></p>
-            
+
+
+
+</div>
 
 
 
 
-  
-    
+
+
+
+
+
+<p>Drag the p element back and forth between the two rectangles:</p>
+
+<div *ngFor="let torneo of torneos" class="droptarget" (drop)="drop($event)" (dragover)="allowDrop($event)">
+
+
+  <p (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" id="dragtarget">
+    {{torneo.nombreTorneo}}</p>
+
+</div>
+
+<div *ngFor="let torneo of torneos" class="droptarget" (drop)="drop($event)" (dragover)="allowDrop($event)"></div>
+
+<p style="clear:both;"><strong>Note:</strong> drag events are not supported in Internet Explorer 8 and earlier versions
+  or Safari 5.1 and earlier versions.</p>
+
+<p id="demo"></p>
+
+
+
+
+
+
+
 <div class="mt-5">
-    <app-footer></app-footer>
+  <app-footer></app-footer>
 </div>
