@@ -234,6 +234,8 @@ export class TorneosComponent implements OnInit {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("Text");
         ev.target.appendChild(document.getElementById(data));
+        document.getElementById("demo").innerHTML = "The p element was dropped";
+        alert('Usted a seleccionado a un jugador. ');
       }
     
 
