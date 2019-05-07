@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService } from "angular-in-memory-web-api";
+import { Inscrito } from "./inscrito";
 
 @Injectable({ providedIn: 'root' })
 export class InMemoryInformacionService implements InMemoryDbService {
@@ -26,6 +27,7 @@ export class InMemoryInformacionService implements InMemoryDbService {
       { id: 19, ranking: 19, nacionalidad: "Francia", nombre: "Gael Monfils", edad: 32, puntos: 1875, torneosJugados: 21, foto: "./assets/jugadores/GaelMonfils.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 20, ranking: 20, nacionalidad: "Canada", nombre: "Denis Shapovalov", edad: 19, puntos: 1820, torneosJugados: 27, foto: "./assets/jugadores/DenisShapovalov.JPG", biografia: "", torneos: "", curiosidad: "" }
     ];
+
     const JUGADORAS = [
       { id: 1, ranking: 1, nacionalidad: "Japon", nombre: "Naomi Osaka", edad: 21, foto: "./assets/jugadoras/NaomiOsaka.JPG", biografia: "Naomi Osaka (Osaka, Japón; 16 de octubre de 1997) es una jugadora de tenis. Tiene doble nacionalidad (estadounidense y japonesa), reside permanentemente en Florida, Estados Unidos, pero compite representando a Japón. Hija de padre haitiano y madre japonesa. Es la hermana menor de Mari Osaka, quien es también jugadora de tenis profesional.", torneos: "A pesar de su corta carrera incursionando en el amplio círculo del tenis profesional (5 años), Naomi ha logrado obtener 3 títulos de alto renombre, 2 Gran Slam y el Premier Mandatory.", curiosidad: "En el primer Grand Slam de 2019, el Australian Open, Osaka alcanzó su segundo título de esta categoría, y de forma consecutiva. Derrotó a Petra Kvitova en la final por 7-6, 5-7, 6-4 y, además, alcanzó por primera vez en su carrera el primer puesto del escalafón mundial. Se convertiría así en la 26ª número 1 de la historia, primera japonesa en lograrlo, así como también, la primera asiática en lograrlo." },
       { id: 2, ranking: 2, nacionalidad: "Rumania", nombre: "Simona Halep", edad: 27, foto: "./assets/jugadoras/SimonaHalep.JPG", biografia: "Simona Halep (Constanza, Rumania, 27 de septiembre de 1991). El padre de Halep, Stere, dirige una fábrica de queso y leche.​ Simona comenzó a jugar al tenis a los cuatro años, emulando a su hermano mayor.", torneos: "Ganadora en una ocasión de Roland Garros, siendo este uno de los 18 torneos avalados por la WTA que ha ganado en su carrera. Además ha ganado seis torneos de categorías juveniles.", curiosidad: "En una entrevista posterior a un partido con Serena Williams en Wimbledon 2011, la tenista estadounidense comentó que Halep \"sirve bien para su altura... Tiene mucho poder en su servicio\"." },
@@ -48,6 +50,7 @@ export class InMemoryInformacionService implements InMemoryDbService {
       { id: 19, ranking: 19, nacionalidad: "España", nombre: "Garbiñe Muguruza", edad: 25, foto: "./assets/jugadoras/GarbiñeMuguruza.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 20, ranking: 20, nacionalidad: "Suiza", nombre: "Belinda Bencic", edad: 22, foto: "./assets/jugadoras/BelindaBencic.JPG", biografia: "", torneos: "", curiosidad: "" }
     ];
+
     const INDIVIDUALES = [
       { id: 1, genero: "masculino", torneo: "Qatar ExxonMobil Open", bandera1:"../assets/banderas/italia.png", jugador1: "Jannik Sinner", bandera2: "../assets/banderas/hungria.png", jugador2: "Mate Valkuz", j1s1:6, j2s1:2, j1s2:0, j2s2:6, j1s3:6, j2s3:4, j1s4:null, j2s4:null, j1s5:null, j2s5:null},
       { id: 2, genero: "masculino", torneo: "Qatar ExxonMobil Open", bandera1:"../assets/banderas/serbia.png", jugador1: "Filip Krajinovic", bandera2: "../assets/banderas/italia.png", jugador2: "Andreas Seppi", j1s1:6, j2s1:2, j1s2:5, j2s2:7, j1s3:7, j2s3:5, j1s4:null, j2s4:null, j1s5:null, j2s5:null},
@@ -127,6 +130,46 @@ export class InMemoryInformacionService implements InMemoryDbService {
       {id: 4, tipoCompetencia: 4, torneo: "US Open", cupo: 8, lugaresOcupados: 8, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 15000, premioSegundoLugar: 10000, premioTercerLugar: 5000 },
       {id: 5, tipoCompetencia: 5, torneo: "Roland Garros", cupo: 4, lugaresOcupados: 0, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 10000, premioSegundoLugar: 8000, premioTercerLugar: 6000 }
     ];
-    return { JUGADORES, JUGADORAS, INDIVIDUALES, DOBLES, COMPETENCIAS };
+
+    const INSCRITOS = [
+      {id: 1, idCompetencia: 1, nombreJugador: "Novak Djokovic", nombreJugadora: null, equipo: null},
+      {id: 2, idCompetencia: 1, nombreJugador: "Rafael Nadal", nombreJugadora: null, equipo: null},
+      {id: 3, idCompetencia: 1, nombreJugador: "Alexander Zverev", nombreJugadora: null, equipo: null},
+      {id: 4, idCompetencia: 1, nombreJugador: "Roger Federer", nombreJugadora: null, equipo: null},
+      {id: 5, idCompetencia: 1, nombreJugador: "Dominic Thiem", nombreJugadora: null, equipo: null},
+      {id: 6, idCompetencia: 1, nombreJugador: "Kevin Anderson", nombreJugadora: null, equipo: null},
+      {id: 7, idCompetencia: 1, nombreJugador: "Stefanos Tsitsipas", nombreJugadora: null, equipo: null},
+      {id: 8, idCompetencia: 1, nombreJugador: "Juan Martin del Potro", nombreJugadora: null, equipo: null},
+      {id: 9, idCompetencia: 1, nombreJugador: "John Isner", nombreJugadora: null, equipo: null},
+      {id: 10, idCompetencia: 1, nombreJugador: "Marin Cilic", nombreJugadora: null, equipo: null},
+      {id: 11, idCompetencia: 1, nombreJugador: "Karen Khachanov", nombreJugadora: null, equipo: null},
+      {id: 12, idCompetencia: 1, nombreJugador: "Borna Coric", nombreJugadora: null, equipo: null},
+      {id: 13, idCompetencia: 1, nombreJugador: "Milos Raonic", nombreJugadora: null, equipo: null},
+      {id: 14, idCompetencia: 1, nombreJugador: "Marco Cecchinato", nombreJugadora: null, equipo: null},
+      {id: 15, idCompetencia: 1, nombreJugador: "Fabio Fognini", nombreJugadora: null, equipo: null},
+      {id: 16, idCompetencia: 1, nombreJugador: "Denis Shapovalov", nombreJugadora: null, equipo: null},
+      {id: 17, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Qiang Wang", equipo: null},
+      {id: 18, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Naomi Osaka", equipo: null},
+      {id: 19, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Petra Kvitova", equipo: null},
+      {id: 20, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Karolina Pliskova", equipo: null},
+      {id: 21, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Serena Williams", equipo: null},
+      {id: 22, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Madison Keys", equipo: null},
+      {id: 23, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Julia Goerges", equipo: null},
+      {id: 24, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Angelique Kerber", equipo: null},
+      {id: 25, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Garbiñe Muguruza", equipo: null},
+      {id: 26, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Kiki Bertens", equipo: null},
+      {id: 27, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Anett Kontaveit", equipo: null},
+      {id: 28, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Anastasija Sevastova", equipo: null},
+      {id: 29, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Belinda Bencic", equipo: null},
+      {id: 30, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Elise Mertens", equipo: null},
+      {id: 31, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Simona Halep", equipo: null},
+      {id: 32, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Caroline Wozniacki", equipo: null},
+    ];
+
+    return { JUGADORES, JUGADORAS, INDIVIDUALES, DOBLES, COMPETENCIAS, INSCRITOS };
+  }
+
+  generarIdInscrito(INSCRITOS: Inscrito[]): number {
+    return INSCRITOS.length > 0 ? Math.max(...INSCRITOS.map(insctrito => insctrito.id)) + 1 : 1;
   }
 }
