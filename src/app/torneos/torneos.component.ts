@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { TorneosRecordService } from './torneos-record.service';
 
@@ -6,6 +7,11 @@ import { Torneo } from './Torneos-Record';
 
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+
+
+
+
+
 
 
 
@@ -53,7 +59,11 @@ export class TorneosComponent implements OnInit {
   this.getPaginas();
   this.genero = "femenino";
   this.torneoSeleccionado = null;
+
+
   }
+
+
 
   getTorneos(): void {
     if(!this.filtradoPais)
@@ -204,6 +214,28 @@ export class TorneosComponent implements OnInit {
   }
 
 
+
+      // Drag and Drop
+
+      dragStart(ev) {
+        ev.dataTransfer.setData("Text", ev.target.id);
+        document.getElementById("demo").innerHTML = "Started to drag the p element";
+      }
+      
+       dragEnd(ev) {
+        document.getElementById("demo").innerHTML = "Finished dragging the p element.";
+      }
+      
+       allowDrop(ev) {
+        ev.preventDefault();
+      }
+      
+       drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    
 
 
 
