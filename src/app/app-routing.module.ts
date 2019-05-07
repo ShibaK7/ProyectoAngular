@@ -6,6 +6,9 @@ import { RankingComponent } from './ranking/ranking.component';
 import { RankingMasculinoComponent } from './ranking/ranking-masculino/ranking-masculino.component';
 import { RankingFemeninoComponent } from './ranking/ranking-femenino/ranking-femenino.component';
 import { ResultadosComponent } from './resultados/resultados.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { TorneosComponent } from './torneos/torneos.component';
+import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-individual.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { AdminComponent } from './admin/admin.component'
 import { AutenticacionService } from './servicios/autenticacion.service';
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: 'femenino/:id', component: RankingFemeninoComponent},
   { path: 'inicio', component: InicioComponent},
   { path: 'resultados', component: ResultadosComponent },
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'torneos', component: TorneosComponent },
+  { path: 'torneo-individual/:id', component: TorneoIndividualComponent},
   { path: 'contacto', component: LcontactoComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'capturista', component: CapturistaComponent},

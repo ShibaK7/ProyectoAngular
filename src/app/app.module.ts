@@ -23,9 +23,11 @@ import { RankingFemeninoComponent } from './ranking/ranking-femenino/ranking-fem
 import { TorneosComponent } from './torneos/torneos.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-individual.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { AdminComponent } from './admin/admin.component';
 import { CapturistaComponent } from './capturista/capturista.component';
+
 
 
 
@@ -45,6 +47,7 @@ import { CapturistaComponent } from './capturista/capturista.component';
     TorneosComponent,
     FooterComponent,
     InicioComponent,
+    TorneoIndividualComponent,
     LcontactoComponent,
     AdminComponent,
     CapturistaComponent
