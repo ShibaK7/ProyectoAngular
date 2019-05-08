@@ -8,18 +8,18 @@ import { RankingFemeninoComponent } from './ranking/ranking-femenino/ranking-fem
 import { ResultadosComponent } from './resultados/resultados.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { CapturistaComponent } from './capturista/capturista.component';
+import { RegistroComponent } from './capturista/registro/registro.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'ranking', component: RankingComponent },
   { path: 'masculino/:id', component: RankingMasculinoComponent },
   { path: 'femenino/:id', component: RankingFemeninoComponent},
-  { path: 'masculino/:id', component: RankingMasculinoComponent },
-  { path: 'femenino/:id', component: RankingFemeninoComponent},
   { path: 'inicio', component: InicioComponent},
   { path: 'resultados', component: ResultadosComponent },
   { path: 'contacto', component: LcontactoComponent },
-  { path: 'capturista', component: CapturistaComponent }
+  { path: 'capturista', component: CapturistaComponent },
+  { path: 'registro/:id', component: RegistroComponent }
 ];
 
 @NgModule({

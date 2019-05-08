@@ -26,7 +26,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { CapturistaComponent } from './capturista/capturista.component';
 import { UserbarComponent } from './userbar/userbar.component';
-import { RegistroComponent } from './registro/registro.component';
+import { RegistroComponent } from './capturista/registro/registro.component';
 
 
 
