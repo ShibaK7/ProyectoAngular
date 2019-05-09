@@ -1,3 +1,9 @@
-<p>
-  inscripcion works!
-</p>
+<app-userbar [usuario]='"capturista"'></app-userbar>
+
+<div class="container fluid">
+  <div class="row">
+    <div class="col-10 mx-auto mt-5" *ngIf="competencia.tipoCompetencia==2">
+      <app-inscripcion-individual-femenino [competencia]='competencia'></app-inscripcion-individual-femenino>
+    </div>
+  </div>
+</div>

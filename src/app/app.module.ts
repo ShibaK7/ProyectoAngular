@@ -28,6 +28,8 @@ import { CapturistaComponent } from './capturista/capturista.component';
 import { UserbarComponent } from './userbar/userbar.component';
 import { RegistroComponent } from './capturista/registro/registro.component';
 import { InscripcionComponent } from './capturista/inscripcion/inscripcion.component';
+import { InscripcionIndividualMasculinoComponent } from './capturista/inscripcion/inscripcion-individual-masculino/inscripcion-individual-masculino.component';
+import { InscripcionIndividualFemeninoComponent } from './capturista/inscripcion/inscripcion-individual-femenino/inscripcion-individual-femenino.component';
 
 
 
@@ -51,7 +53,9 @@ import { InscripcionComponent } from './capturista/inscripcion/inscripcion.compo
     CapturistaComponent,
     UserbarComponent,
     RegistroComponent,
-    InscripcionComponent
+    InscripcionComponent,
+    InscripcionIndividualMasculinoComponent,
+    InscripcionIndividualFemeninoComponent
   ],
   imports: [
     BrowserModule,
