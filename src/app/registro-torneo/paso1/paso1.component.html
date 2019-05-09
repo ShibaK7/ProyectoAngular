@@ -1,72 +1,87 @@
 <div class="container">
+  <div [hidden]="submitted">
+    <br><br>
+    <h4>Datos del torneo</h4>
+    <form (ngSubmit)="onSubmit()" #torneoForm="ngForm">
+      <div class="row">
+        <div class="col-6">
 
-  <div class="starter-template">
-
-    <div class="row">
-
-      <div class="col-md-6 mt-5">
-
-        <form [formGroup]="contacto" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label>Nombres y Apellidos</label>
-            <input type="text" formControlName="nya" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.nya.errors }" />
-            <div *ngIf="submitted && f.nya.errors" class="invalid-feedback">
-              <div *ngIf="f.nya.errors.required">Por favor, ingresa tus Nombres y Apellidos</div>
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required [(ngModel)]="model.nombre" name="nombre"
+              #nombre="ngModel">
+            <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">Campo obligatorio</div>
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="sede">Sede</label>
+                <select class="form-control" id="sede" [(ngModel)]="model.sede" name="sede">
+                  <option *ngFor="let sed of sedes" [value]="sed">{{sed}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="cancha">Tipo de cancha</label>
+                <select class="form-control" id="cancha" [(ngModel)]="model.cancha" name="cancha">
+                  <option *ngFor="let canch of canchas" [value]="canch">{{canch}}</option>
+                </select>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="text" formControlName="email" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-              <div *ngIf="f.email.errors.required">El email es obligatorio</div>
-              <div *ngIf="f.email.errors.email">Por favor, ingresa tu Email</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Asunto</label>
-            <input type="text" formControlName="asunto" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.asunto.errors }" />
-            <div *ngIf="submitted && f.asunto.errors" class="invalid-feedback">
-              <div *ngIf="f.asunto.errors.required">Por favor, ingresa el Asunto</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="postre"> Postre</label>
-            <select class="form-control" formControlName="postre"
-              [ngClass]="{ 'is-invalid': submitted && f.postre.errors }">
-              <option value="">Seleccionar</option>
-              <option value="Crema Volteada">Crema Volteada</option>
-              <option value="Gelatina de Fresa">Gelatina de Fresa</option>
-              <option value="Keke de Naranja">Keke de Naranja</option>
-              <option value="Pie de Manzana">Pie de Manzana</option>
-              <option value="Torta de Chocolate">Torta de Chocolate</option>
 
-            </select>
-            <div *ngIf="submitted && f.postre.errors" class="invalid-feedback">
-              <div *ngIf="f.postre.errors.required">Por favor, Selecciona el Postre</div>
-            </div>
-          </div>
           <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea class="form-control" formControlName="mensaje" rows="3"
-              [ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }"></textarea>
-            <div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
-              <div *ngIf="f.mensaje.errors.required">Por favor, ingresa el Mensaje ( 6 Caracteres mínimo )</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <button [disabled]="loading" class="btn btn-primary">Aceptar</button>
+            <label for="descripcion">Descripción</label>
+            <input type="text" style="width:528px;height:200px" class="form-control" id="descripcion" required
+              [(ngModel)]="model.descripcion" name="descripcion" #descripcion="ngModel">
+            <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger">Campo obligatorio</div>
           </div>
 
-        </form>
+          <button type="submit" class="btn btn-success" [disabled]="!torneoForm.form.valid">Registrar</button>
+          <button type="button" class="btn btn-default" (click)="newTorneo(); torneoForm.reset()">Nuevo Torneo</button>
+        </div>
+
+
+        <div class="col-6">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required [(ngModel)]="model.nombre" name="nombre"
+              #nombre="ngModel">
+            <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">Campo obligatorio</div>
+          </div>
+        </div>
 
       </div>
-
-
-    </div>
-
+    </form>
   </div>
 
+
+  <div [hidden]="!submitted">
+    <h2>Torneo registrado</h2>
+    <div class="row">
+      <div class="col-xs-3">Nombre</div>
+      <div class="col-xs-9">{{ model.nombre }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">Descripción</div>
+      <div class="col-xs-9">{{ model.descripcion }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">Sede</div>
+      <div class="col-xs-9">{{ model.sede }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">Tipo de canchha</div>
+      <div class="col-xs-9">{{ model.cancha }}</div>
+    </div>
+    <br>
+
+    <button class="btn btn-primary" (click)="submitted=false">Regresar</button>
+  </div>
 </div>
