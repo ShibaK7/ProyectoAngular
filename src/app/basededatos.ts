@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService } from "angular-in-memory-web-api";
+import { Inscrito } from "./inscrito";
 
 @Injectable({ providedIn: 'root' })
 export class InMemoryInformacionService implements InMemoryDbService {
@@ -26,6 +27,7 @@ export class InMemoryInformacionService implements InMemoryDbService {
       { id: 19, ranking: 19, nacionalidad: "Francia", nombre: "Gael Monfils", edad: 32, puntos: 1875, torneosJugados: 21, foto: "./assets/jugadores/GaelMonfils.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 20, ranking: 20, nacionalidad: "Canada", nombre: "Denis Shapovalov", edad: 19, puntos: 1820, torneosJugados: 27, foto: "./assets/jugadores/DenisShapovalov.JPG", biografia: "", torneos: "", curiosidad: "" }
     ];
+
     const JUGADORAS = [
       { id: 1, ranking: 1, nacionalidad: "Japon", nombre: "Naomi Osaka", edad: 21, foto: "./assets/jugadoras/NaomiOsaka.JPG", biografia: "Naomi Osaka (Osaka, Japón; 16 de octubre de 1997) es una jugadora de tenis. Tiene doble nacionalidad (estadounidense y japonesa), reside permanentemente en Florida, Estados Unidos, pero compite representando a Japón. Hija de padre haitiano y madre japonesa. Es la hermana menor de Mari Osaka, quien es también jugadora de tenis profesional.", torneos: "A pesar de su corta carrera incursionando en el amplio círculo del tenis profesional (5 años), Naomi ha logrado obtener 3 títulos de alto renombre, 2 Gran Slam y el Premier Mandatory.", curiosidad: "En el primer Grand Slam de 2019, el Australian Open, Osaka alcanzó su segundo título de esta categoría, y de forma consecutiva. Derrotó a Petra Kvitova en la final por 7-6, 5-7, 6-4 y, además, alcanzó por primera vez en su carrera el primer puesto del escalafón mundial. Se convertiría así en la 26ª número 1 de la historia, primera japonesa en lograrlo, así como también, la primera asiática en lograrlo." },
       { id: 2, ranking: 2, nacionalidad: "Rumania", nombre: "Simona Halep", edad: 27, foto: "./assets/jugadoras/SimonaHalep.JPG", biografia: "Simona Halep (Constanza, Rumania, 27 de septiembre de 1991). El padre de Halep, Stere, dirige una fábrica de queso y leche.​ Simona comenzó a jugar al tenis a los cuatro años, emulando a su hermano mayor.", torneos: "Ganadora en una ocasión de Roland Garros, siendo este uno de los 18 torneos avalados por la WTA que ha ganado en su carrera. Además ha ganado seis torneos de categorías juveniles.", curiosidad: "En una entrevista posterior a un partido con Serena Williams en Wimbledon 2011, la tenista estadounidense comentó que Halep \"sirve bien para su altura... Tiene mucho poder en su servicio\"." },
@@ -48,6 +50,7 @@ export class InMemoryInformacionService implements InMemoryDbService {
       { id: 19, ranking: 19, nacionalidad: "España", nombre: "Garbiñe Muguruza", edad: 25, foto: "./assets/jugadoras/GarbiñeMuguruza.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 20, ranking: 20, nacionalidad: "Suiza", nombre: "Belinda Bencic", edad: 22, foto: "./assets/jugadoras/BelindaBencic.JPG", biografia: "", torneos: "", curiosidad: "" }
     ];
+
     const INDIVIDUALES = [
       { id: 1, genero: "masculino", torneo: "Qatar ExxonMobil Open", bandera1:"../assets/banderas/italia.png", jugador1: "Jannik Sinner", bandera2: "../assets/banderas/hungria.png", jugador2: "Mate Valkuz", j1s1:6, j2s1:2, j1s2:0, j2s2:6, j1s3:6, j2s3:4, j1s4:null, j2s4:null, j1s5:null, j2s5:null},
       { id: 2, genero: "masculino", torneo: "Qatar ExxonMobil Open", bandera1:"../assets/banderas/serbia.png", jugador1: "Filip Krajinovic", bandera2: "../assets/banderas/italia.png", jugador2: "Andreas Seppi", j1s1:6, j2s1:2, j1s2:5, j2s2:7, j1s3:7, j2s3:5, j1s4:null, j2s4:null, j1s5:null, j2s5:null},
@@ -105,6 +108,7 @@ export class InMemoryInformacionService implements InMemoryDbService {
 
 
     ];
+
     const TORNEOS = [
       { id:1, nombreTorneo: "ASB Classic", nacionalidad: "Auckland, New Zealand", fechaInicio: "2019.01.07", fechaFinal: "2019.01.12", tipoCancha: "Dura Exterior", descripcion: "El ASB Classic es el evento deportivo profesional masculino más importante de Nueva Zelanda y se celebra en Auckland desde 1956.",financiamientoTotal: "$589,680", titulo: "El Orgullo De Nueva Zelanda", informacion: "El ASB Classic es el evento deportivo profesional masculino más importante de Nueva Zelanda y se celebra en Auckland desde 1956. Jugado en la semana anterior al Abierto de Australia, el evento ATP World Tour 250 es una parada crucial en la preparación para el primer Grand Slam del año. torneo. David Ferrer llegó a las semifinales de Melbourne en 2011 y '13 luego de ganar dos de sus cuatro títulos de Auckland." ,foto: "../../../assets/img/estadio-8.jpg"},
       { id:2, nombreTorneo: "Sydney International", nacionalidad: "Sydney, Australia", fechaInicio: "2019.01.06", fechaFinal: "2019.01.12",tipoCancha: "Dura Exterior", descripcion: "El Internacional de Sydney tiene una rica historia, que se remonta a 1885 cuando los funcionarios coloniales lo utilizaron como un medio para seleccionar el equipo de la Copa Davis.", titulo: "Sydney, Internacional", financiamientoTotal: "$589,680", informacion: "El Internacional de Sydney tiene una rica historia, que se remonta a 1885 cuando los funcionarios coloniales lo utilizaron como un medio para seleccionar el equipo de la Copa Davis. Hoy, Sydney recibe a los mejores jugadores masculinos y femeninos del mundo en la semana anterior al Abierto de Australia. Lleyton Hewitt emocionó a los fanáticos de su ciudad natal al ganar títulos en cuatro apariciones consecutivas en torneos, de 2000-01 y 2004-05. El australiano Bernard Tomic ganó su primer título ATP World Tour aquí en 2013." ,foto: "../../../assets/img/estadio-7.jpg" },
@@ -127,6 +131,69 @@ export class InMemoryInformacionService implements InMemoryDbService {
       { id:19, nombreTorneo: "China Open", nacionalidad: "Beijing, China", fechaInicio: "2019.09.30",  fechaFinal: "2019.10.06", tipoCancha: "Dura Exterior",descripcion: "El Centro Olímpico de Tenis Verde de Beijing, construido para los Juegos Olímpicos de 2008, es el lugar para el Abierto de China.",financiamientoTotal: "$3,666,275", titulo: "ATP Elite Compite En Olympic Grounds", informacion: "El Centro Olímpico de Tenis Verde de Beijing, construido para los Juegos Olímpicos de 2008, es el lugar para el Abierto de China. En 2011, el centro se expandió a 11 canchas. El lugar también cuenta con un estadio de 15,000 asientos con un techo retráctil, llamado Diamond Court debido a su parecido. El centro de tenis emplea tecnología de refrigeración por aire de la era espacial para beneficiar a los jugadores y espectadores." ,foto: "../../../assets/img/estadio-25_China_Open.jpg" },
       { id:20, nombreTorneo: "Rakuten Japan Open Tennis Championships", nacionalidad: "Tokyo, Japan", fechaInicio: "2019.09.30",  fechaFinal: "2019.10.06", tipoCancha: "Bajo Techo",descripcion: "El Rakuten Japan Open Tennis Championships es el torneo ATP Tour más antiguo de Asia, celebrado por primera vez en 1972.",financiamientoTotal: "$2,046,340", titulo: "El tenis asiático tiene raíces en la tierra del sol naciente", informacion: "El Rakuten Japan Open Tennis Championships es el torneo ATP Tour más antiguo de Asia, celebrado por primera vez en 1972. El torneo ATP 500 se juega en el Ariake Colosseum, un amplio centro de tenis con 48 canchas y un estadio con uno de los primeros techos retráctiles. en el tenis En preparación para los Juegos Olímpicos de 2020, el evento de 2018 se celebró en el interior en el Musushino Forest Sport Plaza. Kei Nishikori de Japón ganó los títulos de 2012 y 2014." ,foto: "../../../assets/img/estadio-26_Rakuten_Japan_Open_Tennis_Championships.jpg" }
     ];
-    return { JUGADORES, JUGADORAS, INDIVIDUALES, DOBLES, TORNEOS };
+
+    const COMPETENCIAS = [
+      /*
+        tipoCompetencia {
+          1: individual masculino
+          2: individual femenino
+          3: dobles masculino
+          4: dobles femenino
+          5: dobles mixto
+        }
+        categoria {
+          1: U-18
+          2: U-21
+          3: Profesional
+        }
+      */
+      {id: 1, tipoCompetencia: 1, torneo: "Roland Garros", cupo: 16, lugaresOcupados: 16, categoria: 1, costoInscripcion: 2500, premioPrimerLugar: 10000, premioSegundoLugar: 7500, premioTercerLugar: 5000 },
+      {id: 2, tipoCompetencia: 2, torneo: "Roland Garros", cupo: 16, lugaresOcupados: 1, categoria: 2, costoInscripcion: 2500, premioPrimerLugar: 10000, premioSegundoLugar: 7500, premioTercerLugar: 5000 },
+      {id: 3, tipoCompetencia: 3, torneo: "US Open", cupo: 8, lugaresOcupados: 0, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 15000, premioSegundoLugar: 10000, premioTercerLugar: 5000 },
+      {id: 4, tipoCompetencia: 4, torneo: "US Open", cupo: 8, lugaresOcupados: 8, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 15000, premioSegundoLugar: 10000, premioTercerLugar: 5000 },
+      {id: 5, tipoCompetencia: 5, torneo: "Roland Garros", cupo: 4, lugaresOcupados: 0, categoria: 3, costoInscripcion: 3500, premioPrimerLugar: 10000, premioSegundoLugar: 8000, premioTercerLugar: 6000 }
+    ];
+
+    const INSCRITOS = [
+      {id: 1, idCompetencia: 1, nombreJugador: "Novak Djokovic", nombreJugadora: null, equipo: null},
+      {id: 2, idCompetencia: 1, nombreJugador: "Rafael Nadal", nombreJugadora: null, equipo: null},
+      {id: 3, idCompetencia: 1, nombreJugador: "Alexander Zverev", nombreJugadora: null, equipo: null},
+      {id: 4, idCompetencia: 1, nombreJugador: "Roger Federer", nombreJugadora: null, equipo: null},
+      {id: 5, idCompetencia: 1, nombreJugador: "Dominic Thiem", nombreJugadora: null, equipo: null},
+      {id: 6, idCompetencia: 1, nombreJugador: "Kevin Anderson", nombreJugadora: null, equipo: null},
+      {id: 7, idCompetencia: 1, nombreJugador: "Stefanos Tsitsipas", nombreJugadora: null, equipo: null},
+      {id: 8, idCompetencia: 1, nombreJugador: "Juan Martin del Potro", nombreJugadora: null, equipo: null},
+      {id: 9, idCompetencia: 1, nombreJugador: "John Isner", nombreJugadora: null, equipo: null},
+      {id: 10, idCompetencia: 1, nombreJugador: "Marin Cilic", nombreJugadora: null, equipo: null},
+      {id: 11, idCompetencia: 1, nombreJugador: "Karen Khachanov", nombreJugadora: null, equipo: null},
+      {id: 12, idCompetencia: 1, nombreJugador: "Borna Coric", nombreJugadora: null, equipo: null},
+      {id: 13, idCompetencia: 1, nombreJugador: "Milos Raonic", nombreJugadora: null, equipo: null},
+      {id: 14, idCompetencia: 1, nombreJugador: "Marco Cecchinato", nombreJugadora: null, equipo: null},
+      {id: 15, idCompetencia: 1, nombreJugador: "Fabio Fognini", nombreJugadora: null, equipo: null},
+      {id: 16, idCompetencia: 1, nombreJugador: "Denis Shapovalov", nombreJugadora: null, equipo: null},
+      {id: 17, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Qiang Wang", equipo: "Federación Asiática"},
+      {id: 18, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Naomi Osaka", equipo: "Federación Asiática"},
+      {id: 19, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Petra Kvitova", equipo: "Federación Checa"},
+      {id: 20, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Karolina Pliskova", equipo: "Federación Checa"},
+      {id: 21, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Serena Williams", equipo: "Federación Estado Unidense"},
+      {id: 22, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Madison Keys", equipo: "Federación Estado Unidense"},
+      {id: 23, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Julia Goerges", equipo: "Federación Alemana"},
+      {id: 24, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Angelique Kerber", equipo: "Federación Alemana"},
+      {id: 25, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Garbiñe Muguruza", equipo: "Federación Peninsular"},
+      {id: 26, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Kiki Bertens", equipo: "Federación Peninsular"},
+      {id: 27, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Anett Kontaveit", equipo: "Federación Onia"},
+      {id: 28, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Anastasija Sevastova", equipo: "Federación Onia"},
+      {id: 29, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Belinda Bencic", equipo: "Federación Belza"},
+      {id: 30, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Elise Mertens", equipo: "Federación Belza"},
+      {id: 31, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Simona Halep", equipo: "Federación Dinamania"},
+      {id: 32, idCompetencia: 4, nombreJugador: null, nombreJugadora: "Caroline Wozniacki", equipo: "Federación Dinamania"},
+      {id: 33, idCompetencia: 2, nombreJugador: null, nombreJugadora: "Naomi Osaka", equipo: null}
+    ];
+
+    return { JUGADORES, JUGADORAS, INDIVIDUALES, DOBLES, COMPETENCIAS, INSCRITOS, TORNEOS };
+  }
+
+  generarIdInscrito(INSCRITOS: Inscrito[]): number {
+    return INSCRITOS.length > 0 ? Math.max(...INSCRITOS.map(insctrito => insctrito.id)) + 1 : 1;
   }
 }

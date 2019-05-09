@@ -27,7 +27,11 @@ import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-in
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { AdminComponent } from './admin/admin.component';
 import { CapturistaComponent } from './capturista/capturista.component';
-
+import { UserbarComponent } from './userbar/userbar.component';
+import { RegistroComponent } from './capturista/registro/registro.component';
+import { InscripcionComponent } from './capturista/inscripcion/inscripcion.component';
+import { InscripcionIndividualMasculinoComponent } from './capturista/inscripcion/inscripcion-individual-masculino/inscripcion-individual-masculino.component';
+import { InscripcionIndividualFemeninoComponent } from './capturista/inscripcion/inscripcion-individual-femenino/inscripcion-individual-femenino.component';
 
 
 
@@ -48,9 +52,14 @@ import { CapturistaComponent } from './capturista/capturista.component';
     FooterComponent,
     InicioComponent,
     TorneoIndividualComponent,
-    LcontactoComponent,
     AdminComponent,
-    CapturistaComponent
+    LcontactoComponent,
+    CapturistaComponent,
+    UserbarComponent,
+    RegistroComponent,
+    InscripcionComponent,
+    InscripcionIndividualMasculinoComponent,
+    InscripcionIndividualFemeninoComponent
   ],
   imports: [
     BrowserModule,
