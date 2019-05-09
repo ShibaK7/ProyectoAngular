@@ -1,3 +1,116 @@
-<p>
-  registro works!
-</p>
+<app-userbar [usuario]='"capturista"'></app-userbar>
+
+<div class="container fluid mt-5">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class="table" *ngIf="competencia.tipoCompetencia < 3">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th class="text-center" colspan="4">
+              <h1>Torneo: {{competencia.torneo}} </h1>
+            </th>
+          </tr>
+          <tr>
+            <th *ngIf="competencia.tipoCompetencia===1" colspan="2" class="text-center">
+              Modalidad: Individual Masculino
+            </th>
+            <th *ngIf="competencia.tipoCompetencia===2" colspan="2" class="text-center">
+              Modalidad: Individual Femenino
+            </th>
+            <th *ngIf="competencia.categoria===1" colspan="2" class="text-center">
+              Categoría: U-18
+            </th>
+            <th *ngIf="competencia.categoria===2" colspan="2" class="text-center">
+              Categoría: U-21
+            </th>
+            <th *ngIf="competencia.categoria===3" colspan="2" class="text-center">
+              Categoría: Profesional
+            </th>
+          </tr>
+          <tr>
+            <th colspan="2" class="text-center">
+              Id Registro
+            </th>
+            <th colspan="2" class="text-center">
+              Tenista
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inscrito of listaCompetidores">
+            <td colspan="2" class="text-center">
+              {{inscrito.id}}
+            </td>
+            <td *ngIf="inscrito.nombreJugador!=null" colspan="2" class="text-center">
+              {{inscrito.nombreJugador}}
+            </td>
+            <td *ngIf="inscrito.nombreJugadora!=null" colspan="2" class="text-center">
+              {{inscrito.nombreJugadora}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table" *ngIf="competencia.tipoCompetencia >= 3">
+          <thead class="bg-dark text-white">
+            <tr>
+              <th class="text-center" colspan="6">
+                <h1>Torneo: {{competencia.torneo}} </h1>
+              </th>
+            </tr>
+            <tr>
+              <th *ngIf="competencia.tipoCompetencia===3" colspan="3" class="text-center">
+                Modalidad: Dobles Masculino
+              </th>
+              <th *ngIf="competencia.tipoCompetencia===4" colspan="3" class="text-center">
+                Modalidad: Dobles Femenino
+              </th>
+              <th *ngIf="competencia.tipoCompetencia===5" colspan="3" class="text-center">
+                Modalidad: Dobles Mixto
+              </th>
+              <th *ngIf="competencia.categoria===1" colspan="3" class="text-center">
+                Categoría: U-18
+              </th>
+              <th *ngIf="competencia.categoria===2" colspan="3" class="text-center">
+                Categoría: U-21
+              </th>
+              <th *ngIf="competencia.categoria===3" colspan="3" class="text-center">
+                Categoría: Profesional
+              </th>
+            </tr>
+            <tr>
+                <th colspan="2" class="text-center">
+                  Id Registro
+                </th>
+                <th colspan="2" class="text-center">
+                  Tenista
+                </th>
+                <th colspan="2" class="text-center">
+                  Equipo
+                </th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let inscrito of listaCompetidores">
+              <td colspan="2" class="text-center">
+                {{inscrito.id}}
+              </td>
+              <td *ngIf="inscrito.nombreJugador!=null" colspan="2" class="text-center">
+                {{inscrito.nombreJugador}}
+              </td>
+              <td *ngIf="inscrito.nombreJugadora!=null" colspan="2" class="text-center">
+                {{inscrito.nombreJugadora}}
+              </td>
+              <td *ngIf="inscrito.equipo!=null" colspan="2" class="text-center">
+                {{inscrito.equipo}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1 mx-auto">
+      <a routerLink="/capturista" class="btn btn-generico mt-5">Regresar</a>
+    </div>
+  </div>
+</div>

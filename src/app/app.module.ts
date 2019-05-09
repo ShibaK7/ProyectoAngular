@@ -27,6 +27,7 @@ import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { CapturistaComponent } from './capturista/capturista.component';
 import { UserbarComponent } from './userbar/userbar.component';
 import { RegistroComponent } from './capturista/registro/registro.component';
+import { InscripcionComponent } from './capturista/inscripcion/inscripcion.component';
 
 
 
@@ -49,7 +50,8 @@ import { RegistroComponent } from './capturista/registro/registro.component';
     LcontactoComponent,
     CapturistaComponent,
     UserbarComponent,
-    RegistroComponent
+    RegistroComponent,
+    InscripcionComponent
   ],
   imports: [
     BrowserModule,

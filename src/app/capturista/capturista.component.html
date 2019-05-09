@@ -54,7 +54,7 @@
         <p class="card-text">Inscripción: {{competencia.costoInscripcion | currency}}</p>
         <div class="col-8 mx-auto">
           <a routerLink="/registro/{{competencia.id}}" class="card-link">Jugadores Inscritos</a>
-          <a routerLink="/capturista" class="card-link" *ngIf="competencia.lugaresOcupados<competencia.cupo">Registrar</a>
+          <a routerLink="/inscripcion/{{competencia.id}}" class="card-link" *ngIf="competencia.lugaresOcupados<competencia.cupo">Registrar</a>
         </div>
       </div>
     </div>
