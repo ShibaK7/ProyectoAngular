@@ -42,6 +42,11 @@
           </label>
           <input type="text" formControlName="nombreEquipo" class="ml-2">
           <button type="sumbit" class="btn btn-generico ml-2">Verificar</button>
+          <p>
+            <span style="color:#2C6971;" class="form-control"
+              *ngIf="todoForm.controls['nombreEquipo'].touched && todoForm.controls['nombreEquipo'].errors?.required">Nombre
+              de Equipo no indicado</span>
+          </p>
         </div>
       </div>
       <div class="row">
@@ -96,7 +101,7 @@
         </button>
       </div>
       <div class="modal-body">
-        ¿Desea realizar el registro de este jugador?
+        ¿Desea realizar el registro de este equipo?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

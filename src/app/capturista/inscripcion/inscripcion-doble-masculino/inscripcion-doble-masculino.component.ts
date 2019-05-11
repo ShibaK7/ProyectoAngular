@@ -153,7 +153,7 @@ export class InscripcionDobleMasculinoComponent implements OnInit {
       inscrito2 => this.jugadoresInscritos.push(inscrito2)
     )
 
-    this.competencia.lugaresOcupados = this.competencia.lugaresOcupados + 2;
+    this.competencia.lugaresOcupados = this.competencia.lugaresOcupados + 1;
 
     this.competenciaService.updateCompetencia(this.competencia).subscribe(
       () => this.goBack()

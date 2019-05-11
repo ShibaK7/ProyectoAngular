@@ -1,3 +1,108 @@
-<p>
-  inscripcion-doble-mixto works!
-</p>
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="card bg-dark text-white col-12 text-center">
+      <div class="row">
+        <div class="card-header mx-auto col-6">
+          <label>
+            Número Afiliación del Jugador:
+          </label>
+          <input type="number" formControlName="campoRegistro1" class="ml-2">
+          <p>
+            <span style="color:#2C6971;" class="form-control"
+              *ngIf="todoForm.controls['campoRegistro1'].touched && todoForm.controls['campoRegistro1'].errors?.required">Número
+              de afiliación no indicado</span>
+            <span style="color:#2C6971;" *ngIf="errorIndicado1==1" class="form-control">No se encontró al jugador
+              indicado</span>
+            <span style="color:#2C6971;" *ngIf="errorIndicado1==2" class="form-control">El jugador indicado ya está
+              inscrito en esta competencia</span>
+          </p>
+        </div>
+        <div class="card-header mx-auto col-6">
+          <label>
+            Número Afiliación de la Jugadora:
+          </label>
+          <input type="number" formControlName="campoRegistro2" class="ml-2">
+          <p>
+            <span style="color:#2C6971;" class="form-control"
+              *ngIf="todoForm.controls['campoRegistro2'].touched && todoForm.controls['campoRegistro2'].errors?.required">Número
+              de afiliación no indicado</span>
+            <span style="color:#2C6971;" *ngIf="errorIndicado2==1" class="form-control">No se encontró a la jugadora
+              indicada</span>
+            <span style="color:#2C6971;" *ngIf="errorIndicado2==2" class="form-control">La jugadora indicada ya está
+              inscrita en esta competencia</span>
+          </p>
+        </div>
+        <div class="card-header mx-auto col-12">
+          <label>
+            Nombre Equipo:
+          </label>
+          <input type="text" formControlName="nombreEquipo" class="ml-2">
+          <button type="sumbit" class="btn btn-generico ml-2">Verificar</button>
+          <p>
+            <span style="color:#2C6971;" class="form-control"
+              *ngIf="todoForm.controls['nombreEquipo'].touched && todoForm.controls['nombreEquipo'].errors?.required">Nombre
+              de Equipo no indicado</span>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card-body mx-auto col-6">
+          <img src="{{jugadorEncontrado.foto}}" class="card-img-top rounded">
+          <p class="text-center h4" *ngIf="jugadorEncontrado.nombre!=null">
+            Nombre: {{jugadorEncontrado.nombre}}
+          </p>
+          <p class="text-center h4" *ngIf="jugadorEncontrado.nombre!=null">
+            Nacionalidad: {{jugadorEncontrado.nacionalidad}}
+          </p>
+          <p class="text-center h4" *ngIf="jugadorEncontrado.nombre!=null">
+            Edad: {{jugadorEncontrado.edad}} años
+          </p>
+        </div>
+        <div class="card-body mx-auto col-6">
+          <img src="{{jugadoraEncontrada.foto}}" class="card-img-top rounded">
+          <p class="text-center h4" *ngIf="jugadoraEncontrada.nombre!=null">
+            Nombre: {{jugadoraEncontrada.nombre}}
+          </p>
+          <p class="text-center h4" *ngIf="jugadoraEncontrada.nombre!=null">
+            Nacionalidad: {{jugadoraEncontrada.nacionalidad}}
+          </p>
+          <p class="text-center h4" *ngIf="jugadoraEncontrada.nombre!=null">
+            Edad: {{jugadoraEncontrada.edad}} años
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card-footer col-12 mx-auto">
+          <button *ngIf="todoForm.invalid || errorIndicado1!==0 || errorIndicado2!==0" class="btn btn-generico"
+            [disabled]="todoForm.invalid || errorIndicado1!==0 || errorIndicado2!==0">Inscribir</button>
+          <button *ngIf="!todoForm.invalid && errorIndicado1===0 && errorIndicado2===0" class="btn btn-generico"
+            data-toggle="modal" data-target="#exampleModal"
+            [disabled]="todoForm.invalid || errorIndicado1!==0 || errorIndicado2!==0">Inscribir</button>
+          <button class="btn btn-generico ml-3" routerLink="/capturista">Regresar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmación Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Desea realizar el registro de este equipo?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="registrar()" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>

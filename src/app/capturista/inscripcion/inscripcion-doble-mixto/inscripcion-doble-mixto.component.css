@@ -7,3 +7,7 @@
   .btn-generico:hover {
     background-color: #48B48F;
   }
+
+  img {
+    height: 200px;
+  }
