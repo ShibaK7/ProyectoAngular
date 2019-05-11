@@ -27,6 +27,8 @@ import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-in
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { AdminComponent } from './admin/admin.component';
 import { CapturistaComponent } from './capturista/capturista.component';
+import { AdministracionComponent } from './otros/administracion/administracion.component';
+import { CompetenciasComponent } from './otros/competencias/competencias.component';
 
 
 
@@ -50,7 +52,9 @@ import { CapturistaComponent } from './capturista/capturista.component';
     TorneoIndividualComponent,
     LcontactoComponent,
     AdminComponent,
-    CapturistaComponent
+    CapturistaComponent,
+    AdministracionComponent,
+    CompetenciasComponent
   ],
   imports: [
     BrowserModule,

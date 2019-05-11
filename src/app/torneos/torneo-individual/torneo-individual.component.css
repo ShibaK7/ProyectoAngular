@@ -58,3 +58,9 @@
     /* .heading-secondary:hover {
       transform: skewY(2deg) skewX(15deg) scale(1.1);
       text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); } */
+
+.aux {
+  margin-left: 116px;
+  margin-right: 116px;
+
+}

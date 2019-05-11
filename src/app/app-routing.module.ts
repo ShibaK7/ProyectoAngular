@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { InicioComponent } from './inicio/inicio.component';
@@ -13,6 +13,8 @@ import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { AdminComponent } from './admin/admin.component'
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { CapturistaComponent } from './capturista/capturista.component';
+import { AdministracionComponent } from './otros/administracion/administracion.component';
+import { CompetenciasComponent } from './otros/competencias/competencias.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: 'torneo-individual/:id', component: TorneoIndividualComponent},
   { path: 'contacto', component: LcontactoComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'capturista', component: CapturistaComponent}
+  { path: 'capturista', component: CapturistaComponent},
+  { path: 'admonAux', component: AdministracionComponent},
+  { path: 'competencias/:id', component: CompetenciasComponent }
 ];
 
 @NgModule({
