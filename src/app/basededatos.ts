@@ -23,7 +23,7 @@ export class InMemoryInformacionService implements InMemoryDbService {
       { id: 15, ranking: 15, nacionalidad: "Canada", nombre: "Milos Raonic", edad: 28, puntos: 2140, torneosJugados: 21, foto: "./assets/jugadores/MilosRaonic.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 16, ranking: 16, nacionalidad: "Italia", nombre: "Marco Cecchinato", edad: 26, puntos: 2021, torneosJugados: 29, foto: "./assets/jugadores/MarcoCecchinato.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 17, ranking: 17, nacionalidad: "Georgia", nombre: "Nikoloz Basilashvili", edad: 27, puntos: 1930, torneosJugados: 29, foto: "./assets/jugadores/NikolozBasilashvili.JPG", biografia: "", torneos: "", curiosidad: "" },
-      { id: 18, ranking: 18, nacionalidad: "Italia", nombre: "Fabio Fognini", edad: 31, puntos: 1885, torneosJugados: 25, foto: "./assets/jugadores/FabioFogini.JPG", biografia: "", torneos: "", curiosidad: "" },
+      { id: 18, ranking: 18, nacionalidad: "Italia", nombre: "Fabio Fognini", edad: 31, puntos: 1885, torneosJugados: 25, foto: "./assets/jugadores/FabioFognini.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 19, ranking: 19, nacionalidad: "Francia", nombre: "Gael Monfils", edad: 32, puntos: 1875, torneosJugados: 21, foto: "./assets/jugadores/GaelMonfils.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 20, ranking: 20, nacionalidad: "Canada", nombre: "Denis Shapovalov", edad: 19, puntos: 1820, torneosJugados: 27, foto: "./assets/jugadores/DenisShapovalov.JPG", biografia: "", torneos: "", curiosidad: "" }
     ];

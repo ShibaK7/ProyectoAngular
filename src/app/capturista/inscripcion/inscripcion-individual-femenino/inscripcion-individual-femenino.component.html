@@ -1,6 +1,6 @@
 <form [formGroup]="todoForm">
-  <div class="card bg-dark text-white">
-    <div class="card-header mx-auto">
+  <div class="card bg-dark text-white text-center">
+    <div class="card-header mx-auto col-12">
       <label>
         Número Afiliación de la Jugadora:
       </label>
@@ -16,7 +16,7 @@
           en esta competencia</span>
       </p>
     </div>
-    <div class="card-body mx-auto">
+    <div class="card-body mx-auto col-12">
       <img src="{{jugadoraEncontrada.foto}}" class="card-img-top rounded">
       <p class="text-center h4" *ngIf="jugadoraEncontrada.nombre!=null">
         Nombre: {{jugadoraEncontrada.nombre}}
@@ -28,7 +28,7 @@
         Edad: {{jugadoraEncontrada.edad}} años
       </p>
     </div>
-    <div class="card-footer mx-auto">
+    <div class="card-footer mx-auto col-12">
       <button *ngIf="todoForm.invalid || errorIndicado!==0" class="btn btn-generico"
         [disabled]="todoForm.invalid || errorIndicado!==0">Inscribir</button>
       <button *ngIf="!todoForm.invalid && errorIndicado==0" class="btn btn-generico" data-toggle="modal"
