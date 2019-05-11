@@ -1,1 +1,96 @@
-<h1>Admin</h1>
+<app-userbar [usuario]='nombre'></app-userbar>
+
+<div class="container-fluid">
+
+</div>
+
+<div class="container-fluid mt-5">
+  <div class="row my-5" id="filtradoPrincipal">
+    <div class="col-10 ml-5">
+      <div class="btn-toolbar">
+        <div class="select" aria-label="Selección de Torneos">
+          <select (change)="cambiarTorneoSeleccionado($event.target.value)" id="select">
+            <option value=""> Todos los Torneos </option>
+            <option *ngFor="let torneo of torneosCompetencias" value="{{torneo}}"> {{torneo}} </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card-competencia my-3 col-5 mx-auto" *ngFor="let competencia of competencias">
+      <div class="card-body col-12">
+        <h2 class="card-title">{{competencia.torneo}}</h2>
+        <!--Eleccion de tipo de competencia-->
+        <div *ngIf="competencia.tipoCompetencia===1">
+          <p class="card-text">Modalidad: Individual Masculino</p>
+        </div>
+        <div *ngIf="competencia.tipoCompetencia===2">
+          <p class="card-text">Modalidad: Individual Femenino</p>
+        </div>
+        <div *ngIf="competencia.tipoCompetencia===3">
+          <p class="card-text">Modalidad: Dobles Masculino</p>
+        </div>
+        <div *ngIf="competencia.tipoCompetencia===4">
+          <p class="card-text">Modalidad: Dobles Femenino</p>
+        </div>
+        <div *ngIf="competencia.tipoCompetencia===5">
+          <p class="card-text">Modalidad: Dobles Mixto</p>
+        </div>
+        <!---------------------------------------------------------------->
+        <!--Elección tipo de categoría-->
+        <div *ngIf="competencia.categoria===1">
+          <p class="card-text">Categoría: U-18</p>
+        </div>
+        <div *ngIf="competencia.categoria===2">
+          <p class="card-text">Categoría: U-21</p>
+        </div>
+        <div *ngIf="competencia.categoria===3">
+          <p class="card-text">Categoría: Profesional</p>
+        </div>
+        <!---------------------------------------------------------------->
+        <p class="card-text">Lugares Ocupados: {{competencia.lugaresOcupados}}/{{competencia.cupo}}</p>
+        <p class="card-text">Inscripción: {{competencia.costoInscripcion | currency}}</p>
+        <div class="col-8 mx-auto">
+          <a routerLink="/enfrentamiento/{{competencia.id}}" class="card-link" *ngIf="competencia.lugaresOcupados>0">Enfrentamientos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto my-5" *ngIf="filtradoTorneo===false">
+      <button (click)="regresarPrincipio()" class="btn btn-generico mr-1 ml-1">
+        Inicio
+      </button>
+      <button (click)="regresarPagina()" class="btn btn-generico mr-1 ml-1">
+        Anterior
+      </button>
+      {{numeroPagina}} de {{totalPaginas}}
+      <button (click)="avanzarPagina()" class="btn btn-generico mr-1 ml-1">
+        Siguiente
+      </button>
+      <button (click)="avanzarFinal()" class="btn btn-generico mr-1 ml-1">
+        Final
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto my-5" *ngIf="filtradoTorneo===true">
+      <button (click)="regresarPrincipio()" class="btn btn-generico mr-1 ml-1">
+        Inicio
+      </button>
+      <button (click)="regresarPagina()" class="btn btn-generico mr-1 ml-1">
+        Anterior
+      </button>
+      {{numeroPaginaFiltrado}} de {{totalPaginasFiltrado}}
+      <button (click)="avanzarPagina()" class="btn btn-generico mr-1 ml-1">
+        Siguiente
+      </button>
+      <button (click)="avanzarFinal()" class="btn btn-generico mr-1 ml-1">
+        Final
+      </button>
+    </div>
+  </div>
+</div>

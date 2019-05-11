@@ -1,0 +1,97 @@
+.btn-generico {
+    background-color: #238A8A;
+    color: white;
+    height: 40px;
+  }
+  
+  .btn-generico:hover {
+    background-color: #48B48F;
+  }
+  
+  #filtradoPrincipal {
+    height: 40px;
+  }
+  
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #238A8A;
+    background-image: none;
+  }
+  
+  option {
+    background: #E7FEFD;
+    color: #000000;
+  }
+  
+  /* Custom Select */
+  .select {
+    position: relative;
+    display: block;
+    width: 20em;
+    height: 40px;
+    line-height: 3;
+    background: #238A8A;
+    overflow: hidden;
+    border-radius: .25em;
+  }
+  
+  select {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 0 .5em;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 1em;
+    background: #33393F;
+    pointer-events: none;
+  }
+  /* Transition */
+  .select:hover::after {
+    color: #96DB80;
+  }
+  .select::after {
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+
+  .card-competencia {
+    background: #33393F;
+    color: #FFFFFF;
+    border-radius: 3mm;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .card-competencia:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
+  }
+
+  a {
+    color: #96DB80;
+  }
+
+  a:hover {
+    color: #FFFFFF;
+  }

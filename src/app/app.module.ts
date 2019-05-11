@@ -32,6 +32,7 @@ import { RegistroComponent } from './capturista/registro/registro.component';
 import { InscripcionComponent } from './capturista/inscripcion/inscripcion.component';
 import { InscripcionIndividualMasculinoComponent } from './capturista/inscripcion/inscripcion-individual-masculino/inscripcion-individual-masculino.component';
 import { InscripcionIndividualFemeninoComponent } from './capturista/inscripcion/inscripcion-individual-femenino/inscripcion-individual-femenino.component';
+import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.component';
 
 
 
@@ -59,7 +60,8 @@ import { InscripcionIndividualFemeninoComponent } from './capturista/inscripcion
     RegistroComponent,
     InscripcionComponent,
     InscripcionIndividualMasculinoComponent,
-    InscripcionIndividualFemeninoComponent
+    InscripcionIndividualFemeninoComponent,
+    EnfrentamientoComponent
   ],
   imports: [
     BrowserModule,

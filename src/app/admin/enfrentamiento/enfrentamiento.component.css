@@ -1,0 +1,22 @@
+.btn-generico {
+    background-color: #238A8A;
+    color: white;
+    height: 40px;
+    margin: auto;
+  }
+  
+  .btn-generico:hover {
+    background-color: #48B48F;
+  }
+
+  tbody > tr:hover {
+    background-color :#D9ECE9;
+  }
+  
+  tbody > tr:hover > td {
+    color: #32606D;
+  }
+  
+  tbody > tr:hover > td > a {
+    color: #48B48F;
+  }

@@ -14,6 +14,7 @@ import { AutenticacionService } from './servicios/autenticacion.service';
 import { CapturistaComponent } from './capturista/capturista.component';
 import { RegistroComponent } from './capturista/registro/registro.component';
 import { InscripcionComponent } from './capturista/inscripcion/inscripcion.component';
+import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'capturista', component: CapturistaComponent},
   { path: 'registro/:id', component: RegistroComponent },
-  { path: 'inscripcion/:id', component: InscripcionComponent }
+  { path: 'inscripcion/:id', component: InscripcionComponent },
+  { path: 'enfrentamiento/:id', component: EnfrentamientoComponent }
 ];
 
 @NgModule({
