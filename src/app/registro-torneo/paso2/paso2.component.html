@@ -1,3 +1,17 @@
-<p>
-  paso2 works!
-</p>
+<div class="container">
+  <div [hidden]="submitted">
+    <br><br>
+    <h3>Elección de competencias</h3>
+    <form (ngSubmit)="onSubmit()" #torneoForm="ngForm">
+      
+      <div class="form-group">
+        <input type="checkbox" >Individuales Masculino<br>
+        <input type="checkbox" >Individuales Femenino<br>
+        <input type="checkbox" >Dobles Masculino<br>
+        <input type="checkbox" >Dobles Femenino<br>
+        <input type="checkbox" >Dobles Mixto<br>
+      </div>
+
+    </form>
+  </div>
+</div>

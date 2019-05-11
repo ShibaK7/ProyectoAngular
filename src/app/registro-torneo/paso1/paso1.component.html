@@ -1,3 +1,9 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+  integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+  
 <div class="container">
   <div [hidden]="submitted">
     <br><br>
@@ -34,26 +40,98 @@
           </div>
 
           <div class="form-group">
+              <label for="imagen">Imágen</label><br>
+              <img [src]="" Image acept="image/" id="imgFoto" name="imgFoto" width="520" height="200">
+              <input type="file" accept=".png,.jpg" #inputFoto name="inputFoto" hidden
+                (change)="onFileSelect($event.target.files)">
+            </div>
+            <div class="form-group">
+              <button type="button" (click)="inputFoto.click()" class="btn btn-success">Subir imágen</button>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-group">
             <label for="descripcion">Descripción</label>
-            <input type="text" style="width:528px;height:200px" class="form-control" id="descripcion" required
+            <input type="text" style="width:528px;height:140px" class="form-control" id="descripcion" required
               [(ngModel)]="model.descripcion" name="descripcion" #descripcion="ngModel">
             <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger">Campo obligatorio</div>
           </div>
 
-          <button type="submit" class="btn btn-success" [disabled]="!torneoForm.form.valid">Registrar</button>
-          <button type="button" class="btn btn-default" (click)="newTorneo(); torneoForm.reset()">Nuevo Torneo</button>
-        </div>
+          <h6>Inscripción: </h6>
+          <div class="form-row">
 
+            <div class="col">
 
-        <div class="col-6">
-          <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" required [(ngModel)]="model.nombre" name="nombre"
-              #nombre="ngModel">
-            <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">Campo obligatorio</div>
+              <label for="inscripcionInicio">Inicio</label>
+              <div class="input-group">
+                <input type="date" class="form-control" id="inscripcionInicio" required
+                  [(ngModel)]="model.inscripcionInicio" name="inscripcionInicio" #inscripcionInicio="ngModel">
+                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="inscripcionFinal">Cierre</label>
+              <div class="input-group">
+                <input type="date" class="form-control" id="inscripcionFinal" required
+                  [(ngModel)]="model.inscripcionFinal" name="inscripcionFinal" #inscripcionFinal="ngModel">
+                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+              </div>
+            </div>
           </div>
-        </div>
 
+          <br>
+          <h6>Torneo: </h6>
+          <div class="form-row">
+
+            <div class="col">
+              <label for="torneoInicio">Inicio</label>
+              <div class="input-group">
+                <input type="date" class="form-control" id="torneoInicio" required [(ngModel)]="model.torneoInicio"
+                  name="torneoInicio" #torneoInicio="ngModel">
+                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="torneoFinal">Cierre</label>
+              <div class="input-group">
+                <input type="date" class="form-control" id="torneoFinal" required [(ngModel)]="model.torneoFinal"
+                  name="torneoFinal" #torneoFinal="ngModel">
+                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div id="alinear">
+        <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Registrar</button>
+        <button type="button"  class="btn btn-default " (click)="newTorneo(); torneoForm.reset()">Nuevo Torneo</button>
+
+        <!--Modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ¿Esta seguró de guardar los cambios?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="!torneoForm.form.valid" >Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
       </div>
     </form>
   </div>

@@ -1,5 +1,5 @@
 .a_demo_four {
-	background-color:#3bb3e0;
+	background-color:#32606D;
 	font-family: 'Open Sans', sans-serif;
 	font-size:12px;
 	text-decoration:none;
@@ -7,11 +7,11 @@
 	position:relative;
 	padding:10px 20px;
 	padding-right:50px;
-	background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-	background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-	background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-	background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-	background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: linear-gradient(bottom, #000 0%, #000 100%);
+	background-image: -o-linear-gradient(bottom, #000 0%, #000 100%);
+	background-image: -moz-linear-gradient(bottom, #000 0%, #000 100%);
+	background-image: -webkit-linear-gradient(bottom, #000 0%, #000 100%);
+	background-image: -ms-linear-gradient(bottom, #000 0%, #000 100%);
 	background-image: -webkit-gradient(
 	linear,
 	left bottom,
@@ -31,11 +31,11 @@
 
 .a_demo_four:active {
 	top:3px;
-	background-image: linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-	background-image: -o-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-	background-image: -moz-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-	background-image: -webkit-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-	background-image: -ms-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+	background-image: linear-gradient(bottom, #000 0%, rgb(44,160,202) 100%);
+	background-image: -o-linear-gradient(bottom, #000  0%, rgb(44,160,202) 100%);
+	background-image: -moz-linear-gradient(bottom, #000  0%, rgb(44,160,202) 100%);
+	background-image: -webkit-linear-gradient(bottom, #000  0%, rgb(44,160,202) 100%);
+	background-image: -ms-linear-gradient(bottom, #000  0%, rgb(44,160,202) 100%);
 	background-image: -webkit-gradient(
 	linear,
 	left bottom,
@@ -44,10 +44,10 @@
 	color-stop(1, rgb(44,160,202))
 	);
 	
-	-webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
-	-moz-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
-	-o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
-	box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+	-webkit-box-shadow: inset 0px 1px 0px #000 , 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+	-moz-box-shadow: inset 0px 1px 0px #000 , 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+	-o-box-shadow: inset 0px 1px 0px #000 , 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+	box-shadow: inset 0px 1px 0px #000 , 0px 2px 0px 0px #156785, 0px 5px 3px #999;
 }
 
 .a_demo_four::before {
@@ -75,16 +75,18 @@
 .a_demo_four:active::before {
 	top:50%;
 	margin-top:-12px;
-	-webkit-box-shadow: inset 0px 1px 0px #60c9f0, 0px 3px 0px #0e3871, 0px 6px 3px #1a80a6;
-	-moz-box-shadow: inset 0px 1px 0px #60c9f0, 0px 3px 0px #0e3871, 0px 6px 3px #1a80a6;
-	-o-box-shadow: inset 0px 1px 0px #60c9f0, 0px 3px 0px #0e3871, 0px 6px 3px #1a80a6;
-	box-shadow: inset 0px 1px 0px #60c9f0, 0px 3px 0px #0e3871, 0px 6px 3px #1a80a6;
+	-webkit-box-shadow: inset 0px 1px 0px #000 , 0px 3px 0px #0e3871, 0px 6px 3px #1a80a6;
+	-moz-box-shadow: inset 0px 1px 0px #000 , 0px 3px 0px #0e3871, 0px 6px 3px #1a80a6;
+	-o-box-shadow: inset 0px 1px 0px #000 , 0px 3px 0px #0e3871, 0px 6px 3px #1a80a6;
+	box-shadow: inset 0px 1px 0px #000 , 0px 3px 0px #0e3871, 0px 6px 3px #1a80a6;
 }
 
 a
 {
-    margin-right: 30px;
+	margin-left: 35px;
 }
+
+
 
 #disabled
 {

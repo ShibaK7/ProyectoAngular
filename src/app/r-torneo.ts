@@ -5,10 +5,10 @@ export class RTorneo {
         public sede: string,
         public cancha: string,
         public descripcion: string,
-        public imagen?: string,
-        public inscripcionInicio?: Date,
-        public inscripcionFinal?: Date,
-        public torneoInicio?: Date,
-        public torneoFinal?: Date
+        public imagen: string,
+        public inscripcionInicio: string,
+        public inscripcionFinal: string,
+        public torneoInicio: string,
+        public torneoFinal: string
     ){}
 }
