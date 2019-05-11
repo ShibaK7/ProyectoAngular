@@ -46,7 +46,7 @@ export class InMemoryInformacionService implements InMemoryDbService {
       { id: 15, ranking: 15, nacionalidad: "Estonia", nombre: "Anett Kontaveit", edad: 23, foto: "./assets/jugadoras/AnettKontaveit.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 16, ranking: 16, nacionalidad: "China", nombre: "Qiang Wang", edad: 27, foto: "./assets/jugadoras/QiangWang.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 17, ranking: 17, nacionalidad: "Belgica", nombre: "Elise Mertens", edad: 23, foto: "./assets/jugadoras/EliseMertens.JPG", biografia: "", torneos: "", curiosidad: "" },
-      { id: 18, ranking: 18, nacionalidad: "Alemania", nombre: "Julia Goerges", edad: 30, foto: "./assets/jugadoras/JuliaGeorges.JPG", biografia: "", torneos: "", curiosidad: "" },
+      { id: 18, ranking: 18, nacionalidad: "Alemania", nombre: "Julia Goerges", edad: 30, foto: "./assets/jugadoras/JuliaGoerges.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 19, ranking: 19, nacionalidad: "España", nombre: "Garbiñe Muguruza", edad: 25, foto: "./assets/jugadoras/GarbiñeMuguruza.JPG", biografia: "", torneos: "", curiosidad: "" },
       { id: 20, ranking: 20, nacionalidad: "Suiza", nombre: "Belinda Bencic", edad: 22, foto: "./assets/jugadoras/BelindaBencic.JPG", biografia: "", torneos: "", curiosidad: "" }
     ];

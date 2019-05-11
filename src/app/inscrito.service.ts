@@ -5,9 +5,14 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Inscrito } from './inscrito';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({ providedIn: 'root' })
 export class InscritoService {
 
+  
   private inscritosUrl = 'api/INSCRITOS';
   private inscritos: Inscrito[] = [];
 
@@ -28,6 +33,12 @@ export class InscritoService {
      return this.http.get<Inscrito>(url).pipe(
       catchError(this.handleError<Inscrito>(`getInscrito id=${id}`))
      );
+   }
+
+   addInscrito(inscrito: Inscrito) {
+    return this.http.post<Inscrito>(this.inscritosUrl, inscrito, httpOptions).pipe(
+      catchError(this.handleError<Inscrito>('addInscrito'))
+    )
    }
 
    private handleError<T> (operation = 'operation', result?: T) {

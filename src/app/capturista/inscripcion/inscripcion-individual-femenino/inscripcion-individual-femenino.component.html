@@ -1,3 +1,39 @@
-<p>
-  {{competencia.torneo}}
-</p>
+<form [formGroup]="todoForm">
+  <div class="card bg-dark text-white">
+    <div class="card-header mx-auto">
+      <label>
+        Número Afiliación de la Jugadora:
+      </label>
+      <input type="number" formControlName="campoRegistro" class="ml-2">
+      <button class="btn btn-generico ml-3" (click)="comprobarJugadora()">Verificar</button>
+      <p>
+        <span style="color:#2C6971;" class="form-control"
+          *ngIf="todoForm.controls['campoRegistro'].touched && todoForm.controls['campoRegistro'].errors?.required">Número
+          de afiliación no indicado</span>
+        <span style="color:#2C6971;" *ngIf="errorIndicado==1" class="form-control">No se encontró a la jugadora
+          indicada</span>
+        <span style="color:#2C6971;" *ngIf="errorIndicado==2" class="form-control">La jugadora indicada ya está inscrita
+          en esta competencia</span>
+      </p>
+    </div>
+    <div class="card-body mx-auto">
+      <img src="{{jugadoraEncontrada.foto}}" class="card-img-top rounded">
+      <p class="text-center h4" *ngIf="jugadoraEncontrada.nombre!=null">
+        Nombre: {{jugadoraEncontrada.nombre}}
+      </p>
+      <p class="text-center h4" *ngIf="jugadoraEncontrada.nombre!=null">
+        Nacionalidad: {{jugadoraEncontrada.nacionalidad}}
+      </p>
+      <p class="text-center h4" *ngIf="jugadoraEncontrada.nombre!=null">
+        Edad: {{jugadoraEncontrada.edad}} años
+      </p>
+    </div>
+    <div class="card-footer mx-auto">
+      <button *ngIf="todoForm.invalid || errorIndicado!==0" class="btn btn-generico"
+        [disabled]="todoForm.invalid || errorIndicado!==0">Inscribir</button>
+      <button *ngIf="!todoForm.invalid && errorIndicado==0" class="btn btn-generico" (click)="registrar()"
+        [disabled]="todoForm.invalid || errorIndicado!==0">Inscribir</button>
+      <button class="btn btn-generico ml-2" routerLink="/capturista">Regresar</button>
+    </div>
+  </div>
+</form>
