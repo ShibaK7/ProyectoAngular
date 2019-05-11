@@ -31,9 +31,31 @@
     <div class="card-footer mx-auto">
       <button *ngIf="todoForm.invalid || errorIndicado!==0" class="btn btn-generico"
         [disabled]="todoForm.invalid || errorIndicado!==0">Inscribir</button>
-      <button *ngIf="!todoForm.invalid && errorIndicado==0" class="btn btn-generico" (click)="registrar()"
-        [disabled]="todoForm.invalid || errorIndicado!==0">Inscribir</button>
+      <button *ngIf="!todoForm.invalid && errorIndicado==0" class="btn btn-generico" data-toggle="modal"
+        data-target="#exampleModal" [disabled]="todoForm.invalid || errorIndicado!==0">Inscribir</button>
       <button class="btn btn-generico ml-2" routerLink="/capturista">Regresar</button>
     </div>
   </div>
 </form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmación Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Desea realizar el registro de esta jugadora?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="registrar()" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
