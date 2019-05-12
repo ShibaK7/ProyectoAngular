@@ -6,10 +6,11 @@ export class Encuentro {
     hora:any;
     fecha: any;
 
-   /* constructor(idCompet: number, nomJugador1: string, nomJugador2: string, fecha: Date) {
+   constructor(idCompet: number, nomJugador1: string, nomJugador2: string, horax:any ,fechax: any) {
         this.idCompetencia = idCompet;
         this.nombreJugador1 = nomJugador1;
         this.nombreJugador2 = nomJugador2;
-        this.fecha=fecha;
-    } */
+        this.hora = horax;
+        this.fecha = fechax;
+    }
 }

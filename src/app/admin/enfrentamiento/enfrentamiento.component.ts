@@ -23,7 +23,7 @@ export class EnfrentamientoComponent implements OnInit {
   
   fecha;
   hora;
-  idComptencia;
+  idCompetencia;
   jugadorUno;
   jugadorDos;
 
@@ -61,7 +61,7 @@ export class EnfrentamientoComponent implements OnInit {
       this.jugadorDos = content2.innerHTML;
       document.getElementById('uno').removeChild(content1);
       document.getElementById('dos').removeChild(content2);
-      this.idComptencia = +this.route.snapshot.paramMap.get('id');
+      this.idCompetencia = +this.route.snapshot.paramMap.get('id');
       this.fecha = fechax;
       this.hora = horax;
       console.log(fechax+" "+horax);
@@ -69,14 +69,20 @@ export class EnfrentamientoComponent implements OnInit {
     }
 
     agregarEnf(){
-      console.log("uno: "+this.jugadorUno+" dos: "+this.jugadorDos+" idCompetencia: "+this.idComptencia
+      console.log("uno: "+this.jugadorUno+" dos: "+this.jugadorDos+" idCompetencia: "+this.idCompetencia
       +" fecha: "+this.fecha+" hora: "+this.hora);
 
-      if(!this.jugadorUno || !this.jugadorDos || !this.idComptencia || !this.fecha || !this.hora){
+      if(!this.jugadorUno || !this.jugadorDos || !this.idCompetencia || !this.fecha || !this.hora){
         return;
       }
 
-      //this.encService.agregarEnfrentamiento
+      let encuentroAux = new Encuentro(this.idCompetencia, this.jugadorUno, this.jugadorDos, this.hora, this.fecha);
+
+      /*his.encService.agregarEnfrentamiento(encuentroAux).subscribe(
+        inscrito => this.jugadoresInscritos.push(inscrito)
+      )*/
+
+
     }
 
       // Drag and Drop

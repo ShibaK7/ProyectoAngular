@@ -5,6 +5,10 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +18,10 @@ export class EncuentrosService {
 
   constructor(private http: HttpClient) { }
 
-  agregarEnfrentamiento(){
-    
+  addEnfrentamiento(encuentro: Encuentro){
+    return this.http.post<Encuentro>(this.heroesUrl, encuentro, httpOptions).pipe(
+      catchError(this.handleError<Encuentro>('addEnfrentamiento'))
+    )
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
