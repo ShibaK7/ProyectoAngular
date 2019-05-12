@@ -48,7 +48,7 @@
                         {{inscrito.id}}
                       </td>
           -->    
-                      <td *ngIf="inscrito.nombreJugador!=null" colspan="2" class="text-center" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" id="dragtarget">
+                      <td *ngIf="inscrito.nombreJugador!=null" colspan="2" class="text-center" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" id="{{ inscrito.nombreJugador }}" >
                         {{inscrito.nombreJugador}}
                       </td>
                       <td *ngIf="inscrito.nombreJugadora!=null" colspan="2" class="text-center" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" id="dragtarget">
@@ -134,16 +134,21 @@
     <div class="col-6">   
         <p id="demo">Estado: </p>
         
-        <div class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)">
-          <p (dragstart)="dragStart($event)" draggable="true" id="dragtarget"></p>
+        <input #tres type="date">
+        <br>
+        <input #cuatro type="time">
+        <br>
+        <div id="uno" class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)">
+          <p #jugador1 (dragstart)="dragStart($event)" draggable="true" id="dragtarget1" value="Novak"></p>
         </div>
 
-        <div class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)">
-          <p (dragstart)="dragStart($event)" draggable="true" id="dragtarget"></p>
+        <div id="dos" class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)">
+          <p  #jugador2 (dragstart)="dragStart($event)" draggable="true" id="dragtarget2" value="Rafael"></p>
         </div>
+
+        <button (click)="agregarEnfrentamiento(tres.value, cuatro.value);">AGREGAR</button>
 
     </div>
   
   </div>
 </div>
-
