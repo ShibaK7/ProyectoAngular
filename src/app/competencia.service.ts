@@ -5,6 +5,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Competencia } from './competencia';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,6 +42,12 @@ export class CompetenciaService {
    getTorneosCompetencias(): string[] {
      return this.torneosCompetencia;
    }
+
+   updateCompetencia (competencia: Competencia): Observable<any> {
+    return this.http.put(this.competenciaUrl, competencia, httpOptions).pipe(
+      catchError(this.handleError<any>('updateCompetencia'))
+    );
+  }
 
    private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

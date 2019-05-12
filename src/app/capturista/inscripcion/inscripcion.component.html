@@ -2,8 +2,20 @@
 
 <div class="container fluid">
   <div class="row">
-    <div class="col-10 mx-auto mt-5" *ngIf="competencia.tipoCompetencia==2">
+    <div class="col-12 mx-auto mt-5" *ngIf="competencia.tipoCompetencia==1">
+      <app-inscripcion-individual-masculino [competencia]='competencia'></app-inscripcion-individual-masculino>
+    </div>
+    <div class="col-12 mx-auto mt-5" *ngIf="competencia.tipoCompetencia==2">
       <app-inscripcion-individual-femenino [competencia]='competencia'></app-inscripcion-individual-femenino>
+    </div>
+    <div class="col-12 mx-auto mt-5" *ngIf="competencia.tipoCompetencia==3">
+      <app-inscripcion-doble-masculino [competencia]='competencia'></app-inscripcion-doble-masculino>
+    </div>
+    <div class="col-12 mx-auto mt-5" *ngIf="competencia.tipoCompetencia==4">
+      <app-inscripcion-doble-femenino [competencia]='competencia'></app-inscripcion-doble-femenino>
+    </div>
+    <div class="col-12 mx-auto mt-5" *ngIf="competencia.tipoCompetencia==5">
+      <app-inscripcion-doble-mixto [competencia]='competencia'></app-inscripcion-doble-mixto>
     </div>
   </div>
 </div>
