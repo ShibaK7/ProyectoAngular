@@ -30,6 +30,14 @@ import { CapturistaComponent } from './capturista/capturista.component';
 import { AdministracionComponent } from './otros/administracion/administracion.component';
 import { CompetenciasComponent } from './otros/competencias/competencias.component';
 
+import { UserbarComponent } from './userbar/userbar.component';
+import { RegistroComponent } from './capturista/registro/registro.component';
+import { InscripcionComponent } from './capturista/inscripcion/inscripcion.component';
+import { InscripcionIndividualMasculinoComponent } from './capturista/inscripcion/inscripcion-individual-masculino/inscripcion-individual-masculino.component';
+import { InscripcionIndividualFemeninoComponent } from './capturista/inscripcion/inscripcion-individual-femenino/inscripcion-individual-femenino.component';
+import { InscripcionDobleMasculinoComponent } from './capturista/inscripcion/inscripcion-doble-masculino/inscripcion-doble-masculino.component';
+import { InscripcionDobleFemeninoComponent } from './capturista/inscripcion/inscripcion-doble-femenino/inscripcion-doble-femenino.component';
+import { InscripcionDobleMixtoComponent } from './capturista/inscripcion/inscripcion-doble-mixto/inscripcion-doble-mixto.component';
 
 
 
@@ -50,11 +58,20 @@ import { CompetenciasComponent } from './otros/competencias/competencias.compone
     FooterComponent,
     InicioComponent,
     TorneoIndividualComponent,
-    LcontactoComponent,
     AdminComponent,
     CapturistaComponent,
     AdministracionComponent,
-    CompetenciasComponent
+    CompetenciasComponent,
+    LcontactoComponent,
+    CapturistaComponent,
+    UserbarComponent,
+    RegistroComponent,
+    InscripcionComponent,
+    InscripcionIndividualMasculinoComponent,
+    InscripcionIndividualFemeninoComponent,
+    InscripcionDobleMasculinoComponent,
+    InscripcionDobleFemeninoComponent,
+    InscripcionDobleMixtoComponent
   ],
   imports: [
     BrowserModule,

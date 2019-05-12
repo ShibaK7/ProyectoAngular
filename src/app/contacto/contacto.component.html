@@ -119,7 +119,7 @@
                   <div class="form-group">
                       <label for="mensaje">Mensaje*</label>
                       <textarea  id="mensaje" placeholder="Ingrese su mensaje" class="form-control" formControlName="mensaje"></textarea>
-                      <span class="alert alert-danger" style="color:#2C6971;" *ngIf="todoForm.controls['mensaje'].touched && todoForm.controls['mensaje'].errors?.required">Este campo es obligatorio.</span>
+                      <span style="color:#2C6971;" *ngIf="todoForm.controls['mensaje'].touched && todoForm.controls['mensaje'].errors?.required">Este campo es obligatorio.</span>
                   </div>
                 </div>
             </div>

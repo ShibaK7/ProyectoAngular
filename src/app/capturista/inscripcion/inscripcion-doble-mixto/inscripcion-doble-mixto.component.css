@@ -1,0 +1,13 @@
+.btn-generico {
+    background-color: #238A8A;
+    color: white;
+    height: 35px;
+  }
+  
+  .btn-generico:hover {
+    background-color: #48B48F;
+  }
+
+  img {
+    height: 200px;
+  }
