@@ -7,8 +7,35 @@
     <h2>{{torneo.nombreTorneo}}</h2>
   <img src={{torneo.foto}} alt="Avatar" style="width:100%">
   <div class="container">
-      <h4><b>{{torneo.nombreTorneo}}</b></h4> 
+
+      <div *ngIf="torneo.tipoCompetencia===1">
+          <h4> <p class="card-text">Modalidad: Individual Masculino</p> </h4>
+        </div>
+        <div *ngIf="torneo.tipoCompetencia===2">
+          <h4><p class="card-text">Modalidad: Individual Femenino</p></h4>
+        </div>
+        <div *ngIf="torneo.tipoCompetencia===3">
+          <h4> <p class="card-text">Modalidad: Dobles Masculino</p> </h4>
+        </div>
+        <div *ngIf="torneo.tipoCompetencia===4">
+          <h4> <p class="card-text">Modalidad: Dobles Femenino</p></h4>
+        </div>
+        <div *ngIf="torneo.tipoCompetencia===5">
+          <h4>  <p class="card-text">Modalidad: Dobles Mixto</p> </h4>
+        </div>
+  
+        <div *ngIf="torneo.categoria===1">
+          <h4>  <p class="card-text">Categoría: U-18</p> </h4>
+        </div>
+        <div *ngIf="torneo.categoria===2">
+          <h4>  <p class="card-text">Categoría: U-21</p> </h4>
+        </div>
+        <div *ngIf="torneo.categoria===3">
+          <h4>  <p class="card-text">Categoría: Profesional</p> </h4>
+        </div>
+  
       <p>{{torneo.descripcion}}</p> 
+      <a routerLink="/crear-competencia-test1/{{torneo.id}}" class="btn">Crear Enfrentamientos</a>
   </div>
 </div>
 

@@ -1,7 +1,6 @@
 export class Torneo {
     id: number;
-    id_individualT: number; 
-    id_doblesT: number;
+    id_competencia: number; 
     nombreTorneo: string;
     nacionalidad: string;
     fechaInicio: string;
@@ -17,6 +16,13 @@ export class Torneo {
     imagen2: string;
     imagen3: string;
     imagen4: string;
+
+    tipoCompetencia: number;
+    torneo: string;
+    categoria: number;
+    premioPrimerLugar: number;
+    premioSegundoLugar: number;
+    premioTercerLugar: number;
   }
 
 

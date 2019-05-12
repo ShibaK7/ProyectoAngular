@@ -12,17 +12,18 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 //import { Competencia } from '../../competencia';
 //import { CompetenciaService } from '../../competencia.service';
 
-import { CompetenciasServicosService } from './competencias-servicos.service';
-import { Contents } from './contents';
+import { CompetenciasServicosService } from '../competencias/competencias-servicos.service';
+import { Contents } from '../competencias/contents';
+
 
 
 
 @Component({
-  selector: 'app-competencias',
-  templateUrl: './competencias.component.html',
-  styleUrls: ['./competencias.component.css']
+  selector: 'app-crear-competencia',
+  templateUrl: './crear-competencia.component.html',
+  styleUrls: ['./crear-competencia.component.css']
 })
-export class CompetenciasComponent implements OnInit {
+export class CrearCompetenciaComponent implements OnInit {
 
   private nombre: string;
   private torneoSeleccionado: string = null;
@@ -175,6 +176,5 @@ export class CompetenciasComponent implements OnInit {
   {
     this.opcionSeleccionada = opcionElegida;
   }
-
 
 }

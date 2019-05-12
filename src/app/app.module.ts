@@ -38,6 +38,8 @@ import { InscripcionIndividualFemeninoComponent } from './capturista/inscripcion
 import { InscripcionDobleMasculinoComponent } from './capturista/inscripcion/inscripcion-doble-masculino/inscripcion-doble-masculino.component';
 import { InscripcionDobleFemeninoComponent } from './capturista/inscripcion/inscripcion-doble-femenino/inscripcion-doble-femenino.component';
 import { InscripcionDobleMixtoComponent } from './capturista/inscripcion/inscripcion-doble-mixto/inscripcion-doble-mixto.component';
+import { CrearCompetenciaComponent } from './otros/crear-competencia/crear-competencia.component';
+import { CrearCompetenciaTest1Component } from './crear-competencia-test1/crear-competencia-test1.component';
 
 
 
@@ -71,7 +73,9 @@ import { InscripcionDobleMixtoComponent } from './capturista/inscripcion/inscrip
     InscripcionIndividualFemeninoComponent,
     InscripcionDobleMasculinoComponent,
     InscripcionDobleFemeninoComponent,
-    InscripcionDobleMixtoComponent
+    InscripcionDobleMixtoComponent,
+    CrearCompetenciaComponent,
+    CrearCompetenciaTest1Component
   ],
   imports: [
     BrowserModule,

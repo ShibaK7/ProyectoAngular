@@ -16,6 +16,7 @@ import { AdministracionComponent } from './otros/administracion/administracion.c
 import { CompetenciasComponent } from './otros/competencias/competencias.component';
 import { RegistroComponent } from './capturista/registro/registro.component';
 import { InscripcionComponent } from './capturista/inscripcion/inscripcion.component';
+import { CrearCompetenciaTest1Component } from './crear-competencia-test1/crear-competencia-test1.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'admonAux', component: AdministracionComponent},
   { path: 'competencias/:id', component: CompetenciasComponent },
   { path: 'registro/:id', component: RegistroComponent },
-  { path: 'inscripcion/:id', component: InscripcionComponent }
+  { path: 'inscripcion/:id', component: InscripcionComponent },
+  { path: 'crear-competencia-test1/:id', component: CrearCompetenciaTest1Component }
 ];
 
 @NgModule({

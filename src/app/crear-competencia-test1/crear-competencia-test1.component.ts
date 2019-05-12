@@ -3,25 +3,22 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 
-import { TorneosRecordService } from '../../torneos/torneos-record.service';
-
-import { Torneo } from '../../torneos/Torneos-Record';
-
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
-import { Competencia } from '../../competencia';
-import { CompetenciaService } from '../../competencia.service';
+import { TorneosRecordService } from '../torneos/torneos-record.service';
+import { Torneo } from '../torneos/Torneos-Record';
+
 
 @Component({
-  selector: 'app-administracion',
-  templateUrl: './administracion.component.html',
-  styleUrls: ['./administracion.component.css']
+  selector: 'app-crear-competencia-test1',
+  templateUrl: './crear-competencia-test1.component.html',
+  styleUrls: ['./crear-competencia-test1.component.css']
 })
-export class AdministracionComponent implements OnInit {
+export class CrearCompetenciaTest1Component implements OnInit {
 
   torneos : Torneo[] ;
-  competencias: Competencia[];
+  //competencias: Competencia[];
 
   private genero: string = "";
   private torneoSeleccionado: string = null;
@@ -38,16 +35,16 @@ export class AdministracionComponent implements OnInit {
 
 
 
-  constructor(private competenciaService: CompetenciaService,private torneosRecordService: TorneosRecordService, private route: ActivatedRoute, private location: Location) { }
+  constructor(private torneosRecordService: TorneosRecordService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
-
     this.getTorneos();
     this.torneoSeleccionado = null;
     this.getPaginas();
     this.genero = "femenino";
     this.torneoSeleccionado = null;
-   
+
+    
   }
 
 
@@ -202,20 +199,7 @@ export class AdministracionComponent implements OnInit {
 
 
 
-  get torneosCompetencias(): string[] {
-    return this.competenciaService.getTorneosCompetencias();
-  }
 
-  getPaginasFiltradas(): void {
-    this.competenciaService.getCompetencias().subscribe( competencias =>
-      {
-        if(((competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).length/this.registrosPorPagina)-(Math.trunc(competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).length / this.registrosPorPagina)))==0)
-          this.totalPaginasFiltradasF = Math.trunc(competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).length / this.registrosPorPagina)
-        else
-          this.totalPaginasFiltradasF = Math.trunc(competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).length / this.registrosPorPagina)+1
-      }
-    )
-  }
 
   cambiarTorneoSeleccionado(newTorneoSeleccionado?: string) {
     if(newTorneoSeleccionado=="")
@@ -230,13 +214,10 @@ export class AdministracionComponent implements OnInit {
       this.torneoSeleccionado = newTorneoSeleccionado;
       this.filtradoPais = true;
       this.numeroPaginaF = 1;
-      this.getPaginasFiltradas();
+      this.getPaginasFiltradasFemenino();
       this.getTorneos();
     }
   }
-
-
-
 
       // Drag and Drop
 

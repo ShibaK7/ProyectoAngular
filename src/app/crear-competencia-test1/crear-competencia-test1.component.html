@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+
+<div class="aux">
+    <a routerLink="#" class="btn">Enfrentamientos</a>
+    <br>
+    <input type="date" id="start" name="trip-start" value="2019-01-22" min="2019-01-01" max="2019-12-31">
+</div>
+
+
+
+
+
+<div class="row">
+
+    <div *ngFor="let torneo of torneos" class="column">
+      <div class="card">
+        <h3>{{torneo.nombreTorneo}}</h3>
+
+        <div class="score">
+            1
+            2
+            3
+            4
+            5
+            6
+          </div>
+
+        <div class="jug1">
+            Rafel Nadal
+        </div>
+        <div class="jug2">
+            Kobe Bryant
+        </div>
+
+        <div class="abandono">
+            <input type="radio" name="answer">Abandono
+            
+            <div class="quienFue">
+                <div class="motivo">
+            
+                </div>
+            </div>
+        </div>
+
+
+        
+      </div>
+    </div>
+
+</div>
+  
+
+
+<div class="mt-5">
+    <app-footer></app-footer>
+  </div>
+  
