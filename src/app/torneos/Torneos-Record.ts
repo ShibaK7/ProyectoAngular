@@ -1,5 +1,7 @@
 export class Torneo {
     id: number;
+    id_individualT: number; 
+    id_doblesT: number;
     nombreTorneo: string;
     nacionalidad: string;
     fechaInicio: string;
