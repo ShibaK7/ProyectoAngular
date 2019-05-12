@@ -1,5 +1,5 @@
 .ng-valid[required], .ng-valid.required{
-    border-left: 5px solid #42A948;
+    border-left: 5px solid #48B48F;
 }
 
 .ng-invalid:not(form)
@@ -10,4 +10,18 @@
 #alinear
 {
    margin-left: 850px; 
+}
+
+a
+{
+	color: white;
+}
+
+
+
+#disabled
+{
+	pointer-events: none;
+	cursor: default;
+	opacity: 0.6;
 }

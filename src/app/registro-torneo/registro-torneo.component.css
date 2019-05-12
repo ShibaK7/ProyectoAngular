@@ -16,8 +16,8 @@
 	linear,
 	left bottom,
 	left top,
-	color-stop(0, rgb(44,160,202)),
-	color-stop(1, rgb(62,184,229))
+	color-stop(0,#238A8A),
+	color-stop(1,#48B48F)
 	);	
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -40,8 +40,8 @@
 	linear,
 	left bottom,
 	left top,
-	color-stop(0, rgb(62,184,229)),
-	color-stop(1, rgb(44,160,202))
+	color-stop(0, #48B48F),
+	color-stop(1,#238A8A)
 	);
 	
 	-webkit-box-shadow: inset 0px 1px 0px #000 , 0px 2px 0px 0px #156785, 0px 5px 3px #999;
@@ -51,7 +51,7 @@
 }
 
 .a_demo_four::before {
-	background-color:#2591b4;
+	background-color:#32606D;
 	background-image:url(../../assets/right_arrow.png);
 	background-repeat:no-repeat;
 	background-position:center center;
@@ -66,10 +66,10 @@
 	-moz-border-radius: 50%;
 	-o-border-radius: 50%;
 	border-radius: 50%;
-	-webkit-box-shadow: inset 0px 1px 0px #052756, 0px 1px 0px #60c9f0;
-	-moz-box-shadow: inset 0px 1px 0px #052756, 0px 1px 0px #60c9f0;
-	-o-box-shadow: inset 0px 1px 0px #052756, 0px 1px 0px #60c9f0;
-	box-shadow: inset 0px 1px 0px #052756, 0px 1px 0px #60c9f0;
+	-webkit-box-shadow: inset 0px 1px 0px #000, 0px 1px 0px #60c9f0;
+	-moz-box-shadow: inset 0px 1px 0px #000, 0px 1px 0px #60c9f0;
+	-o-box-shadow: inset 0px 1px 0px #000, 0px 1px 0px #60c9f0;
+	box-shadow: inset 0px 1px 0px #000, 0px 1px 0px #60c9f0;
 }
 
 .a_demo_four:active::before {

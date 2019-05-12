@@ -1,5 +1,8 @@
 import { Component} from '@angular/core';
 import { RTorneo } from '../../r-torneo';
+import { NgForm } from '@angular/forms';
+import { TorneoRepository } from '../torneo.repository';
+import { TorneoP } from '../paso1.model';
 
 
 @Component({
@@ -9,6 +12,24 @@ import { RTorneo } from '../../r-torneo';
 })
 
 export class Paso1Component {
+
+  image: Blob;
+
+  torneoSent: boolean = false;
+  enviar: boolean = false;
+
+  constructor(public repository: TorneoRepository, public torneo:TorneoP){}
+
+  enviarTorneo(form: NgForm)
+  {
+    this.enviar = true;
+    if(form.valid){
+      this.repository.saveTorneos(this.torneo).subscribe(torneoc=> {
+        this.torneoSent = true;
+        this.enviar = false;
+      });
+    }
+  }
 
   sedes = ['Sede 1', 'Sede 2', 'Sede 3', 'Sede 4'];
   canchas = ['Cancha1', 'Cancha2', 'Cancha3', 'Cancha4', 'Cancha5'];
@@ -21,8 +42,18 @@ export class Paso1Component {
 
   get diagnostic() { return JSON.stringify(this.model);}
 
+
   newTorneo()
   {
     this.model = new RTorneo(1, '', '', '', '','','','','','');
+  }
+
+  onFileSelect(file: FileList)
+  {
+    var lectura = new FileReader();
+    lectura.onloadend = (event: any)=>{
+
+    }
+    lectura.readAsDataURL(this.image);
   }
 }

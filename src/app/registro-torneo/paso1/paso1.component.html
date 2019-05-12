@@ -3,7 +3,7 @@
 <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
   integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
 
-  
+
 <div class="container">
   <div [hidden]="submitted">
     <br><br>
@@ -46,7 +46,7 @@
                 (change)="onFileSelect($event.target.files)">
             </div>
             <div class="form-group">
-              <button type="button" (click)="inputFoto.click()" class="btn btn-success">Subir imágen</button>
+              <button type="button" (click)="inputFoto.click()" class="btn btn-success" style="background-color:#48B48F">Subir imágen</button>
             </div>
         </div>
 
@@ -107,8 +107,8 @@
 
         </div>
         <div id="alinear">
-        <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Registrar</button>
-        <button type="button"  class="btn btn-default " (click)="newTorneo(); torneoForm.reset()">Nuevo Torneo</button>
+        <button type="button"  class="btn btn-success" style="background-color:#48B48F" data-toggle="modal" [disabled]="!torneoForm.form.valid"  data-target="#exampleModal">Continuar</button>
+        <button type="button"  class="btn btn-default "  (click)="newTorneo(); torneoForm.reset()">Limpiar</button>
 
         <!--Modal-->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -125,7 +125,8 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-primary" data-dismiss="modal" [disabled]="!torneoForm.form.valid" >Guardar cambios</button>
+                  <button type="submit" class="btn btn-primary" style="background-color:#48B48F" data-dismiss="modal"><a  routerLink="/paso2">Guardar cambios</a></button>
+
                 </div>
               </div>
             </div>
@@ -158,7 +159,14 @@
       <div class="col-xs-3">Tipo de canchha</div>
       <div class="col-xs-9">{{ model.cancha }}</div>
     </div>
-    <br>
+  
+
+    <div class="row">
+        <div class="col-xs-3">Fecha</div>
+        <div class="col-xs-9">{{ model.inscripcionInicio }}</div>
+      </div>
+
+      <br>
 
     <button class="btn btn-primary" (click)="submitted=false">Regresar</button>
   </div>

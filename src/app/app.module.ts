@@ -26,6 +26,11 @@ import { Paso3Component } from './registro-torneo/paso3/paso3.component';
 import { AdminComponent } from './admin/admin.component';
 import { CapturistaComponent } from './capturista/capturista.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
+import { TorneoP } from './registro-torneo/paso1.model';
+import { TorneoRepository } from './registro-torneo/torneo.repository';
+import { StaticDataSource } from './registro-torneo/static.datasource';
+
+
 
 
 
@@ -64,7 +69,7 @@ import { LcontactoComponent } from './lcontacto/lcontacto.component';
       InMemoryInformacionService, { dataEncapsulation: false }
     )
   ],
-  providers: [RankingComponent],
+  providers: [RankingComponent,TorneoP, TorneoRepository, StaticDataSource],
   exports: [RankingComponent],
   bootstrap: [AppComponent, ResultadosComponent]
 })
