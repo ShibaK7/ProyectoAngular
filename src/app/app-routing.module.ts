@@ -9,7 +9,10 @@ import { ResultadosComponent } from './resultados/resultados.component';
 import { TorneosComponent } from './torneos/torneos.component';
 import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-individual.component';
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
-import { AdminComponent } from './admin/admin.component'
+import { Paso1Component } from './registro-torneo/paso1/paso1.component';
+import { Paso2Component } from './registro-torneo/paso2/paso2.component';
+import { Paso3Component } from './registro-torneo/paso3/paso3.component';
+import { AdminComponent } from './admin/admin.component';
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { CapturistaComponent } from './capturista/capturista.component';
 import { RegistroComponent } from './capturista/registro/registro.component';
@@ -26,6 +29,9 @@ const routes: Routes = [
   { path: 'torneos', component: TorneosComponent },
   { path: 'torneo-individual/:id', component: TorneoIndividualComponent},
   { path: 'contacto', component: LcontactoComponent },
+  { path: 'paso1' , component: Paso1Component },
+  { path: 'paso2' , component: Paso2Component },
+  { path: 'paso3' , component: Paso3Component },
   { path: 'admin', component: AdminComponent },
   { path: 'capturista', component: CapturistaComponent},
   { path: 'registro/:id', component: RegistroComponent },

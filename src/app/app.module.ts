@@ -2,13 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { RankingComponent } from './ranking/ranking.component';
 import { RankingMasculinoComponent } from './ranking/ranking-masculino/ranking-masculino.component';
-
 import { AppRoutingModule } from './/app-routing.module';
-
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryInformacionService }  from './basededatos';
 import { PrincipalComponent } from './principal/principal.component';
@@ -19,7 +16,6 @@ import { ResultadosComponent } from './resultados/resultados.component';
 import { CompletosComponent } from './resultados/completos/completos.component';
 import { RecientesComponent } from './resultados/recientes/recientes.component';
 import { RankingFemeninoComponent } from './ranking/ranking-femenino/ranking-femenino.component';
-
 import { TorneosComponent } from './torneos/torneos.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -36,6 +32,11 @@ import { InscripcionDobleMasculinoComponent } from './capturista/inscripcion/ins
 import { InscripcionDobleFemeninoComponent } from './capturista/inscripcion/inscripcion-doble-femenino/inscripcion-doble-femenino.component';
 import { InscripcionDobleMixtoComponent } from './capturista/inscripcion/inscripcion-doble-mixto/inscripcion-doble-mixto.component';
 import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.component';
+import { RegistroTorneoComponent } from './registro-torneo/registro-torneo.component';
+import { Paso1Component } from './registro-torneo/paso1/paso1.component';
+import { Paso2Component } from './registro-torneo/paso2/paso2.component';
+import { Paso3Component } from './registro-torneo/paso3/paso3.component';
+
 
 
 @NgModule({
@@ -66,7 +67,11 @@ import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.c
     InscripcionDobleMasculinoComponent,
     InscripcionDobleFemeninoComponent,
     InscripcionDobleMixtoComponent,
-    EnfrentamientoComponent
+    EnfrentamientoComponent,
+    RegistroTorneoComponent,
+    Paso1Component,
+    Paso2Component,
+    Paso3Component
   ],
   imports: [
     BrowserModule,
