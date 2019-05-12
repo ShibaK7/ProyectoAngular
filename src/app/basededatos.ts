@@ -190,7 +190,12 @@ export class InMemoryInformacionService implements InMemoryDbService {
       {id: 33, idCompetencia: 2, nombreJugador: null, nombreJugadora: "Naomi Osaka", equipo: null}
     ];
 
-    return { JUGADORES, JUGADORAS, INDIVIDUALES, DOBLES, COMPETENCIAS, INSCRITOS, TORNEOS };
+    const ENCUENTROS = [
+      {id: 1, idCompetencia: 1, nombreJugador1: null, nombreJugador2: null, fecha: null, hora: null},
+      {id: 2, idCompetencia: 1, nombreJugador1: null, nombreJugador2: null, fecha: null, hora: null}
+    ];
+
+    return { JUGADORES, JUGADORAS, INDIVIDUALES, DOBLES, COMPETENCIAS, INSCRITOS, TORNEOS, ENCUENTROS };
   }
 
   generarIdInscrito(INSCRITOS: Inscrito[]): number {

@@ -1,4 +1,4 @@
-<app-userbar [usuario]='"capturista"'></app-userbar>
+
 
 <div class="container-fluid">
   <div class="row">
@@ -43,15 +43,15 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let inscrito of listaCompetidores">
+                    <tr *ngFor="let inscrito of listaCompetidores" class="droptarget" (drop)="drop($event)" (dragover)="allowDrop($event)"> 
           <!--         <td colspan="2" class="text-center">
                         {{inscrito.id}}
                       </td>
           -->    
-                      <td *ngIf="inscrito.nombreJugador!=null" colspan="2" class="text-center">
+                      <td *ngIf="inscrito.nombreJugador!=null" colspan="2" class="text-center" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" id="{{ inscrito.nombreJugador }}" >
                         {{inscrito.nombreJugador}}
                       </td>
-                      <td *ngIf="inscrito.nombreJugadora!=null" colspan="2" class="text-center">
+                      <td *ngIf="inscrito.nombreJugadora!=null" colspan="2" class="text-center" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" id="dragtarget">
                         {{inscrito.nombreJugadora}}
                       </td>
                     </tr>
@@ -132,7 +132,22 @@
     </div>
     
     <div class="col-6">   
-          
+        <p id="demo">Estado: </p>
+        
+        <input #tres type="date">
+        <br>
+        <input #cuatro type="time">
+        <br>
+        <div id="uno" class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)">
+          <p #jugador1 (dragstart)="dragStart($event)" draggable="true" id="dragtarget1" value="Novak"></p>
+        </div>
+
+        <div id="dos" class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)">
+          <p  #jugador2 (dragstart)="dragStart($event)" draggable="true" id="dragtarget2" value="Rafael"></p>
+        </div>
+
+        <button (click)="agregarEnfrentamiento(tres.value, cuatro.value);">AGREGAR</button>
+
     </div>
   
   </div>
