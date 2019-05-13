@@ -36,6 +36,7 @@ import { InscripcionDobleMasculinoComponent } from './capturista/inscripcion/ins
 import { InscripcionDobleFemeninoComponent } from './capturista/inscripcion/inscripcion-doble-femenino/inscripcion-doble-femenino.component';
 import { InscripcionDobleMixtoComponent } from './capturista/inscripcion/inscripcion-doble-mixto/inscripcion-doble-mixto.component';
 import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.component';
+import { LlaveComponent } from './admin/llave/llave.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.c
     InscripcionDobleMasculinoComponent,
     InscripcionDobleFemeninoComponent,
     InscripcionDobleMixtoComponent,
-    EnfrentamientoComponent
+    EnfrentamientoComponent,
+    LlaveComponent
   ],
   imports: [
     BrowserModule,

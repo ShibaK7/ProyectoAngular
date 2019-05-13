@@ -22,6 +22,7 @@ export class EnfrentamientoComponent implements OnInit {
   listaEncuentros: Encuentro[] = [];
   listaAux: Encuentro[] = [];
   
+  band:boolean = false;
   //id:number = 0;
   fecha;
   hora;
@@ -99,8 +100,14 @@ export class EnfrentamientoComponent implements OnInit {
        console.log(this.listaEncuentros[i].fecha);
       }
 
+
       console.log(this.listaAux);
       console.log(this.listaCompetidores);
+      if(this.band == false){
+        localStorage.setItem('listaEncuentros', JSON.stringify(this.listaAux));
+        this.band=true;
+      }
+
 
     }
 

@@ -1,0 +1,260 @@
+<app-userbar></app-userbar>
+<div class="container">
+<div class="row justify-content-between" >
+
+<!--Primer Encuentro-->
+    <div class="col-4">
+      <br>
+      <div class="card">
+        <div class="card-body">
+          <h6 id="uno" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="card-title">{{listaAux[0].nombreJugador1}}</h6>
+        </div>
+      </div>
+  <br>
+      <div class="card" style="left: 30%;">
+        <div  class="card-body">
+          <h6 id="GE1" (drop)="drop($event)" (dragover)="allowDrop($event)" class="card-title">Ganador E1:</h6>
+        </div>
+      </div>
+  <br>
+      <div class="card">
+        <div class="card-body">
+          <h6 id="dos" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="card-title">{{listaAux[0].nombreJugador2}}</h6>
+        </div>
+      </div>
+<br>
+
+<!--BLOQUE 1-->
+<div class="card" style="left: 60%;">
+    <div  class="card-body">
+      <h6 id="GB1" (drop)="drop($event)" (dragover)="allowDrop($event)" class="card-title">Ganador B1:</h6>
+    </div>
+</div>
+<!--Segundo Encuentro -->
+<br>
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-title" id="tres" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[1].nombreJugador1}}</h6>
+  </div>
+</div>
+<br>
+<div class="card" style="left: 30%;">
+  <div  class="card-body">
+    <h6 class="card-title" id="GE2" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador E2:</h6>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-title" id="cuatro" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[1].nombreJugador2}}</h6>
+  </div>
+</div>
+<br>
+<!--FINALISTA 1-->
+<div class="card" style="left: 85%;">
+    <div  class="card-body">
+      <h6 class="card-title" id="F1" (drop)="drop($event)" (dragover)="allowDrop($event)">Finalista 1:</h6>
+    </div>
+</div>
+<!--Tercer Encuentro-->
+<br>
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-title" id="cinco" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[2].nombreJugador1}}</h6>
+  </div>
+</div>
+<br>
+<div class="card" style="left: 30%;">
+  <div  class="card-body">
+    <h6 class="card-title" id="GE3" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador E3:</h6>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-title" id="seis" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[2].nombreJugador2}}</h6>
+  </div>
+</div>
+<br>
+<!--BLOQUE 2-->
+<div class="card" style="left: 60%;">
+    <div  class="card-body">
+      <h6 class="card-title" id="GB2" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador B2:</h6>
+    </div>
+</div>
+<!--Cuarto Encuentro-->
+<br>
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-title" id="siete" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[3].nombreJugador1}}</h6>
+  </div>
+</div>
+<br>
+<div class="card" style="left: 30%;">
+  <div  class="card-body">
+    <h6 class="card-title" id="GE4" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador E4:</h6>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-title" id="ocho" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[3].nombreJugador2}}</h6>
+  </div>
+</div>
+<br>
+
+<!--Final Lado Izquierdo-->
+</div>
+
+<!--Inicio Division Izquierda alineado a la derecha-->
+  
+<div class="col-4">   
+
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title" id="nueve" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[4].nombreJugador1}}</h6>
+      </div>
+    </div>
+<br>
+    <div class="card" style="right: 30%;">
+      <div  class="card-body">
+        <h6 class="card-title" id="GE5" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador E5:</h6>
+      </div>
+    </div>
+<br>
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title" id="diez" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[4].nombreJugador2}}</h6>
+      </div>
+    </div>
+<br>
+
+<!--BLOQUE 3-->
+<div class="card" style="right: 60%;">
+    <div  class="card-body">
+      <h6 class="card-title" id="GB3" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador B3:</h6>
+    </div>
+</div>
+<!--Segundo Encuentro -->
+<br>
+<div class="card">
+<div class="card-body">
+  <h6 class="card-title" id="once" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[5].nombreJugador1}}</h6>
+</div>
+</div>
+<br>
+<div class="card" style="right: 30%;">
+<div  class="card-body">
+  <h6 class="card-title" id="GE6" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador E6:</h6>
+</div>
+</div>
+<br>
+<div class="card">
+<div class="card-body">
+  <h6 class="card-title" id="doce" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[5].nombreJugador2}}</h6>
+</div>
+</div>
+<br>
+<!--FINALISTA 2-->
+<div class="card" style="right: 85%;">
+    <div  class="card-body">
+      <h6 class="card-title" id="F2" (drop)="drop($event)" (dragover)="allowDrop($event)">Finalista 2:</h6>
+    </div>
+</div>
+<!--Tercer Encuentro-->
+<br>
+<div class="card">
+<div class="card-body">
+  <h6 class="card-title" id="trece" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[6].nombreJugador1}}</h6>
+</div>
+</div>
+<br>
+<div class="card" style="right: 30%;">
+<div  class="card-body">
+  <h6 class="card-title" id="GE7" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador E7:</h6>
+</div>
+</div>
+<br>
+<div class="card">
+<div class="card-body">
+  <h6 class="card-title" id="catorce" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[6].nombreJugador2}}</h6>
+</div>
+</div>
+<br>
+<!--BLOQUE 4-->
+<div class="card" style="right: 60%;">
+    <div  class="card-body">
+      <h6 class="card-title" id="GB4" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador B4:</h6>
+    </div>
+</div>
+<!--Cuarto Encuentro-->
+<br>
+<div class="card">
+<div class="card-body">
+  <h6 class="card-title" id="quince" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[7].nombreJugador1}}</h6>
+</div>
+</div>
+<br>
+<div class="card" style="right: 30%;">
+<div  class="card-body">
+  <h6 class="card-title" id="GE8" (drop)="drop($event)" (dragover)="allowDrop($event)">Ganador E8</h6>
+</div>
+</div>
+<br>
+<div class="card">
+<div class="card-body">
+  <h6 class="card-title" id="dieciseis" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">{{listaAux[7].nombreJugador2}}</h6>
+</div>
+</div>
+<br>
+<!--Final lado derecho--> 
+</div>
+  
+</div>
+</div>
+
+<br><br>
+ <app-footer></app-footer>
+
+
+ <div class="round r-of-4">
+    <div class="bracket-game droptarget" (drop)="drop($event)" (dragover)="allowDrop($event)">
+      <div class="player top win" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">
+        Snute
+      </div>
+      <div class="player bot loss" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">
+        TLO
+      </div>
+    </div>
+    <div class="bracket-game cont droptarget" (drop)="drop($event)" (dragover)="allowDrop($event)">
+      <div class="player top loss" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">
+        ToD
+      </div>
+      <div class="player bot win" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true">
+        MC
+      </div>
+    </div>
+  </div>
+  <div class="connectors r-of-2">
+    <div class="top-line"></div>
+    <div class="clear"></div>
+    <div class="bottom-line"></div>
+    <div class="clear"></div>
+    <div class="vert-line"></div>
+    <div class="clear"></div>
+    <div class="next-line"></div>
+    <div class="clear"></div>
+  </div>
+  <div class="round r-of-2">
+    <div class="bracket-game">
+      <div class="player top loss" (drop)="drop($event)" (dragover)="allowDrop($event)" >
+        <p (dragstart)="dragStart($event)" draggable="true"></p>
+      </div>
+      <div class="player bot win" (drop)="drop($event)" (dragover)="allowDrop($event)">
+        <p (dragstart)="dragStart($event)" draggable="true"></p>
+      </div>
+    </div>
+  </div>
+  
+  
