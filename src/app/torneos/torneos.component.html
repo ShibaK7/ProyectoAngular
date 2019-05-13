@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-1-of-3">
       <div class="card">
-        <div class="card__side card__side--front">
+        <div class="card__side">
           <div class="card__picture card__picture--1">
             &nbsp;
           </div>
@@ -27,30 +27,13 @@
             <ul *ngFor="let torneo of torneos;let i = index;">
               <div *ngIf="i < 1">
                 <li>{{torneo.nacionalidad }} </li>
-                <li>{{torneo.fechaInicio}}</li>
-                <li>{{torneo.fechaFinal}}</li>
-                <li>Tipo de Cancha</li>
                 <li>{{torneo.tipoCancha}}</li>
+                <li>Compromiso Financiero</li>
+                <li>{{torneo.financiamientoTotal}}</li>
+                <li><a class="btn btn-generico mr-1 ml-1"
+                  onclick="document.getElementById('modal-wrapper3').style.display='block'">Mas informacion!</a></li>
               </div>
             </ul>
-          </div>
-        </div>
-        <div class="card__side card__side--back card__side--back-1">
-          <div class="card__cta">
-            <div class="card__price-box">
-              <p class="card__price-only">
-                Compromiso Financiero
-              </p>
-              <div *ngFor="let torneo of torneos;let i = index;">
-                <div *ngIf="i < 1">
-                  <p class="card__price-value">
-                    {{torneo.financiamientoTotal}}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <a class="btn btn--white nav-link"
-              onclick="document.getElementById('modal-wrapper1').style.display='block'">Mas informacion!</a>
           </div>
         </div>
       </div>
@@ -61,7 +44,7 @@
 
     <div class="col-1-of-3">
       <div class="card">
-        <div class="card__side card__side--front">
+        <div class="card__side">
           <div class="card__picture card__picture--2">
             &nbsp;
           </div>
@@ -76,30 +59,13 @@
             <ul *ngFor="let torneo of torneos;let i = index;">
               <div *ngIf="i > 0 && i < 2">
                 <li>{{torneo.nacionalidad }} </li>
-                <li>{{torneo.fechaInicio}}</li>
-                <li>{{torneo.fechaFinal}}</li>
-                <li>Tipo de Cancha</li>
                 <li>{{torneo.tipoCancha}}</li>
+                <li>Compromiso Financiero</li>
+                <li>{{torneo.financiamientoTotal}}</li>
+                <li><a class="btn btn-generico mr-1 ml-1"
+                  onclick="document.getElementById('modal-wrapper3').style.display='block'">Mas informacion!</a></li>
               </div>
             </ul>
-          </div>
-        </div>
-        <div class="card__side card__side--back card__side--back-2">
-          <div class="card__cta">
-            <div class="card__price-box">
-              <p class="card__price-only">
-                Compromiso Financiero
-              </p>
-              <div *ngFor="let torneo of torneos;let i = index;">
-                <div *ngIf="i > 0 && i < 2">
-                  <p class="card__price-value">
-                    {{torneo.financiamientoTotal}}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <a class="btn btn--white nav-link"
-              onclick="document.getElementById('modal-wrapper2').style.display='block'">Mas informacion!</a>
           </div>
         </div>
       </div>
@@ -109,45 +75,28 @@
 
     <div class="col-1-of-3">
       <div class="card">
-        <div class="card__side card__side--front">
+        <div class="card__side">
           <div class="card__picture card__picture--3">
             &nbsp;
           </div>
           <h4 class="card__heading">
             <span *ngFor="let torneo of torneos;let i = index;" class="card__heading-span--3">
-              <div *ngIf="i > 1 && i < 3">
+              <div *ngIf="i > 2 && i < 4">
                 {{torneo.nombreTorneo }}
               </div>
             </span>
           </h4>
           <div class="card__details">
             <ul *ngFor="let torneo of torneos;let i = index;">
-              <div *ngIf="i > 1 && i < 3">
+              <div *ngIf="i > 2 && i < 4">
                 <li>{{torneo.nacionalidad }} </li>
-                <li>{{torneo.fechaInicio}}</li>
-                <li>{{torneo.fechaFinal}}</li>
-                <li>Tipo de Cancha</li>
                 <li>{{torneo.tipoCancha}}</li>
+                <li>Compromiso Financiero</li>
+                <li>{{torneo.financiamientoTotal}}</li>
+                <li><a class="btn btn-generico mr-1 ml-1"
+                  onclick="document.getElementById('modal-wrapper3').style.display='block'">Mas informacion!</a></li>
               </div>
             </ul>
-          </div>
-        </div>
-        <div class="card__side card__side--back card__side--back-3">
-          <div class="card__cta">
-            <div class="card__price-box">
-              <p class="card__price-only">
-                Compromiso Financiero
-              </p>
-              <div *ngFor="let torneo of torneos;let i = index;">
-                <div *ngIf="i > 1 && i < 3">
-                  <p class="card__price-value">
-                    {{torneo.financiamientoTotal}}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <a class="btn btn--white nav-link"
-              onclick="document.getElementById('modal-wrapper3').style.display='block'">Mas informacion!</a>
           </div>
         </div>
       </div>
@@ -180,7 +129,7 @@
       <div *ngFor="let torneo of torneos;let i = index;">
         <div *ngIf="i < 1">
           <p class="popup__text">{{torneo.descripcion}}</p>
-          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn-generico mr-1 ml-1">Mas aqui!</a>
         </div>
       </div>
       <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
@@ -208,7 +157,7 @@
       <div *ngFor="let torneo of torneos;let i = index;">
         <div *ngIf="i > 0 && i < 2">
           <p class="popup__text">{{torneo.descripcion}}</p>
-          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn-generico mr-1 ml-1">Mas aqui!</a>
         </div>
       </div>
       <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->
@@ -235,7 +184,7 @@
       <div *ngFor="let torneo of torneos;let i = index;">
         <div *ngIf="i > 1 && i < 3">
           <p class="popup__text">{{torneo.descripcion}}</p>
-          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn--green">Mas aqui!</a>
+          <a routerLink="/torneo-individual/{{torneo.id}}" class="btn btn-generico mr-1 ml-1">Mas aqui!</a>
         </div>
       </div>
       <!-- <a href="#" class="btn btn--green">Mas aqui!</a> -->

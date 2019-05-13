@@ -39,6 +39,7 @@ export class Torneo {
     b6 : number;
 
     fechaCompetencia: string;
+    resultados: string;
   }
 
 

@@ -1,5 +1,12 @@
 <app-userbar></app-userbar>
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+  integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
 <div class="container-fluid">
   <div class="row">
 
@@ -142,15 +149,20 @@
           <tr>
             <th>
                 <label >Fecha:</label><br>
-                <input #tres type="date" value="2019-05-13" min="2018-01-01" max="2019-12-31" style="color: #eeeeee; background-color: #48B48F;border: none; border-color: #238A8A; scrollbar-arrow-color: black; -ms-scrollbar-arrow-color: black;">
-            </th>
+                <div class="input-group" style="width: 100%;">
+                  <input #tres type="date" value="2019-05-13" min="2018-01-01" max="2019-12-31" class="form-control fas fa-calendar-alt"/>
+                  
+                </div>
+              </th>
             <th>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </th>
             <th align="right">
                 <label >Hora:</label><br>
-                <input #cuatro type="time" style="color: #eeeeee; background-color: #48B48F;border: none; border-color: #238A8A; scrollbar-arrow-color: black; -ms-scrollbar-arrow-color: black;">
+                <div class="input-group">
+                  <input #cuatro type="time"  >
+                </div>
             </th>
           </tr>
         </table>
