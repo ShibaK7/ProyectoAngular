@@ -32,15 +32,11 @@ import { InscripcionDobleMasculinoComponent } from './capturista/inscripcion/ins
 import { InscripcionDobleFemeninoComponent } from './capturista/inscripcion/inscripcion-doble-femenino/inscripcion-doble-femenino.component';
 import { InscripcionDobleMixtoComponent } from './capturista/inscripcion/inscripcion-doble-mixto/inscripcion-doble-mixto.component';
 import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.component';
-<<<<<<< HEAD
 import { RegistroTorneoComponent } from './registro-torneo/registro-torneo.component';
 import { Paso1Component } from './registro-torneo/paso1/paso1.component';
 import { Paso2Component } from './registro-torneo/paso2/paso2.component';
 import { Paso3Component } from './registro-torneo/paso3/paso3.component';
-
-=======
 import { LlaveComponent } from './admin/llave/llave.component';
->>>>>>> llavefinal
 
 
 @NgModule({
@@ -72,14 +68,11 @@ import { LlaveComponent } from './admin/llave/llave.component';
     InscripcionDobleFemeninoComponent,
     InscripcionDobleMixtoComponent,
     EnfrentamientoComponent,
-<<<<<<< HEAD
     RegistroTorneoComponent,
     Paso1Component,
     Paso2Component,
-    Paso3Component
-=======
+    Paso3Component,
     LlaveComponent
->>>>>>> llavefinal
   ],
   imports: [
     BrowserModule,
