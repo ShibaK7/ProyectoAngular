@@ -41,6 +41,8 @@ export class CrearCompetenciaTest1Component implements OnInit {
 
 
 
+
+
   constructor(private torneosRecordService: TorneosRecordService, private fechaCompetenciaService :FechaCompetenciaService , private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
@@ -287,6 +289,16 @@ myFunction() {
   } else {
     x.style.display = "none";
   }
+}
+
+
+
+asd(a)
+{
+    if(a==1)
+    document.getElementById("asd").style.display="none";
+    else
+    document.getElementById("asd").style.display="block";
 }
 
 
