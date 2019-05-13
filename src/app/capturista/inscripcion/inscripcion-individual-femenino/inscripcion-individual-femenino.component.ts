@@ -17,7 +17,7 @@ import { CompetenciaService } from 'src/app/competencia.service';
 export class InscripcionIndividualFemeninoComponent implements OnInit {
 
   @Input() competencia: Competencia;
-  jugadoraEncontrada: Jugadora;
+  jugadoraEncontrada: Jugadora = new Jugadora();
   jugadorasInscritas: Inscrito[] = [];
   jugadorasCertificadas: Jugadora[] = [];
   errorIndicado: number;

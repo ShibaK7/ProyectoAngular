@@ -2,19 +2,18 @@
 	left: 0;
 	top: auto;
     bottom: -15px;
-
 }
 
 /* The colour of the indicators */
 .blog .carousel-indicators li {
-    background: #a3a3a3;
+    background: #708198;
     border-radius: 50%;
-    width: 10px;
-    height: 0px;
+    width: 8px;
+    height: 1px;
 }
 
 .blog .carousel-indicators .active {
-background: #707070;
+    background: #0fc9af;
 }
 
 h3

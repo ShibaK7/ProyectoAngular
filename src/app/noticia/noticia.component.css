@@ -33,9 +33,9 @@
   
   .blog .carousel-indicators li {
     background: #708198;
-    border-radius: 25%;
+    border-radius: 50%;
     width: 8px;
-    height: 8px;
+    height: 1px;
   }
   
   .blog .carousel-indicators .active {
