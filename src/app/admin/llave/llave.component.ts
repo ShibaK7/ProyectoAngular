@@ -29,6 +29,10 @@ export class LlaveComponent implements OnInit {
     console.log(this.listaAux[0].nombreJugador1);
   }
 
+  imprimir(): void{
+    window.print();
+  }
+
         // Drag and Drop
 
         dragStart(ev) {

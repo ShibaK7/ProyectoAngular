@@ -160,7 +160,8 @@
         <table>
           <tr align="center">
             <th align="center">
-                <div id="uno" class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)" style="color: #eeeeee; background-color: #48B48F;border: none; border-color: #238A8A; scrollbar-arrow-color: black; -ms-scrollbar-arrow-color: black;">
+                <div id="uno" class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)" style="border-radius: 10px;
+                border: 6px solid #48B48F;">
                   <p #jugador1 (dragstart)="dragStart($event)" draggable="true" id="dragtarget1" value="Novak"></p>
                 </div>
             </th>
@@ -176,7 +177,8 @@
                 &nbsp;&nbsp;&nbsp;
             </th>
             <th align="center">
-               <div id="dos" class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)" style="color: #eeeeee; background-color: #48B48F;border: none; border-color: #238A8A; scrollbar-arrow-color: black; -ms-scrollbar-arrow-color: black;">
+               <div id="dos" class="droptarget2" (drop)="drop($event)" (dragover)="allowDrop($event)" style="border-radius: 10px;
+               border: 6px solid #48B48F;">
                   <p  #jugador2 (dragstart)="dragStart($event)" draggable="true" id="dragtarget2" value="Rafael"></p>
                </div>
             </th>

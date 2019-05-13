@@ -173,3 +173,10 @@ hr.new1 {
     border-left: 3px solid #48B48F;
     height: 935px;
   }
+
+  .btn-generico {
+    background-color: #238A8A;
+    color: white;
+    height: 40px;
+    margin: auto;
+  }
