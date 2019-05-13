@@ -34,7 +34,7 @@
         <p class="card-text">Fecha final: {{torneo.fechaFinal}}</p>
         <p class="card-text">Financiamieto: {{torneo.financiamientoTotal}}</p>
         <div class="col-8 mx-auto">
-          <a routerLink="/enfrentamiento/{{competencia.id}}" class="card-link" *ngIf="competencia.lugaresOcupados>0">Enfrentamientos</a>
+          <a routerLink="/enfrentamiento/{{torneo.id}}" class="card-link">Enfrentamientos</a>
           <a routerLink="/admonAux" class="card-link">Competencias</a>
         </div>
       </div>
