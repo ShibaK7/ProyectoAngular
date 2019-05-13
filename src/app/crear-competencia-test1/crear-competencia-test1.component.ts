@@ -9,6 +9,9 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { TorneosRecordService } from '../torneos/torneos-record.service';
 import { Torneo } from '../torneos/Torneos-Record';
 
+import { FechaCompetenciaService } from '../fecha-competencia.service';
+
+
 
 @Component({
   selector: 'app-crear-competencia-test1',
@@ -18,6 +21,8 @@ import { Torneo } from '../torneos/Torneos-Record';
 export class CrearCompetenciaTest1Component implements OnInit {
 
   torneos : Torneo[] ;
+  torn: Observable<Torneo[]>;
+  EditRowID: any = ' ';
   //competencias: Competencia[];
 
   private genero: string = "";
@@ -35,7 +40,8 @@ export class CrearCompetenciaTest1Component implements OnInit {
 
 
 
-  constructor(private torneosRecordService: TorneosRecordService, private route: ActivatedRoute, private location: Location) { }
+
+  constructor(private torneosRecordService: TorneosRecordService, private fechaCompetenciaService :FechaCompetenciaService , private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
     this.getTorneos();
@@ -44,7 +50,29 @@ export class CrearCompetenciaTest1Component implements OnInit {
     this.genero = "femenino";
     this.torneoSeleccionado = null;
 
-    
+    this.torn = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+ 
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+ 
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => 
+      this.fechaCompetenciaService.searchTerms(term))
+    );
+
+    this.torn = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+ 
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+ 
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => 
+      this.fechaCompetenciaService.searchTerms(term))
+    );
   }
 
 
@@ -241,6 +269,27 @@ export class CrearCompetenciaTest1Component implements OnInit {
         document.getElementById("demo").innerHTML = "The p element was dropped";
         alert('Usted a seleccionado a un jugador. ');
       }
+
+
+  Edit(val) {
+    this.EditRowID = val;
+}
+      
+calcular(fechaAux : string) {
+  console.log(fechaAux);
+  this.searchTerms.next(fechaAux);
+}
+
+myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
 
 
 
