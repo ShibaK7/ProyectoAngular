@@ -1,0 +1,300 @@
+<div class="row">
+  <div class="container">
+    <br><br>
+    <h3>Elección de competencias</h3><br><br>
+    <div class="exp">
+      <div class="checkbox">
+        <div class="form-group">
+          <div class="page">
+            <div class="page__demo">
+              <div class="page__toggle">
+                <div>
+                  <label class="toggle">
+                    <input class="toggle__input" type="checkbox" id="im" checked />
+                    <span class="toggle__label">
+                      <span class="toggle__text">Individuales Masculino</span>
+                    </span>
+                  </label>
+
+                  <label class="toggle">
+                    <input class="toggle__input" type="checkbox" id="if" checked/>
+                    <span class="toggle__label">
+                      <span class="toggle__text">Individuales Femenino</span>
+                    </span>
+                  </label>
+
+                  <label class="toggle">
+                    <input class="toggle__input" type="checkbox" id="dm" checked/>
+                    <span class="toggle__label">
+                      <span class="toggle__text">Dobles Masculino</span>
+                    </span>
+                  </label>
+
+                  <label class="toggle">
+                    <input class="toggle__input" type="checkbox" id="df" checked/>
+                    <span class="toggle__label">
+                      <span class="toggle__text">Dobles Femenino</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="container">
+    <div [hidden]="submitted">
+      <br><br>
+      <h4>Datos de las competencias</h4>
+      <form (ngSubmit)="onSubmit()" #CompetenciaForm="ngForm">
+        <div class="row">
+          <div class="col">
+            <div class="custom-form" id="oim">
+              <h5>Individuales Masculino</h5>
+              <div class="row">
+                <div class="col">
+
+                  <div class="form-group">
+                    <label for="cupo1">Cupo</label>
+                    <input type="number" class="form-control" id="cupo1">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="categoria1">Categoría</label>
+                    <select class="form-control" id="categoria1" [(ngModel)]="model.categoria1" name="categoria1">
+                      <option *ngFor="let cate of categorias" [value]="cate">{{cate}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="costo1">Costo de inscripción</label>
+                    <input type="text" class="form-control" id="costo1" required [(ngModel)]="model.costo1" name="costo1"
+                      #costo1="ngModel">
+                    <div [hidden]="costo1.valid || costo1.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                </div>
+                <div class="col">
+
+                  <div class="form-group">
+                    <label for="primero1">Primer lugar</label>
+                    <input type="text" class="form-control" id="primero1" required [(ngModel)]="model.primero1"
+                      name="primero1" #primero1="ngModel">
+                    <div [hidden]="primero1.valid || primero1.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="segundo1">Segundo lugar</label>
+                    <input type="text" class="form-control" id="segundo1" required [(ngModel)]="model.segundo1"
+                      name="segundo1" #segundo1="ngModel">
+                    <div [hidden]="segundo1.valid || segundo1.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tercero1">Tercer lugar</label>
+                    <input type="text" class="form-control" id="tercero1" required [(ngModel)]="model.tercero1"
+                      name="tercero1" #tercero1="ngModel">
+                    <div [hidden]="tercero1.valid || tercero1.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="custom-form" id="oif">
+              <h5>Individuales Femenino</h5>
+              <div class="row">
+                <div class="col">
+
+                  <div class="form-group">
+                    <label for="cupo2">Cupo</label>
+                    <input type="number" class="form-control" id="cupo2">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="categoria2">Categoría</label>
+                    <select class="form-control" id="categoria2" [(ngModel)]="model.categoria2" name="categoria2">
+                      <option *ngFor="let cate of categorias" [value]="cate">{{cate}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="costo2">Costo de inscripción</label>
+                    <input type="text" class="form-control" id="costo2" required [(ngModel)]="model.costo2" name="costo2"
+                      #costo2="ngModel">
+                    <div [hidden]="costo2.valid || costo2.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                </div>
+                <div class="col">
+
+                  <div class="form-group">
+                    <label for="primero2">Primer lugar</label>
+                    <input type="text" class="form-control" id="primero2" required [(ngModel)]="model.primero2"
+                      name="primero2" #primero2="ngModel">
+                    <div [hidden]="primero2.valid || primero2.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="segundo2">Segundo lugar</label>
+                    <input type="text" class="form-control" id="segundo2" required [(ngModel)]="model.segundo2"
+                      name="segundo2" #segundo2="ngModel">
+                    <div [hidden]="segundo2.valid || segundo2.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tercero2">Tercer lugar</label>
+                    <input type="text" class="form-control" id="tercero2" required [(ngModel)]="model.tercero2"
+                      name="tercero2" #tercero2="ngModel">
+                    <div [hidden]="tercero2.valid || tercero2.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="custom-form" id="odm">
+              <h5>Dobles Masculinos</h5>
+              <div class="row">
+                <div class="col">
+
+                  <div class="form-group">
+                    <label for="cupo3">Cupo</label>
+                    <input type="number" class="form-control" id="cupo3">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="categoria3">Categoría</label>
+                    <select class="form-control" id="categoria3" [(ngModel)]="model.categoria3" name="categoria3">
+                      <option *ngFor="let cate of categorias" [value]="cate">{{cate}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="costo3">Costo de inscripción</label>
+                    <input type="text" class="form-control" id="costo3" required [(ngModel)]="model.costo3" name="costo3"
+                      #costo3="ngModel">
+                    <div [hidden]="costo3.valid || costo3.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                </div>
+                <div class="col">
+
+                  <div class="form-group">
+                    <label for="primero3">Primer lugar</label>
+                    <input type="text" class="form-control" id="primero3" required [(ngModel)]="model.primero3"
+                      name="primero3" #primero3="ngModel">
+                    <div [hidden]="primero3.valid || primero3.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="segundo3">Segundo lugar</label>
+                    <input type="text" class="form-control" id="segundo3" required [(ngModel)]="model.segundo3"
+                      name="segundo3" #segundo3="ngModel">
+                    <div [hidden]="segundo3.valid || segundo3.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tercero3">Tercer lugar</label>
+                    <input type="text" class="form-control" id="tercero3" required [(ngModel)]="model.tercero3"
+                      name="tercero3" #tercero3="ngModel">
+                    <div [hidden]="tercero3.valid || tercero3.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="custom-form" id="odf">
+              <h5>Dobles Femeninos</h5>
+              <div class="row">
+                <div class="col">
+
+                  <div class="form-group">
+                    <label for="cupo4">Cupo</label>
+                    <input type="number" class="form-control" id="cupo4">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="categoria4">Categoría</label>
+                    <select class="form-control" id="categoria4" [(ngModel)]="model.categoria4" name="categoria4">
+                      <option *ngFor="let cate of categorias" [value]="cate">{{cate}}</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="costo4">Costo de inscripción</label>
+                    <input type="text" class="form-control" id="costo4" required [(ngModel)]="model.costo4" name="costo4"
+                      #costo4="ngModel">
+                    <div [hidden]="costo4.valid || costo4.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                </div>
+                <div class="col">
+
+                  <div class="form-group">
+                    <label for="primero4">Primer lugar</label>
+                    <input type="text" class="form-control" id="primero4" required [(ngModel)]="model.primero4"
+                      name="primero4" #primero4="ngModel">
+                    <div [hidden]="primero4.valid || primero4.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="segundo4">Segundo lugar</label>
+                    <input type="text" class="form-control" id="segundo4" required [(ngModel)]="model.segundo4"
+                      name="segundo4" #segundo4="ngModel">
+                    <div [hidden]="segundo4.valid || segundo4.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tercero4">Tercer lugar</label>
+                    <input type="text" class="form-control" id="tercero4" required [(ngModel)]="model.tercero4"
+                      name="tercero4" #tercero4="ngModel">
+                    <div [hidden]="tercero4.valid || tercero4.pristine" class="alert alert-danger">Campo obligatorio</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="alinear">
+          <button type="button" class="btn btn-success" [disabled]="!CompetenciaForm.form.valid" style="background-color:#48B48F" data-toggle="modal"
+            data-target="#exampleModal">Continuar</button>
+
+          <!--Modal-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ¿Esta seguró de guardar los cambios?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary" style="background-color:#48B48F" data-dismiss="modal"><a
+                      routerLink="/paso3">Guardar
+                      cambios</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
