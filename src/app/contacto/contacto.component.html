@@ -1,19 +1,19 @@
 <script>
   $(document).on("ready", inicio);
-  
-  function inicio(){
+
+  function inicio() {
     $("span.help-block").hide();
     $("#btnvalidar").click(validar);
   }
 
-  function validar(){
+  function validar() {
     var valor = document.getElementById("texto").nodeValue
   }
 </script>
 
 
 <div id="demo" class="carousel slide" data-ride="carousel">
-      
+
   <!-- Indicators -->
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -22,7 +22,7 @@
     <li data-target="#demo" data-slide-to="3"></li>
     <li data-target="#demo" data-slide-to="4"></li>
   </ul>
-  
+
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -41,7 +41,7 @@
       <img src="../../assets/estadio7.jpg" alt="Chicago" width="100%" height="350">
     </div>
   </div>
-  
+
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
@@ -52,92 +52,105 @@
 </div>
 <br>
 <div class="container-fluid">
-<div class="row">
-<div class="col-7">
-<div>
-  <br>
-  <div class="container">
-      <div class="card" style="width:100%;">
-        <p  align="center"><img class="card-img-top" src="../../assets/LOGO1.png" alt="Card image" style="width:55%; height: 250px;"></p>
-        <div class="card-body">
-          <h4 class="card-title">Angular Tenis Club</h4>
-          <p class="card-text" align="justify">
-            Somos una organización con el objetivo de generar diversos torneos que se disputan en diferentes superficies, siendo cada uno de los torneos unicos y espectaculares. La duración de los tornes depende de las competencia, aunque pueden extenderse en caso de lluvia. Se juegan torneos simultáneos de individuales, dobles masculinos y femeninos, y dobles mixtos. También se juegan torneos juveniles dentro de las mismas ramas de juego. Sumado a esto, se hacen torneos con invitaciones especiales para jugadores retirados.
-          </p>
+  <div class="row">
+    <div class="col-7">
+      <div>
+        <br>
+        <div class="container">
+          <div class="card" style="width:100%;">
+            <p align="center"><img class="card-img-top" src="../../assets/LOGO1.png" alt="Card image"
+                style="width:55%; height: 250px;"></p>
+            <div class="card-body">
+              <h4 class="card-title">Angular Tenis Club</h4>
+              <p class="card-text" align="justify">
+                Somos una organización con el objetivo de generar diversos torneos que se disputan en diferentes
+                superficies, siendo cada uno de los torneos unicos y espectaculares. La duración de los tornes depende
+                de las competencia, aunque pueden extenderse en caso de lluvia. Se juegan torneos simultáneos de
+                individuales, dobles masculinos y femeninos, y dobles mixtos. También se juegan torneos juveniles dentro
+                de las mismas ramas de juego. Sumado a esto, se hacen torneos con invitaciones especiales para jugadores
+                retirados.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-</div>
-</div>
-<div class="col-5">    
+    <div class="col-5">
 
-    <div class="modal-body">
-        <form [formGroup]="todoForm" (ngSubmit)="saveTodo()">
-            <h3 align="center">Contactanos</h3>
-            <div class="row">
-              <div class="col">
-                  <div class="form-group">
-                      <label for="nombre">Nombre*</label>
-                      <input type="text" id="nombre" placeholder="Nombre" class="form-control" formControlName="nombre" />
-                      <span style="color:#2C6971;" *ngIf="todoForm.controls['nombre'].touched && todoForm.controls['nombre'].errors?.required">Este campo es obligatorio.</span>
-                  </div>
-              </div>
-              <div class="col">
-                  <div class="form-group">
-                      <label for="apellido">Apellido*</label>
-                      <input type="text" id="apellido" placeholder="Apellido" class="form-control" formControlName="apellido" />
-                      <span style="color:#2C6971;" *ngIf="todoForm.controls['apellido'].touched && todoForm.controls['apellido'].errors?.required">Este campo es obligatorio.</span>
-                  </div>  
+      <div class="modal-body">
+        <form [formGroup]="todoForm" (ngSubmit)="guardarCorreo()">
+          <h3 align="center">Contactanos</h3>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="nombre">Nombre*</label>
+                <input type="text" id="nombre" placeholder="Nombre" class="form-control" formControlName="nombre" />
+                <span style="color:#2C6971;"
+                  *ngIf="todoForm.controls['nombre'].touched && todoForm.controls['nombre'].errors?.required">Este campo
+                  es obligatorio.</span>
               </div>
             </div>
-            
-            <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                      <label for="correo">Correo Electronico*</label>
-                      <input type="mail" id="correo" placeholder="example.com" class="form-control" formControlName="correo" />
-                      <span style="color:#2C6971;" *ngIf="todoForm.controls['correo'].touched && todoForm.controls['correo'].errors?.required">Este campo es obligatorio.</span>
-                  </div>  
-                </div>
-            </div>
-           
-            <div class="row">
-              <div class="col">
-                  <div class="form-group">
-                      <label for="asunto">Asunto*</label>
-                      <input type="text" id="asunto" placeholder="Asunto" class="form-control" formControlName="asunto" />
-                      <span style="color:#2C6971;" *ngIf="todoForm.controls['asunto'].touched && todoForm.controls['asunto'].errors?.required">Este campo es obligatorio.</span>
-                  </div>
-              </div>
-              <div class="col">
-                
+            <div class="col">
+              <div class="form-group">
+                <label for="apellido">Apellido*</label>
+                <input type="text" id="apellido" placeholder="Apellido" class="form-control"
+                  formControlName="apellido" />
+                <span style="color:#2C6971;"
+                  *ngIf="todoForm.controls['apellido'].touched && todoForm.controls['apellido'].errors?.required">Este
+                  campo es obligatorio.</span>
               </div>
             </div>
-           
-            <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                      <label for="mensaje">Mensaje*</label>
-                      <textarea  id="mensaje" placeholder="Ingrese su mensaje" class="form-control" formControlName="mensaje"></textarea>
-                      <span style="color:#2C6971;" *ngIf="todoForm.controls['mensaje'].touched && todoForm.controls['mensaje'].errors?.required">Este campo es obligatorio.</span>
-                  </div>
-                </div>
-            </div>
+          </div>
 
-           <div class="modal-footer">
-              <button *ngIf="todoForm.invalid" class="btn btn-outline-dark" (click)="saveTodo()" [disabled]="todoForm.invalid">Enviar</button>
-              <button *ngIf="!todoForm.invalid" class="btn btn-ecc" (click)="saveTodo()" [disabled]="todoForm.invalid">Enviar</button>
-           </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="correo">Correo Electronico*</label>
+                <input type="mail" id="correo" placeholder="example.com" class="form-control"
+                  formControlName="correo" />
+                <span style="color:#2C6971;"
+                  *ngIf="todoForm.controls['correo'].touched && todoForm.controls['correo'].errors?.required">Este campo
+                  es obligatorio.</span>
+              </div>
+            </div>
+          </div>
 
-          </form>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="asunto">Asunto*</label>
+                <input type="text" id="asunto" placeholder="Asunto" class="form-control" formControlName="asunto" />
+                <span style="color:#2C6971;"
+                  *ngIf="todoForm.controls['asunto'].touched && todoForm.controls['asunto'].errors?.required">Este campo
+                  es obligatorio.</span>
+              </div>
+            </div>
+            <div class="col">
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="mensaje">Mensaje*</label>
+                <textarea id="mensaje" placeholder="Ingrese su mensaje" class="form-control"
+                  formControlName="mensaje"></textarea>
+                <span style="color:#2C6971;"
+                  *ngIf="todoForm.controls['mensaje'].touched && todoForm.controls['mensaje'].errors?.required">Este
+                  campo es obligatorio.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button *ngIf="todoForm.invalid" class="btn btn-outline-dark" [disabled]="todoForm.invalid">Enviar</button>
+            <button *ngIf="!todoForm.invalid" class="btn btn-ecc" [disabled]="todoForm.invalid">Enviar</button>
+          </div>
+
+        </form>
+      </div>
+
     </div>
-
+  </div>
 </div>
-</div>
-</div>
-
-
-
-
-
-    

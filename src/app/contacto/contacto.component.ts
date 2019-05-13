@@ -15,10 +15,23 @@ export class ContactoComponent implements OnInit {
     this.todoForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      correo: ['', Validators.email],
+      correo: ['', [Validators.email, Validators.required]],
       asunto: ['', Validators.required],
       mensaje: ['', Validators.required]
     });
   }
 
+  guardarCorreo() {
+    let contacto = {
+      nombre: this.todoForm.controls['nombre'].value,
+      apellido: this.todoForm.controls['apellido'].value,
+      correo: this.todoForm.controls['correo'].value,
+      asunto: this.todoForm.controls['asunto'].value,
+      mensaje: this.todoForm.controls['mensaje'].value,
+    }
+
+    localStorage.setItem("contacto", JSON.stringify(contacto));
+
+    this.todoForm.reset();
+  }
 }
