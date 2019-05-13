@@ -3,6 +3,20 @@
 <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
   integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
 
+<app-userbar [usuario]='"Administrador"'></app-userbar>
+<br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="a_demo_four" id="nav" routerLink="/paso1"> Paso 1 </a>
+      <a class="a_demo_four" id="nav" routerLink="/paso2">Paso 2</a>
+    </div>
+  </div>
+</nav>
 
 <div class="container">
   <div [hidden]="submitted">
@@ -40,23 +54,24 @@
           </div>
 
           <div class="form-group">
-              <label for="imagen">Imágen</label><br>
-              <img [src]="" Image acept="image/" id="imgFoto" name="imgFoto" width="520" height="200">
-              <input type="file" accept=".png,.jpg" #inputFoto name="inputFoto" hidden
-                (change)="onFileSelect($event.target.files)">
-            </div>
-            <div class="form-group">
-              <button type="button" (click)="inputFoto.click()" class="btn btn-success" style="background-color:#48B48F">Subir imágen</button>
-            </div>
-        </div>
-
-        <div class="col-6">
-            <div class="form-group">
             <label for="descripcion">Descripción</label>
             <input type="text" style="width:528px;height:140px" class="form-control" id="descripcion" required
               [(ngModel)]="model.descripcion" name="descripcion" #descripcion="ngModel">
             <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger">Campo obligatorio</div>
           </div>
+
+        </div>
+
+        <div class="col-6">
+
+          <div class="form-group">
+            <label for="financiamiento">Financiamiento</label>
+            <input type="text" class="form-control" id="financiamiento" required [(ngModel)]="model.financiamiento"
+              name="financiamiento" #financiamiento="ngModel">
+            <div [hidden]="financiamiento.valid || financiamiento.pristine" class="alert alert-danger">Campo obligatorio
+            </div>
+          </div>
+
 
           <h6>Inscripción: </h6>
           <div class="form-row">
@@ -107,67 +122,37 @@
 
         </div>
         <div id="alinear">
-        <button type="button"  class="btn btn-success" style="background-color:#48B48F" data-toggle="modal" [disabled]="!torneoForm.form.valid"  data-target="#exampleModal">Continuar</button>
-        <button type="button"  class="btn btn-default "  (click)="newTorneo(); torneoForm.reset()">Limpiar</button>
-
-        <!--Modal-->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  ¿Esta seguró de guardar los cambios?
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-primary" style="background-color:#48B48F" data-dismiss="modal"><a  routerLink="/paso2">Guardar cambios</a></button>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          
+          <button type="submit" class="btn btn-success" style="background-color:#48B48F" data-toggle="modal"
+            [disabled]="!torneoForm.form.valid" data-target="#exampleModal">Continuar</button>
+          <button type="button" class="btn btn-default " (click)="newTorneo(); torneoForm.reset()">Limpiar</button>
         </div>
       </div>
     </form>
   </div>
 
+  <!--Modal-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Esta seguró de guardar los cambios?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="registrar()" style="background-color:#48B48F"
+            data-dismiss="modal"><a routerLink="/paso2">Guardar cambios</a></button>
 
-  <div [hidden]="!submitted">
-    <h2>Torneo registrado</h2>
-    <div class="row">
-      <div class="col-xs-3">Nombre</div>
-      <div class="col-xs-9">{{ model.nombre }}</div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-3">Descripción</div>
-      <div class="col-xs-9">{{ model.descripcion }}</div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-3">Sede</div>
-      <div class="col-xs-9">{{ model.sede }}</div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-3">Tipo de canchha</div>
-      <div class="col-xs-9">{{ model.cancha }}</div>
-    </div>
-  
-
-    <div class="row">
-        <div class="col-xs-3">Fecha</div>
-        <div class="col-xs-9">{{ model.inscripcionInicio }}</div>
+        </div>
       </div>
-
-      <br>
-
-    <button class="btn btn-primary" (click)="submitted=false">Regresar</button>
+    </div>
   </div>
-</div>
+
+
+  

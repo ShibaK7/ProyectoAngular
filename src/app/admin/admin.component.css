@@ -95,3 +95,61 @@
   a:hover {
     color: #FFFFFF;
   }
+
+  .button {
+    background-color: #238A8A;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    padding-top: 7px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left:10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: auto;
+    margin-left:30px;
+    width: 200px;
+    height: 42px;
+    }
+    .button:hover {
+    background-color: #48B48F;
+    color: #fff;
+    }
+
+  #nuevo
+  {
+    background-image: url("../../assets/boton.png");
+    background-repeat:no-repeat;
+    margin-left:30px;
+    width: 60px;
+    height: 60px;
+    background-position:center;
+    background-color: transparent;
+  }
+
+  i
+  {
+    margin-right: 10px;
+  }
+
+  #imagen
+  {
+    margin-left: 1360px;
+    margin-bottom: 50px;
+
+  }
+
+  img
+  {
+    width: 70px;
+    height: 70px;
+    margin-left: 1340px;
+    margin-bottom: 50px;
+  }
+  img:hover {
+    transform: scale(0.9, 0.9);
+    
+  }
