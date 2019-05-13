@@ -1,0 +1,179 @@
+/*
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  */
+  
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px 10px;
+  }
+  
+  
+  .row {
+    margin: 0 -5px;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    height: 230px;
+  }
+  
+  .btn {
+    background-color: #48B48F;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {opacity: 1}
+
+  .aux{
+      margin-left: 56px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
+
+  .jug1 {
+    text-align: left !important;
+    margin-left: 1px !important;
+    margin-top: 20px !important;
+  }
+
+  .jug2 {
+    text-align: left !important;
+    margin-left: 1px !important;
+    margin-top: 5px !important;
+  }
+
+  .score{
+      vertical-align: top;
+      text-combine-upright: top;
+      display: table-header-group;
+      margin-left: 120px;
+  }
+
+  .abandono {
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    margin-right: -18px;
+    /* margin-top: -148px; */
+    padding-right: 10px;
+    text-align: right;
+  }
+
+
+.space {
+  margin-top: 40px;
+}
+  .headingScore {
+    word-spacing: 16px;
+    display: inline;
+    margin-right: 240px;
+    text-align: center;
+  }
+
+
+  .content {
+    display: inline-block;
+    margin-right: 240px;
+    text-align: center;
+    margin: 2px;
+  }
+
+  input[type=number] {
+    width: 50%;
+  }
+
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+
+}
+
+input[type=checkbox] {
+  margin-right: 32px;
+}
+
+input[type=submit] {
+  margin-top: 13px;
+  margin-right: 2px;
+}
+
+input[type=date] {
+  border-radius: 8px;
+  height: 30px;
+  width: 11%;
+}
+
+
+
+.btn-generico {
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  background-color: #238A8A;
+  color: white;
+  height: 30px;
+
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  width: 40%;
+
+}
+
+.btn-generico:hover {
+  background-color: #48B48F;
+}
+
+
+
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+

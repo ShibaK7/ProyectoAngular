@@ -23,6 +23,9 @@ import { TorneoIndividualComponent } from './torneos/torneo-individual/torneo-in
 import { LcontactoComponent } from './lcontacto/lcontacto.component';
 import { AdminComponent } from './admin/admin.component';
 import { CapturistaComponent } from './capturista/capturista.component';
+import { AdministracionComponent } from './otros/administracion/administracion.component';
+import { CompetenciasComponent } from './otros/competencias/competencias.component';
+
 import { UserbarComponent } from './userbar/userbar.component';
 import { RegistroComponent } from './capturista/registro/registro.component';
 import { InscripcionComponent } from './capturista/inscripcion/inscripcion.component';
@@ -31,12 +34,15 @@ import { InscripcionIndividualFemeninoComponent } from './capturista/inscripcion
 import { InscripcionDobleMasculinoComponent } from './capturista/inscripcion/inscripcion-doble-masculino/inscripcion-doble-masculino.component';
 import { InscripcionDobleFemeninoComponent } from './capturista/inscripcion/inscripcion-doble-femenino/inscripcion-doble-femenino.component';
 import { InscripcionDobleMixtoComponent } from './capturista/inscripcion/inscripcion-doble-mixto/inscripcion-doble-mixto.component';
+
 import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.component';
 import { RegistroTorneoComponent } from './registro-torneo/registro-torneo.component';
 import { Paso1Component } from './registro-torneo/paso1/paso1.component';
 import { Paso2Component } from './registro-torneo/paso2/paso2.component';
 import { Paso3Component } from './registro-torneo/paso3/paso3.component';
 import { LlaveComponent } from './admin/llave/llave.component';
+import { CrearCompetenciaComponent } from './otros/crear-competencia/crear-competencia.component';
+import { CrearCompetenciaTest1Component } from './crear-competencia-test1/crear-competencia-test1.component';
 
 
 @NgModule({
@@ -57,6 +63,9 @@ import { LlaveComponent } from './admin/llave/llave.component';
     InicioComponent,
     TorneoIndividualComponent,
     AdminComponent,
+    CapturistaComponent,
+    AdministracionComponent,
+    CompetenciasComponent,
     LcontactoComponent,
     CapturistaComponent,
     UserbarComponent,
@@ -72,7 +81,9 @@ import { LlaveComponent } from './admin/llave/llave.component';
     Paso1Component,
     Paso2Component,
     Paso3Component,
-    LlaveComponent
+    LlaveComponent,
+    CrearCompetenciaComponent,
+    CrearCompetenciaTest1Component
   ],
   imports: [
     BrowserModule,

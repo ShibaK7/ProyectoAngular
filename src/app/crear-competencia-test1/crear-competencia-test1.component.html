@@ -1,0 +1,124 @@
+<app-navbar></app-navbar>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+  integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+
+
+<div class="aux">
+    <!--  <a routerLink="#" class="btn">Enfrentamientos</a> -->
+
+    <div class="input-group space" style="width: 18%;">
+            <input type="date" #tres id="start" name="trip-start" value="2019-05-22" min="2018-01-01" max="2019-12-31" class="form-control"   />
+            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+    
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<div class="row">
+
+    <div *ngFor="let torneo of torneos; let i = index;" class="column">
+        
+            <!-- <div *ngIf="i > 1 && i < 3" > -->
+            <div *ngIf="torneo.fechaCompetencia == tres.value"> 
+                <div class="card">
+                        <h3>{{torneo.nombreTorneo}}</h3>
+                
+                        <table class="table table-sm ">
+                                <thead class="bg-dark text-white">
+                                  <tr>
+                                    <th scope="col"> </th>
+                                    <th scope="col"> </th>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                    <th scope="col">5</th>
+                                    <th scope="col">6</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  class="text-dark" >
+                                        <td>
+                                                Rafel Nadal
+                                        </td>
+                                        <td *ngFor="let torneo of torneos;let i = index;">
+                                                <div *ngIf="i > 0 && i < 7" >
+                                                    <input type="number" id="primero" name="primero" class="content" min="0" max="25">
+                                                </div> 
+                                        </td>
+                                    </tr>   
+                
+                                    <tr  class="text-dark" >
+                                            <td>
+                                                    Kobe Bryant
+                                            </td>
+                                            <td *ngFor="let torneo of torneos;let i = index;">
+                                                <div *ngIf="i > 0 && i < 7" >
+                                                    <input type="number" id="segundo" name="segundo" class="content" min="0" max="25">
+                                                </div> 
+                                            </td>
+                                    </tr>    
+                  
+                                </tbody>
+                        </table>
+                
+                
+                
+                        <div class="abandono">
+                            
+                
+                <!-- 
+                              <input type="checkbox" [disabled]="false" name="abandono" >Abandono<br>
+                              <textarea rows="1" cols="20" [disabled]="true" > </textarea>
+                
+                -->
+                
+                              <form>
+                                  <div>
+                                      <input  type="checkbox" [disabled]="false" name="option-2" id="option-2">Abandono
+                                  </div>
+                                  <div>
+                                      <textarea  rows="1" cols="11" value="Motivo">Motivo </textarea>
+                                  </div>
+                                  <div>
+                                      <input type="submit" class="btn-generico" onclick="myFunction()" value="Enviar">
+                                  </div>
+                              </form>
+                              
+                
+                        </div>
+                
+                
+                        
+                </div>
+            </div>
+
+        
+
+    </div>
+
+</div>
+  
+
+
+<div class="mt-5">
+    <app-footer></app-footer>
+  </div>
+  
+
+

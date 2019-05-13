@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<div class="row">
+
+    <div *ngFor="let torneo of torneos" class="column">
+      <div class="card">
+        <h3>{{torneo.nombreTorneo}}</h3>
+        <img src={{torneo.foto}} alt="Avatar" style="width:100%">
+        <p>{{torneo.descripcion}}</p>
+        <!-- <a routerLink="#" class="btn">Info</a>
+        <a routerLink="#" class="btn">Editar</a>  -->
+        <a routerLink="/competencias/{{torneo.id}}" class="btn">Competencias</a>
+      </div>
+    </div>
+
+  </div>
+  
+
+
+<div class="mt-5">
+  <app-footer></app-footer>
+</div>
+
+
+
+

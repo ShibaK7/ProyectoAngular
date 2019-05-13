@@ -1,5 +1,6 @@
 export class Torneo {
     id: number;
+    id_competencia: number; 
     nombreTorneo: string;
     nacionalidad: string;
     fechaInicio: string;
@@ -15,6 +16,29 @@ export class Torneo {
     imagen2: string;
     imagen3: string;
     imagen4: string;
+
+    tipoCompetencia: number;
+    torneo: string;
+    categoria: number;
+    premioPrimerLugar: number;
+    premioSegundoLugar: number;
+    premioTercerLugar: number;
+
+    a1 : number;
+    a2 : number;
+    a3 : number;
+    a4 : number;
+    a5 : number;
+    a6 : number;
+
+    b1 : number;
+    b2 : number;
+    b3 : number;
+    b4 : number;
+    b5 : number;
+    b6 : number;
+
+    fechaCompetencia: string;
   }
 
 

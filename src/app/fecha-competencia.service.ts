@@ -3,26 +3,28 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Torneo } from './Torneos-Record';
+
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+
+import { Torneo } from './torneos/Torneos-Record';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class TorneosRecordService {
+export class FechaCompetenciaService {
 
   editField: string;
   private torneoUrl = 'api/TORNEOS';
   private torneoss: Torneo[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { 
     this.http.get<Torneo[]>(this.torneoUrl).subscribe(data => {
       this.torneoss = data;
     });
-   }
+  }
 
-
-
-   getTorneos (): Observable<Torneo[]> {
+  getTorneos (): Observable<Torneo[]> {
     return this.http.get<Torneo[]>(this.torneoUrl).pipe(
       catchError(this.handleError<Torneo[]>('getTorneos', []))
     );
@@ -44,6 +46,7 @@ export class TorneosRecordService {
       catchError(this.handleError<Torneo[]>('searchTorneo', []))
     );
   }
+  
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -68,5 +71,18 @@ export class TorneosRecordService {
   changeValue(id: number, property: number, event: any) {
     this.editField = event.target.textContent;
   }
+
+
+  searchTerms(term: string): Observable<Torneo[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Torneo[]>(`${this.torneoUrl}/?fechaCompetencia=${term}`).pipe(
+      catchError(this.handleError<Torneo[]>('searchTerms', []))
+    );
+  }
+
+
 
 }
