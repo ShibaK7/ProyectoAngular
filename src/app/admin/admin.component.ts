@@ -21,7 +21,7 @@ import { Competencia } from '../competencia';
 })
 export class AdminComponent implements OnInit {
 
-  private nombre: string;
+  private nombres: string;
   private nacionalidadSeleccionada: string = null;
   private registrosPorPagina: number = 4;
   private numeroPagina: number = 1;
