@@ -18,10 +18,16 @@ export class EncuentrosService {
 
   constructor(private http: HttpClient) { }
 
-  addEnfrentamiento(encuentro: Encuentro){
+  addEnfrentamiento(encuentro: Encuentro): Observable<Encuentro>{
     return this.http.post<Encuentro>(this.heroesUrl, encuentro, httpOptions).pipe(
       catchError(this.handleError<Encuentro>('addEnfrentamiento'))
     )
+  }
+
+  getEncuentros(): Observable<Encuentro[]> {
+    return this.http.get<Encuentro[]>(this.heroesUrl).pipe(
+      catchError(this.handleError<Encuentro[]>('getEncuentros', []))
+    );
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

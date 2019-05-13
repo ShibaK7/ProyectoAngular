@@ -24,13 +24,29 @@
   .droptarget {
     background-color: grey;
     cursor: move;
+    color: white;
   }
 
   .droptarget2 {
     float: left; 
-    width: 100px; 
-    height: 100px;
+    width: 175px; 
+    height: 75px;
     margin: 5px;
     padding: 5px;
     border: 1px solid #aaaaaa;
+  }
+
+  .card-competencia {
+    background: #33393F;
+    color: #FFFFFF;
+    border-radius: 3mm;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .card-competencia:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
   }

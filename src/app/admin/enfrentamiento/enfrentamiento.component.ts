@@ -20,7 +20,9 @@ export class EnfrentamientoComponent implements OnInit {
   competencia: Competencia;
   listaCompetidores: Inscrito[] = [];
   listaEncuentros: Encuentro[] = [];
+  listaAux: Encuentro[] = [];
   
+  //id:number = 0;
   fecha;
   hora;
   idCompetencia;
@@ -36,6 +38,7 @@ export class EnfrentamientoComponent implements OnInit {
   
     ngAfterViewInit() {
       this.getListaCompetidores();
+      this.getEncuentros();
     }
   
     getCompetencia(): void {
@@ -50,6 +53,12 @@ export class EnfrentamientoComponent implements OnInit {
       this.inscritoService.getInscritos()
       .subscribe(inscritos =>
         this.listaCompetidores = inscritos.filter(inscrito => this.competencia.id == inscrito.idCompetencia))
+    }
+
+    getEncuentros(): void{
+      this.encService.getEncuentros()
+      .subscribe(encuentros => 
+        this.listaAux = encuentros.filter(encuentro => this.competencia.id == encuentro.idCompetencia))
     }
 
     agregarEnfrentamiento(fechax:any, horax:any):void{
@@ -75,13 +84,23 @@ export class EnfrentamientoComponent implements OnInit {
       if(!this.jugadorUno || !this.jugadorDos || !this.idCompetencia || !this.fecha || !this.hora){
         return;
       }
-
+      //this.id = this.id + 1;
       let encuentroAux = new Encuentro(this.idCompetencia, this.jugadorUno, this.jugadorDos, this.hora, this.fecha);
 
-      /*his.encService.agregarEnfrentamiento(encuentroAux).subscribe(
-        inscrito => this.jugadoresInscritos.push(inscrito)
-      )*/
+      this.encService.addEnfrentamiento(encuentroAux).subscribe(
+        encuentroAux => this.listaEncuentros.push(encuentroAux)
+      )
 
+      for(let i = 0; i<this.listaEncuentros.length; i++){
+       console.log(this.listaEncuentros[i].idCompetencia);
+       console.log(this.listaEncuentros[i].nombreJugador1);
+       console.log(this.listaEncuentros[i].nombreJugador2);
+       console.log(this.listaEncuentros[i].hora);
+       console.log(this.listaEncuentros[i].fecha);
+      }
+
+      console.log(this.listaAux);
+      console.log(this.listaCompetidores);
 
     }
 
