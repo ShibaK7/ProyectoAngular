@@ -38,8 +38,8 @@ export class Paso1Component implements OnInit{
   }
 
  
-  sedes = ['Sede 1', 'Sede 2', 'Sede 3', 'Sede 4'];
-  canchas = ['Cancha1', 'Cancha2', 'Cancha3', 'Cancha4', 'Cancha5'];
+  sedes = ['Montpellier, France', 'Marrakech, Morocco', 'Melbourne, Australia', 'Auckland, New Zealand'];
+  canchas = ['Césped', 'Arcilla', 'Dura', 'Cintética'];
 
   model= new RTorneo(1, 'Torneo1', this.sedes[0], this.canchas[0], 'Descripción', '$4000', '12-05-1998', '12-05-19981', '12-05-1998', '12-05-1998');
 
