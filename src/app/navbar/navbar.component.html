@@ -1,93 +1,141 @@
 <script>
- function cerrar(){
-  $('#victorModal').modal('hide'); 
- } 
+  function cerrar() {
+    $('#victorModal').modal('hide');
+  } 
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-dark">
 
-    <div class="container">
-      <a class="navbar-brand" routerLink="/inicio"><b><img src="../../assets/LOG.png">ATC</b></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" alignment="center">
-        
-        <ul class="navbar-nav mr-auto">
-        
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/inicio">Inicio 
+  <div class="container">
+    <a class="navbar-brand" routerLink="/inicio"><b><img src="../../assets/LOG.png">ATC</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" alignment="center">
+
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/inicio">Inicio
             <span class="sr-only">(current)</span></a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/resultados">Resultados</a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/torneos">Torneos</a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/ranking">Ranking</a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/contacto">Contacto</a>
-          </li>
-        
-        </ul>
-  
-        <a href="#victorModal" role="button" data-toggle="modal" class="btn btn-outline-success d-lg-inline-block mb-3 mb-md-0 ml-md-3">Ingresar</a>
-        <a class="btn btn-outline-info d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="#">Ayuda</a>
-      
-      </div>
-    
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/resultados">Resultados</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/torneos">Torneos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ranking">Ranking</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacto">Contacto</a>
+        </li>
+
+      </ul>
+
+      <a href="#victorModal" role="button" data-toggle="modal"
+        class="btn btn-outline-success d-lg-inline-block mb-3 mb-md-0 ml-md-3">Ingresar</a>
+      <a role="button" data-toggle="modal" class="btn btn-outline-info d-lg-inline-block mb-3 mb-md-0 ml-md-3"
+        href="#victorModal2">Ayuda</a>
+
     </div>
-    
-    </nav>
-  <!---->
+
+  </div>
+
+</nav>
+<!---->
 
 
-  <!-- Modal / Ventana / Overlay en HTML -->
+<!-- Modal / Ventana / Overlay en HTML -->
 <div id="victorModal" class="modal fade">
   <div class="modal-dialog modal-md form-conatiner">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h4 class="modal-title">Inicio de Sesión</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          </div>
-          <div class="modal-body">
-              <div class="modal-body">
-                  <form [formGroup]="loginForm" (ngSubmit)="agregarUsuario()"> 
-                      <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="usuario">Usuario*</label>
-                                <input [(ngModel)]="correo" type="text" id="usuario" placeholder="Usuario" class="form-control" formControlName="usuario" />
-                                <span style="color:#2C6971;" *ngIf="loginForm.controls['usuario'].touched && loginForm.controls['usuario'].errors?.required">Este campo es obligatorio.</span>
-                            </div>
-                        </div>
-                      </div>
-                      
-                      <div class="row">
-                      <div class="col">
-                          <div class="form-group">
-                              <label for="clave">Contraseña*</label>
-                              <input [(ngModel)]="pass" type="password" id="clave" placeholder="Contraseña" class="form-control" formControlName="clave" />
-                              <span style="color:#2C6971;" *ngIf="loginForm.controls['clave'].touched && loginForm.controls['clave'].errors?.required">Este campo es obligatorio.</span>
-                          </div>  
-                      </div>
-                    </div>              
-                    </form>
-              </div>
-          </div>
-          <div class="modal-footer">
-<!-- Botones con validacion -->
-                  <button id="btn" type="submit" class="btn btn-outline-dark" (click)="iniciarSesion()" data-dismiss="modal" aria-hidden="true">Enviar</button>
-          </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Inicio de Sesión</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form [formGroup]="loginForm" (ngSubmit)="agregarUsuario()">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="usuario">Usuario*</label>
+                  <input [(ngModel)]="correo" type="text" id="usuario" placeholder="Usuario" class="form-control"
+                    formControlName="usuario" />
+                  <span style="color:#2C6971;"
+                    *ngIf="loginForm.controls['usuario'].touched && loginForm.controls['usuario'].errors?.required">Este
+                    campo es obligatorio.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="clave">Contraseña*</label>
+                  <input [(ngModel)]="pass" type="password" id="clave" placeholder="Contraseña" class="form-control"
+                    formControlName="clave" />
+                  <span style="color:#2C6971;"
+                    *ngIf="loginForm.controls['clave'].touched && loginForm.controls['clave'].errors?.required">Este
+                    campo es obligatorio.</span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- Botones con validacion -->
+        <button id="btn" type="submit" class="btn btn-outline-dark" (click)="iniciarSesion()" data-dismiss="modal"
+          aria-hidden="true">Enviar</button>
+      </div>
+    </div>
   </div>
 </div>
 
+<!-- Modal / Ventana / Overlay en HTML -->
+<div id="victorModal2" class="modal fade">
+  <div class="modal-dialog modal-md form-conatiner">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Preguntas Frecuentes</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>
+            ¿Qué significa ATC?
+          </li>
+          <p>
+            R= Angular Tenis Club, o por su traducción, Club de Tenis Angular. Es el nombre de la institución dueña del sitio web.
+          </p>
+          <li>
+            ¿Por qué están los formatos de la ATP y la WTA?
+          </li>
+          <p>
+            R= Al obtener nosotros los datos de estas organizaciones se deben de mantener los formatos impuestos por las mismas.
+          </p>
+          <li>
+            ¿Cómo puedo obtener información más detallada?
+          </li>
+          <p>
+            Visitando los sitios de la <a href="https://www.atptour.com/">ATP</a> y la <a href="https://www.wtatennis.com/" >WTA</a> o contactándonos directamente a través de la sección de <a routerLink="/contacto" data-dismiss="modal" aria-hidden="true">contacto</a> 
+          </p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <p>
+          ATC se limita para uso exclusivo en consultas de información, cualquier otro fin que se le quiera queda a disposición del internauta.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
