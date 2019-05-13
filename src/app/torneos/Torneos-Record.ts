@@ -50,6 +50,8 @@ export class Torneo {
         this.inscripcionInicio = inscripcionInicio;
         this.inscripcionFinal = inscripcionFinal;
     }
+
+    resultados: string;
 }
 
 

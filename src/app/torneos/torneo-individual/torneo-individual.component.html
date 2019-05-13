@@ -21,7 +21,7 @@
             <div class="btn-group">
               <button class="btn btn-generico" (click)="cambiarSeleccion(1)">Informacion</button>
               <button class="btn btn-generico" (click)="cambiarSeleccion(2)">Resultados</button>
-              <button class="btn btn-generico" (click)="cambiarSeleccion(3)">Partidos</button>
+
             </div>
           </div>
           <div class="card-body" *ngIf="opcionSeleccionada==1">
@@ -29,10 +29,7 @@
             {{torneo.informacion}}
           </div>
           <div class="card-body" *ngIf="opcionSeleccionada==2">
-            {{torneo.descripcion}}
-          </div>
-          <div class="card-body" *ngIf="opcionSeleccionada==3">
-            {{torneos.nombreTorneo}}
+            {{torneo.resultados}}
           </div>
         </div>
         <div class="card-footer carta-centrada">
