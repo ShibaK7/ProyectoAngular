@@ -23,6 +23,7 @@ export class EnfrentamientoComponent implements OnInit {
   listaAux: Encuentro[] = [];
   
   band:boolean = false;
+  cont:number = 0;
   //id:number = 0;
   fecha;
   hora;
@@ -76,6 +77,9 @@ export class EnfrentamientoComponent implements OnInit {
       this.hora = horax;
       console.log(fechax+" "+horax);
       this.agregarEnf();
+      this.cont = this.cont + 1;
+      console.log(this.cont);
+      alert("El enfrentamiento ha sido agregado con éxito");
     }
 
     agregarEnf(){

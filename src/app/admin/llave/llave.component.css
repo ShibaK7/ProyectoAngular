@@ -90,3 +90,86 @@
   .clear {
     clear: both;
   }
+
+  .barra{
+    width: 50%;
+    size: 15px;
+    color: #48B48F;
+  }
+
+  /* Red border */
+hr.new1 {
+    border-top: 1px solid red;
+  }
+  
+  /* Dashed red border */
+  hr.new2 {
+    border-top: 1px dashed red;
+  }
+  
+  /* Dotted red border */
+  hr.new3 {
+    border-top: 1px dotted red;
+  }
+  
+  /* Thick red border */
+  hr.new4 {
+    border: 1px solid red;
+  }
+  
+  /* Large rounded green border */
+  hr.new5 {
+    width: 50%;
+    border: 1.5px solid #48B48F;
+    border-radius: 1px;
+  }
+
+  hr.new6 {
+    position: relative;
+    width: 50%;
+    left: -30px;
+    border: 1.5px solid #48B48F;
+    border-radius: 1px;
+  }
+
+  .vl {
+    position: absolute;
+    left: 50%;
+    border-left: 3px solid #48B48F;
+    height: 42px;
+  }
+
+  .v2 {
+    position: absolute;
+    left: 17.5%;
+    border-left: 3px solid #48B48F;
+    height: 200px;
+  }
+
+  .v3 {
+    position: absolute;
+    left: 65%;
+    border-left: 3px solid #48B48F;
+    height: 500px;
+  }
+
+  .v6 {
+    position: absolute;
+    left: 182%;
+    border-left: 3px solid #48B48F;
+    height: 500px;
+  }
+
+  .v7 {
+    position: absolute;
+    left: 90%;
+    border-left: 3px solid #48B48F;
+    height: 935px;
+  }
+
+  .v8 {
+    position: absolute;
+    left: 157%;
+    border-left: 3px solid #48B48F;
+    height: 935px;
+  }
