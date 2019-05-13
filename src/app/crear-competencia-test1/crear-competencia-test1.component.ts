@@ -11,6 +11,7 @@ import { Torneo } from '../torneos/Torneos-Record';
 
 import { FechaCompetenciaService } from '../fecha-competencia.service';
 
+import * as $ from 'jquery';
 
 
 @Component({
@@ -45,7 +46,66 @@ export class CrearCompetenciaTest1Component implements OnInit {
 
   constructor(private torneosRecordService: TorneosRecordService, private fechaCompetenciaService :FechaCompetenciaService , private route: ActivatedRoute, private location: Location) { }
 
-  ngOnInit() {
+  public ngOnInit() {
+
+
+    jQuery(function($) {
+      $('.removeDiv').on('click', function() {
+        $(this).parent('div').remove();
+      });
+    });
+
+    function removeDiv(elem){
+      $(elem).parent('div').remove();
+  }
+
+
+    $('.close-div').on('click', function(){
+      $(this).closest("#clients-edit-wrapper").remove();
+  });
+
+
+    $(function(){
+      $('#im').change(function(){
+        if($(this).prop('checked')){
+          $('#oim').show();
+        }else{
+          $('#oim').hide();
+        }
+
+      })
+
+      $('#if').change(function(){
+        if($(this).prop('checked')){
+          $('#oif').show();
+        }else{
+          $('#oif').hide();
+        }
+
+      })
+
+      $('#dm').change(function(){
+        if($(this).prop('checked')){
+          $('#odm').show();
+        }else{
+          $('#odm').hide();
+        }
+
+      })
+
+      $('#df').change(function(){
+        if($(this).prop('checked')){
+          $('#odf').show();
+        }else{
+          $('#odf').hide();
+        }
+
+      })
+    })
+
+    
+
+    
     this.getTorneos();
     this.torneoSeleccionado = null;
     this.getPaginas();
@@ -75,6 +135,8 @@ export class CrearCompetenciaTest1Component implements OnInit {
       switchMap((term: string) => 
       this.fechaCompetenciaService.searchTerms(term))
     );
+
+    
   }
 
 
@@ -306,6 +368,8 @@ clickMethod(name: string) {
     console.log("Implement delete functionality here");
   }
 }
+
+
 
 
 

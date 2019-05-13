@@ -177,3 +177,12 @@ input[type=date] {
 }
 
 
+.o-hide {
+  opacity: 0;
+  transition: all ease 0.8s;
+}
+
+.o-hide:hover {
+  opacity: 1;
+}
+
