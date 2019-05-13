@@ -301,6 +301,13 @@ asd(a)
     document.getElementById("asd").style.display="block";
 }
 
+clickMethod(name: string) {
+  if(confirm("¿Deseas continuar?")) {
+    console.log("Implement delete functionality here");
+  }
+}
+
+
 
 
 
