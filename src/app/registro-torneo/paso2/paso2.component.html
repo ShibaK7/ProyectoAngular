@@ -1,7 +1,21 @@
+<app-userbar [usuario]='"Administrador"'></app-userbar>
+<br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="a_demo_four" id="nav" routerLink="/paso1"> Paso 1 </a> 
+      <a class="a_demo_four" id="nav" routerLink="/paso2">Paso 2</a>
+    </div>
+  </div>
+</nav>
+
 <div class="row">
   <div class="container">
     <br><br>
-    <h3>Elección de competencias</h3><br><br>
+    <h4>Elección de competencias</h4><br><br>
     <div class="exp">
       <div class="checkbox">
         <div class="form-group">
@@ -46,8 +60,6 @@
     </div>
   </div>
 </div>
-
-
 <div class="row">
   <div class="container">
     <div [hidden]="submitted">
@@ -287,7 +299,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                   <button type="submit" class="btn btn-primary" style="background-color:#48B48F" data-dismiss="modal"><a
-                      routerLink="/paso3">Guardar
+                      routerLink="/admin">Guardar
                       cambios</a></button>
                 </div>
               </div>

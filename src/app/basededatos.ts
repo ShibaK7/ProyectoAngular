@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { Inscrito } from "./inscrito";
+import { Torneo } from "./torneos/Torneos-Record";
 
 @Injectable({ providedIn: 'root' })
 export class InMemoryInformacionService implements InMemoryDbService {
@@ -229,4 +230,8 @@ export class InMemoryInformacionService implements InMemoryDbService {
   generarIdInscrito(INSCRITOS: Inscrito[]): number {
     return INSCRITOS.length > 0 ? Math.max(...INSCRITOS.map(insctrito => insctrito.id)) + 1 : 1;
   }
+
+  generarIdTorneos(TORNEOS: Torneo[]): number {
+    return TORNEOS.length > 0 ? Math.max(...TORNEOS.map(torneo => torneo.id)) + 1 : 1;
+  }  
 }

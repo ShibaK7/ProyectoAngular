@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Competencia } from '../competencia';
-import { CompetenciaService } from '../competencia.service';
+import {Torneo } from '../torneos/Torneos-Record';
+import { TorneosRecordService } from '../torneos/torneos-record.service';
+
+
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +15,7 @@ import { CompetenciaService } from '../competencia.service';
 export class AdminComponent implements OnInit {
 
   private nombre: string;
-  private torneoSeleccionado: string = null;
+  private nacionalidadSeleccionada: string = null;
   private registrosPorPagina: number = 4;
   private numeroPagina: number = 1;
   private totalPaginas: number;
@@ -21,79 +23,95 @@ export class AdminComponent implements OnInit {
   private totalPaginasFiltrado: number;
   private filtradoTorneo: boolean = false;
 
-  competencias: Competencia[];
+  torneos: Torneo[];
 
   token;
   usuario;
-  constructor(private competenciaService: CompetenciaService, private route: ActivatedRoute, private location: Location) {
+  constructor(private torneoService: TorneosRecordService, private route: ActivatedRoute, private location: Location) {
     this.token = localStorage.getItem('token');
     this.usuario = localStorage.getItem('correo');
   }
 
   ngOnInit() {
-    this.getCompetencias();
+    this.getTorneos();
     this.getPaginas();
     this.nombre = this.route.snapshot.url.toString();
   }
 
-  getCompetencias(): void {
+  getTorneos(): void {
+    console.log("Get Torneos entra");
     if(!this.filtradoTorneo)
     {
-      let indice = (this.numeroPagina - 1)*this.registrosPorPagina;
-      this.competenciaService.getCompetencias()
-      .subscribe(competencias =>
-        this.competencias = competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).slice(indice, indice+this.registrosPorPagina))
+      let indice = (this.numeroPagina -1)*this.registrosPorPagina;
+      this.torneoService.getTorneos()
+      .subscribe(torneos =>
+        this.torneos = torneos.filter(torneo => this.nacionalidadSeleccionada == null || this.nacionalidadSeleccionada == torneo.nacionalidad).slice(indice, indice+this.registrosPorPagina),
+        error => console.log(error),
+        () => {this.torneos.forEach(function(element)
+          {
+            console.log("Torneo" + element.nombreTorneo);
+          });})
     }
     else
     {
-      let indice = (this.numeroPaginaFiltrado - 1)*this.registrosPorPagina;
-      this.competenciaService.getCompetencias()
-      .subscribe(competencias =>
-        this.competencias = competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).slice(indice, indice+this.registrosPorPagina))
+      let indice = (this.numeroPaginaFiltrado -1)*this.registrosPorPagina;
+      this.torneoService.getTorneos()
+      .subscribe(torneos =>
+        this.torneos = torneos.filter(torneo => this.nacionalidadSeleccionada == null || this.nacionalidadSeleccionada == torneo.nacionalidad).slice(indice, indice+this.registrosPorPagina),
+        error => console.log(error),
+        () => {this.torneos.forEach(function(element)
+          {
+            console.log("Torneo" + element);
+          });})
     }
+    
+    
   }
 
+  
+   
   getPaginas(): void {
-    this.competenciaService.getCompetencias().subscribe( competencias =>
+    this.torneoService.getTorneos().subscribe( torneos =>
         {
-          if(((competencias.length/this.registrosPorPagina)-(Math.trunc(competencias.length / this.registrosPorPagina)))==0)
-            this.totalPaginas = Math.trunc(competencias.length / this.registrosPorPagina)
+          if(((torneos.length/this.registrosPorPagina)-(Math.trunc(torneos.length / this.registrosPorPagina)))==0)
+            this.totalPaginas = Math.trunc(torneos.length / this.registrosPorPagina)
           else
-            this.totalPaginas = Math.trunc(competencias.length / this.registrosPorPagina)+1
+            this.totalPaginas = Math.trunc(torneos.length / this.registrosPorPagina)+1
         }
       )
   }
 
   getPaginasFiltradas(): void {
-    this.competenciaService.getCompetencias().subscribe( competencias =>
+    this.torneoService.getTorneos().subscribe( torneos =>
       {
-        if(((competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).length/this.registrosPorPagina)-(Math.trunc(competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).length / this.registrosPorPagina)))==0)
-          this.totalPaginasFiltrado = Math.trunc(competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).length / this.registrosPorPagina)
+        if(((torneos.filter(torneo => this.nacionalidadSeleccionada == null || this.nacionalidadSeleccionada == torneo.nacionalidad).length/this.registrosPorPagina)-(Math.trunc(torneos.filter(torneo => this.nacionalidadSeleccionada == null || this.nacionalidadSeleccionada == torneo.nacionalidad).length / this.registrosPorPagina)))==0)
+          this.totalPaginasFiltrado = Math.trunc(torneos.filter(torneo => this.nacionalidadSeleccionada == null || this.nacionalidadSeleccionada == torneo.nacionalidad).length / this.registrosPorPagina)
         else
-          this.totalPaginasFiltrado = Math.trunc(competencias.filter(competencia => this.torneoSeleccionado == null || this.torneoSeleccionado == competencia.torneo).length / this.registrosPorPagina)+1
+          this.totalPaginasFiltrado = Math.trunc(torneos.filter(torneo => this.nacionalidadSeleccionada == null || this.nacionalidadSeleccionada == torneo.nacionalidad).length / this.registrosPorPagina)+1
       }
     )
   }
 
-  get torneosCompetencias(): string[] {
-    return this.competenciaService.getTorneosCompetencias();
+  get nacionalidadTorneos(): string[] {
+    console.log("Get Nacionalidad entra");
+    return this.torneoService.getNacionalidadTorneos();
   }
 
-  cambiarTorneoSeleccionado(newTorneoSeleccionado?: string) {
-    if(newTorneoSeleccionado=="")
+  cambiarNacionalidadSeleccionada(newNacionalidadSeleccionada?: string) {
+    if(newNacionalidadSeleccionada=="")
     {
-      this.torneoSeleccionado = null;
+      this.nacionalidadSeleccionada = null;
       this.filtradoTorneo = false;
       this.numeroPaginaFiltrado = 1;
-      this.getCompetencias();
+      this.getTorneos();
     }
     else
     {
-      this.torneoSeleccionado = newTorneoSeleccionado;
+      this.nacionalidadSeleccionada = newNacionalidadSeleccionada;
       this.filtradoTorneo = true;
       this.numeroPagina = 1;
       this.getPaginasFiltradas();
-      this.getCompetencias();
+      this.getTorneos();
     }
   }
 
@@ -102,13 +120,13 @@ export class AdminComponent implements OnInit {
     {
       if(this.numeroPagina < this.totalPaginas)
         this.numeroPagina++;
-        this.getCompetencias();
+        this.getTorneos();
     }
     else
     {
       if(this.numeroPaginaFiltrado < this.totalPaginasFiltrado)
         this.numeroPaginaFiltrado++;
-        this.getCompetencias();
+        this.getTorneos();
     }
   }
 
@@ -117,13 +135,13 @@ export class AdminComponent implements OnInit {
     {
       if(this.numeroPagina > 1)
       this.numeroPagina--;
-      this.getCompetencias();
+      this.getTorneos();
     }
     else
     {
       if(this.numeroPaginaFiltrado > 1)
       this.numeroPaginaFiltrado--;
-      this.getCompetencias();
+      this.getTorneos();
     }
   }
 
@@ -131,25 +149,25 @@ export class AdminComponent implements OnInit {
     if(!this.filtradoTorneo)
       {
         this.numeroPagina = this.totalPaginas;
-        this.getCompetencias();
+        this.getTorneos();
       }
       else
       {
         this.numeroPaginaFiltrado = this.totalPaginasFiltrado;
-        this.getCompetencias();
+        this.getTorneos();
       }
   }
 
-  regresarPrincipio(genero: number) {
+  regresarPrincipio(nacionalidad: number) {
     if(!this.filtradoTorneo)
       {
         this.numeroPagina = 1;
-        this.getCompetencias();
+        this.getTorneos();
       }
       else
       {
         this.numeroPaginaFiltrado = 1;
-        this.getCompetencias();
+        this.getTorneos();
       }
   }
 

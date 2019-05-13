@@ -5,6 +5,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Torneo } from './Torneos-Record';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +16,14 @@ export class TorneosRecordService {
 
   editField: string;
   private torneoUrl = 'api/TORNEOS';
-  private torneoss: Torneo[] = [];
+  private nacionalidadTorneos: string[] = [];
+  private torneos: Torneo[] = [];
 
   constructor(private http: HttpClient) {
     this.http.get<Torneo[]>(this.torneoUrl).subscribe(data => {
-      this.torneoss = data;
+      this.torneos = data;
+      this.nacionalidadTorneos = data.map(t => t.nacionalidad)
+      .filter((c, index, array) => array.indexOf(c) == index).sort();
     });
    }
 
@@ -44,6 +51,16 @@ export class TorneosRecordService {
       catchError(this.handleError<Torneo[]>('searchTorneo', []))
     );
   }
+
+  getNacionalidadTorneos(): string[] {
+    return this.nacionalidadTorneos;
+  }
+
+  addTorneo(torneo: Torneo) {
+    return this.http.post<Torneo>(this.torneoUrl, torneo, httpOptions).pipe(
+      catchError(this.handleError<Torneo>('addInscrito'))
+    )
+   }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
