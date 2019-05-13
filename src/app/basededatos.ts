@@ -191,8 +191,14 @@ export class InMemoryInformacionService implements InMemoryDbService {
     ];
 
     const ENCUENTROS = [
-      {id: 1, idCompetencia: 1, nombreJugador1: null, nombreJugador2: null, fecha: null, hora: null},
-      {id: 2, idCompetencia: 1, nombreJugador1: null, nombreJugador2: null, fecha: null, hora: null}
+      {id: 1, idCompetencia: 1, nombreJugador1: "Novak Djokovic", nombreJugador2: "Rafael Nadal", fecha: "2019-05-13", hora: "12:00 pm"},
+      {id: 2, idCompetencia: 1, nombreJugador1: "Alexander Zverev", nombreJugador2: "Roger Federer", fecha: "2019-05-13", hora: "01:00 pm"},
+      {id: 3, idCompetencia: 1, nombreJugador1: "Dominic Thiem", nombreJugador2: "Kevin Anderson", fecha: "2019-05-13", hora: "02:00 pm"},
+      {id: 4, idCompetencia: 1, nombreJugador1: "Stefanos Tsitsipas", nombreJugador2: "Juan Martin del Potro", fecha: "2019-05-13", hora: "03:00 pm"},
+      {id: 5, idCompetencia: 1, nombreJugador1: "Jhon Isner", nombreJugador2: "Marin Cilic", fecha: "2019-05-13", hora: "04:00 pm"},
+      {id: 6, idCompetencia: 1, nombreJugador1: "Karen Khachanov", nombreJugador2: "Borna Coric", fecha: "2019-05-13", hora: "05:00 pm"},
+      {id: 7, idCompetencia: 1, nombreJugador1: "Milos Raonic", nombreJugador2: "Marco Cecchinato", fecha: "2019-05-13", hora: "06:00 pm"},
+      {id: 8, idCompetencia: 1, nombreJugador1: "Fabio Fognini", nombreJugador2: "Denis Shapovalov", fecha: "2019-05-14", hora: "12:00 pm"} 
     ];
 
     return { JUGADORES, JUGADORAS, INDIVIDUALES, DOBLES, COMPETENCIAS, INSCRITOS, TORNEOS, ENCUENTROS };

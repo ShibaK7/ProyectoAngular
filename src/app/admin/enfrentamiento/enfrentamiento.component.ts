@@ -20,10 +20,13 @@ export class EnfrentamientoComponent implements OnInit {
   competencia: Competencia;
   listaCompetidores: Inscrito[] = [];
   listaEncuentros: Encuentro[] = [];
+  listaAux: Encuentro[] = [];
   
+  band:boolean = false;
+  //id:number = 0;
   fecha;
   hora;
-  idComptencia;
+  idCompetencia;
   jugadorUno;
   jugadorDos;
 
@@ -36,6 +39,7 @@ export class EnfrentamientoComponent implements OnInit {
   
     ngAfterViewInit() {
       this.getListaCompetidores();
+      this.getEncuentros();
     }
   
     getCompetencia(): void {
@@ -52,6 +56,12 @@ export class EnfrentamientoComponent implements OnInit {
         this.listaCompetidores = inscritos.filter(inscrito => this.competencia.id == inscrito.idCompetencia))
     }
 
+    getEncuentros(): void{
+      this.encService.getEncuentros()
+      .subscribe(encuentros => 
+        this.listaAux = encuentros.filter(encuentro => this.competencia.id == encuentro.idCompetencia))
+    }
+
     agregarEnfrentamiento(fechax:any, horax:any):void{
       console.log("Se ha clickeado");
       let content1 = document.getElementById('uno').lastElementChild;
@@ -61,7 +71,7 @@ export class EnfrentamientoComponent implements OnInit {
       this.jugadorDos = content2.innerHTML;
       document.getElementById('uno').removeChild(content1);
       document.getElementById('dos').removeChild(content2);
-      this.idComptencia = +this.route.snapshot.paramMap.get('id');
+      this.idCompetencia = +this.route.snapshot.paramMap.get('id');
       this.fecha = fechax;
       this.hora = horax;
       console.log(fechax+" "+horax);
@@ -69,14 +79,36 @@ export class EnfrentamientoComponent implements OnInit {
     }
 
     agregarEnf(){
-      console.log("uno: "+this.jugadorUno+" dos: "+this.jugadorDos+" idCompetencia: "+this.idComptencia
+      console.log("uno: "+this.jugadorUno+" dos: "+this.jugadorDos+" idCompetencia: "+this.idCompetencia
       +" fecha: "+this.fecha+" hora: "+this.hora);
 
-      if(!this.jugadorUno || !this.jugadorDos || !this.idComptencia || !this.fecha || !this.hora){
+      if(!this.jugadorUno || !this.jugadorDos || !this.idCompetencia || !this.fecha || !this.hora){
         return;
       }
+      //this.id = this.id + 1;
+      let encuentroAux = new Encuentro(this.idCompetencia, this.jugadorUno, this.jugadorDos, this.hora, this.fecha);
 
-      //this.encService.agregarEnfrentamiento
+      this.encService.addEnfrentamiento(encuentroAux).subscribe(
+        encuentroAux => this.listaEncuentros.push(encuentroAux)
+      )
+
+      for(let i = 0; i<this.listaEncuentros.length; i++){
+       console.log(this.listaEncuentros[i].idCompetencia);
+       console.log(this.listaEncuentros[i].nombreJugador1);
+       console.log(this.listaEncuentros[i].nombreJugador2);
+       console.log(this.listaEncuentros[i].hora);
+       console.log(this.listaEncuentros[i].fecha);
+      }
+
+
+      console.log(this.listaAux);
+      console.log(this.listaCompetidores);
+      if(this.band == false){
+        localStorage.setItem('listaEncuentros', JSON.stringify(this.listaAux));
+        this.band=true;
+      }
+
+
     }
 
       // Drag and Drop
