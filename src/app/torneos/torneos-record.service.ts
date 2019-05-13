@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-
 import { Torneo } from './Torneos-Record';
 
 const httpOptions = {
@@ -79,7 +78,7 @@ export class TorneosRecordService {
 
   updateList(id: number, property: number, event: any) {
     const editField = event.target.textContent;
-    this.torneoss[id][property] = editField;
+    this.torneos[id][property] = editField;
   }
 
   changeValue(id: number, property: number, event: any) {
