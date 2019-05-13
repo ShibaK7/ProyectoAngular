@@ -9,7 +9,7 @@ import * as $ from 'jquery';
 })
 export class Paso2Component implements OnInit{
 
-  categorias = ['Categoria1','Categoria2','Categoria3','Categoria4','Categoria5'];
+  categorias = ['Profesional','U-18', 'U-21'];
 
   model = new Competencias(1, "Individual masculino", 1, null, this.categorias[0], 1500, "$200", "$600", "$700",1, "Individual femenino", 1, null, this.categorias[0], 1500, "$200", "$600", "$700",1, "Dobles masculino", 1, null, this.categorias[0], 1500, "$200", "$600", "$700",1, "Dobles femenino", 1, null, this.categorias[0], 1500, "$200", "$600", "$700");
 
