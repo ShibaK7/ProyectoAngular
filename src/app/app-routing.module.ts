@@ -23,6 +23,7 @@ import { EnfrentamientoComponent } from './admin/enfrentamiento/enfrentamiento.c
 import { LlaveComponent } from './admin/llave/llave.component';
 import { CrearCompetenciaTest1Component } from './crear-competencia-test1/crear-competencia-test1.component';
 import { RegistroTorneoComponent } from './registro-torneo/registro-torneo.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 
 const routes: Routes = [
@@ -47,7 +48,8 @@ const routes: Routes = [
   { path: 'enfrentamiento/:id', component: EnfrentamientoComponent },
   { path: 'llave', component: LlaveComponent},
   { path: 'crear-competencia-test1/:id', component: CrearCompetenciaTest1Component },
-  { path: 'registro-torneo', component: RegistroTorneoComponent }
+  { path: 'registro-torneo', component: RegistroTorneoComponent },
+  { path: 'prueba', component: PruebaComponent}
 ];
 
 @NgModule({
