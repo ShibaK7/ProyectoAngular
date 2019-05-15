@@ -43,6 +43,7 @@ import { Paso3Component } from './registro-torneo/paso3/paso3.component';
 import { LlaveComponent } from './admin/llave/llave.component';
 import { CrearCompetenciaComponent } from './otros/crear-competencia/crear-competencia.component';
 import { CrearCompetenciaTest1Component } from './crear-competencia-test1/crear-competencia-test1.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { CrearCompetenciaTest1Component } from './crear-competencia-test1/crear-
     Paso3Component,
     LlaveComponent,
     CrearCompetenciaComponent,
-    CrearCompetenciaTest1Component
+    CrearCompetenciaTest1Component,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,
