@@ -11,31 +11,33 @@
 
   <title>March Madness Stock Matchup</title>
 </head>
+
 <body>
 
   <section id="bracket">
   <div class="container">
+
   <div class="split split-one">
       <div class="round round-one current">
           <div class="round-details">Primer ronda<br/><span class="date">March 16</span></div>
           <ul class="matchup">
-              <li class="team team-top">{{listaAux[0].nombreJugador1}}</li>
-              <li class="team team-bottom">{{listaAux[0].nombreJugador2}}</li>
+              <li id="1" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[0].nombreJugador1}}</li>
+              <li id="2" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[0].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <li class="team team-top">{{listaAux[1].nombreJugador1}}</li>
-              <li class="team team-bottom">{{listaAux[1].nombreJugador2}}</li>
+              <li id="3" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[1].nombreJugador1}}</li>
+              <li id="4" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[1].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <li class="team team-top">{{listaAux[2].nombreJugador1}}</li>
-              <li class="team team-bottom">{{listaAux[2].nombreJugador2}}</li>
+              <li id="5" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[2].nombreJugador1}}</li>
+              <li id="6" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[2].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <li class="team team-top">{{listaAux[3].nombreJugador1}}</li>
-              <li class="team team-bottom">{{listaAux[3].nombreJugador2}}</li>
+              <li id="7" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[3].nombreJugador1}}</li>
+              <li id="8" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[3].nombreJugador2}}</li>
           </ul>           
                               
       </div>  <!-- END ROUND ONE -->
@@ -43,13 +45,13 @@
       <div class="round round-two">      
           <ul class="matchup">
                       <div class="round-details">Segunda ronda<br/><span class="date">March 18</span></div>   
-              <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
-              <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R1E1" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R1E2" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>   
           <br><br><br><br>
           <ul class="matchup">
-              <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
-              <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R2E3" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R2E4" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>   
                                              
       </div>  <!-- END ROUND TWO -->
@@ -57,8 +59,8 @@
       <div class="round round-three" >      
           <ul class="matchup"  > 
               <div class="round-details" >Tercera ronda<br/><span class="date">March 22</span></div>  
-              <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
-              <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R3E1" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R3E2" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>   
                                                 
       </div>  <!-- END ROUND THREE -->        
@@ -69,8 +71,8 @@
           <i class="fa fa-trophy"></i>
           <div class="round-details">Finales <br/><span class="date">March 26-28</span></div>     
           <ul class ="matchup championship">
-              <li class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
-              <li class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>
+              <li id="RF1" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
+              <li id="RF2" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>
           </ul>
       </div>
       
@@ -84,46 +86,50 @@
                 
           <ul class="matchup">
               <div class="round-details">Tercera ronda<br/><span class="date">March 22</span></div>     
-              <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
-              <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R3E3" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R3E4" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>                                       
       </div>  <!-- END ROUND THREE -->    
 
       <div class="round round-two">                     
           <ul class="matchup">
               <div class="round-details">Segunda ronda<br/><span class="date">March 18</span></div>
-              <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
-              <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R2E5" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R2E6" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>   
           <br><br><br><br>
           <ul class="matchup">
-              <li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
-              <li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R2E7" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
+              <li id="R2E8" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>                                       
       </div>  <!-- END ROUND TWO -->
       <div class="round round-one current">
           <div class="round-details">Primer ronda<br/><span class="date">March 16</span></div>
           <ul class="matchup">
-              <li class="team team-top">{{listaAux[4].nombreJugador1}}</li>
-              <li class="team team-bottom">{{listaAux[4].nombreJugador2}}</li>
+              <li id="R1E9" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[4].nombreJugador1}}</li>
+              <li id="R1E10" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[4].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <li class="team team-top">{{listaAux[5].nombreJugador1}}</li>
-              <li class="team team-bottom">{{listaAux[5].nombreJugador2}}</li>
+              <li id="R1E11" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[5].nombreJugador1}}</li>
+              <li id="R1E12" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[5].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <li class="team team-top">{{listaAux[6].nombreJugador1}}</li>
-              <li class="team team-bottom">{{listaAux[6].nombreJugador2}}</li>
+              <li id="R1E13" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[6].nombreJugador1}}</li>
+              <li id="R1E14" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[6].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <li class="team team-top">{{listaAux[7].nombreJugador1}}</li>
-              <li class="team team-bottom">{{listaAux[7].nombreJugador2}}</li>
+              <li id="R1E15" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[7].nombreJugador1}}</li>
+              <li id="R1E16" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[7].nombreJugador2}}</li>
           </ul>           
                                       
       </div>  <!-- END ROUND ONE -->                          
   </div>
+
   </div>
-  
+ </section>
+ </body>
+<!--Otra cosa-->
+<app-footer></app-footer>
