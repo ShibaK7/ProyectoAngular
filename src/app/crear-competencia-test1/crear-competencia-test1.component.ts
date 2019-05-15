@@ -11,7 +11,7 @@ import { Torneo } from '../torneos/Torneos-Record';
 
 import { FechaCompetenciaService } from '../fecha-competencia.service';
 
-import * as $ from 'jquery';
+
 
 
 @Component({
