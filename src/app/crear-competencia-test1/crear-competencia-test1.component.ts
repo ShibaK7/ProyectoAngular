@@ -47,63 +47,7 @@ export class CrearCompetenciaTest1Component implements OnInit {
   constructor(private torneosRecordService: TorneosRecordService, private fechaCompetenciaService :FechaCompetenciaService , private route: ActivatedRoute, private location: Location) { }
 
   public ngOnInit() {
-
-
-    jQuery(function() {
-      $('.removeDiv').on('click', function() {
-        $(this).parent('div').remove();
-      });
-    });
-
-    function removeDiv(elem){
-      $(elem).parent('div').remove();
-  }
-
-
-    $('.close-div').on('click', function(){
-      $(this).closest("#clients-edit-wrapper").remove();
-  });
-
-
-    $(function(){
-      $('#im').change(function(){
-        if($(this).prop('checked')){
-          $('#oim').show();
-        }else{
-          $('#oim').hide();
-        }
-
-      })
-
-      $('#if').change(function(){
-        if($(this).prop('checked')){
-          $('#oif').show();
-        }else{
-          $('#oif').hide();
-        }
-
-      })
-
-      $('#dm').change(function(){
-        if($(this).prop('checked')){
-          $('#odm').show();
-        }else{
-          $('#odm').hide();
-        }
-
-      })
-
-      $('#df').change(function(){
-        if($(this).prop('checked')){
-          $('#odf').show();
-        }else{
-          $('#odf').hide();
-        }
-
-      })
-    })
-
-    
+  
 
     
     this.getTorneos();
