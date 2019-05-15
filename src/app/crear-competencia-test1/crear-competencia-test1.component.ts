@@ -11,7 +11,14 @@ import { Torneo } from '../torneos/Torneos-Record';
 
 import { FechaCompetenciaService } from '../fecha-competencia.service';
 
-import * as $ from 'jquery';
+import { ResultadoIService } from '../resultadosI.service';
+import { ResultadoI } from '../resultadosI';
+
+import { ResultadoDService } from '../resultadosD.service';
+import { ResultadoD } from '../resultadoD';
+
+
+
 
 
 @Component({
@@ -21,9 +28,15 @@ import * as $ from 'jquery';
 })
 export class CrearCompetenciaTest1Component implements OnInit {
 
+  jugador1 : string;
+  jugador2 : string;
+  verificado : number;
+  abandono : number;
+  resultadosI : ResultadoI[];
+
   torneos : Torneo[] ;
-  torn: Observable<Torneo[]>;
-  EditRowID: any = ' ';
+  //torn: Observable<Torneo[]>;
+  //EditRowID: any = ' ';
   //competencias: Competencia[];
 
   private genero: string = "";
@@ -37,109 +50,25 @@ export class CrearCompetenciaTest1Component implements OnInit {
 
   private setNombre: string = " ";
 
-   newTorneo1 : String[] = data[i].getData();
-   newTorneo2 : String[];
+   newTorneo1 : number;
+   newTorneo2 : number;
 
   private searchTerms = new Subject<string>();
 
-
-
-
-
-
-  constructor(private torneosRecordService: TorneosRecordService, private fechaCompetenciaService :FechaCompetenciaService , private route: ActivatedRoute, private location: Location) { }
+  constructor(private torneosRecordService: TorneosRecordService, private fechaCompetenciaService :FechaCompetenciaService ,private resultadoDService : ResultadoDService, private resultadoIService : ResultadoIService, private route: ActivatedRoute, private location: Location) { }
 
   public ngOnInit() {
 
+    this.verificado = 0;
+    this.abandono = 0;
+    this.getResultadosI();
 
-    jQuery(function($) {
-      $('.removeDiv').on('click', function() {
-        $(this).parent('div').remove();
-      });
-    });
-
-    function removeDiv(elem){
-      $(elem).parent('div').remove();
-  }
-
-
-    $('.close-div').on('click', function(){
-      $(this).closest("#clients-edit-wrapper").remove();
-  });
-
-
-    $(function(){
-      $('#im').change(function(){
-        if($(this).prop('checked')){
-          $('#oim').show();
-        }else{
-          $('#oim').hide();
-        }
-
-      })
-
-      $('#if').change(function(){
-        if($(this).prop('checked')){
-          $('#oif').show();
-        }else{
-          $('#oif').hide();
-        }
-
-      })
-
-      $('#dm').change(function(){
-        if($(this).prop('checked')){
-          $('#odm').show();
-        }else{
-          $('#odm').hide();
-        }
-
-      })
-
-      $('#df').change(function(){
-        if($(this).prop('checked')){
-          $('#odf').show();
-        }else{
-          $('#odf').hide();
-        }
-
-      })
-    })
-
-    
 
     
     this.getTorneos();
     this.torneoSeleccionado = null;
-    this.getPaginas();
     this.genero = "femenino";
-    this.torneoSeleccionado = null;
-
-    this.torn = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
- 
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
- 
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => 
-      this.fechaCompetenciaService.searchTerms(term))
-    );
-
-    this.torn = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
- 
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
- 
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => 
-      this.fechaCompetenciaService.searchTerms(term))
-    );
-
-    
+    this.torneoSeleccionado = null;    
   }
 
 
@@ -161,224 +90,41 @@ export class CrearCompetenciaTest1Component implements OnInit {
     }
   }
 
-  getPaginas(): void {
-    this.torneosRecordService.getTorneos().subscribe( torneos =>
-      {
-        if(((torneos.length/this.registrosPorPagina)-(Math.trunc(torneos.length / this.registrosPorPagina)))==0)
-          this.totalPaginasF = Math.trunc(torneos.length / this.registrosPorPagina)
-        else
-          this.totalPaginasF = Math.trunc(torneos.length / this.registrosPorPagina)+1
-      }
-    )
-  }
-
-  getPaginasFiltradasFemenino(): void {
-    this.torneosRecordService.getTorneos().subscribe( torneos =>
-      {
-        if(((torneos.filter(torneo => this.torneoSeleccionado == null || this.torneoSeleccionado == torneo.nacionalidad).length/this.registrosPorPagina)-(Math.trunc(torneos.filter(torneo => this.torneoSeleccionado == null || this.torneoSeleccionado == torneo.nacionalidad).length / this.registrosPorPagina)))==0)
-          this.totalPaginasFiltradasF = Math.trunc(torneos.filter(torneo => this.torneoSeleccionado == null || this.torneoSeleccionado == torneo.nacionalidad).length / this.registrosPorPagina)
-        else
-          this.totalPaginasFiltradasF = Math.trunc(torneos.filter(torneo => this.torneoSeleccionado == null || this.torneoSeleccionado == torneo.nacionalidad).length / this.registrosPorPagina)+1
-      }
-    )
-  }
-
-  cambiarPaisSeleccionado(newTorneoSeleccionado?: string) {
-    if(newTorneoSeleccionado=="")
-    {
-      this.torneoSeleccionado=null;
-      this.filtradoPais=false;
-      this.numeroPaginasFiltradasF=1;
-      this.getTorneos();
-    }
-    else
-    {
-      this.torneoSeleccionado = newTorneoSeleccionado;
-      this.filtradoPais=true;
-      this.numeroPaginaF=1;
-      this.getPaginasFiltradasFemenino();
-      this.getTorneos();
-    }
-  }
-
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
 
 
-
-  
-  avanzarPagina(genero: number) {
-    if(genero===1)
-    {
-      if(!this.filtradoPais)
-      {
-        if(this.numeroPaginaF < this.totalPaginasF)
-        this.numeroPaginaF++;
-        this.getTorneos();
-      }
-      else
-      {
-        if(this.numeroPaginasFiltradasF < this.totalPaginasFiltradasF)
-        this.numeroPaginasFiltradasF++;
-        this.getTorneos();
-      }
-    }
-  }
-
-  regresarPagina(genero: number) {
-    console.log('regresarPagina funciona');
-    if(genero===1)
-    {
-      if(!this.filtradoPais)
-      {
-        if(this.numeroPaginaF > 1)
-        this.numeroPaginaF--;
-        this.getTorneos();
-      }
-      else
-      {
-        if(this.numeroPaginasFiltradasF > 1)
-        this.numeroPaginasFiltradasF--;
-        this.getTorneos();
-      }
-    }
-  }
-
-  avanzarFinal(genero: number) {
-    console.log('avanzarFinal funciona');
-    if(genero===1)
-    {
-      if(!this.filtradoPais)
-      {
-        this.numeroPaginaF = this.totalPaginasF;
-        this.getTorneos();
-      }
-      else
-      {
-        this.numeroPaginasFiltradasF = this.totalPaginasFiltradasF;
-        this.getTorneos();
-      }
-    }
-  }
-
-  regresarPrincipio(genero: number) {
-    console.log('regresarPrincipio funciona');
-    if(genero===1)
-    {
-      if(!this.filtradoPais)
-      {
-        this.numeroPaginaF = 1;
-        this.getTorneos();
-      }
-      else
-      {
-        this.numeroPaginasFiltradasF = 1;
-        this.getTorneos();
-      }
-    }
-  }
-
-  resetGenero(generoSeleccionado: number) {
-    if(generoSeleccionado===1)
-    {
-      this.genero='femenino'; 
-      this.torneoSeleccionado=null; 
-      this.numeroPaginaF=1;
-      this.filtradoPais=false;
-      this.getTorneos();
-      /*var selector = document.getElementById("select") as HTMLElement;
-      selector.selectedIndex = 0;*/
-    }
-  }
-
-
-
-
-
-  cambiarTorneoSeleccionado(newTorneoSeleccionado?: string) {
-    if(newTorneoSeleccionado=="")
-    {
-      this.torneoSeleccionado = null;
-      this.filtradoPais = false;
-      this.numeroPaginasFiltradasF = 1;
-      this.getTorneos();
-    }
-    else
-    {
-      this.torneoSeleccionado = newTorneoSeleccionado;
-      this.filtradoPais = true;
-      this.numeroPaginaF = 1;
-      this.getPaginasFiltradasFemenino();
-      this.getTorneos();
-    }
-  }
-
-      // Drag and Drop
-
-      dragStart(ev) {
-        ev.dataTransfer.setData("Text", ev.target.id);
-        document.getElementById("demo").innerHTML = "Started to drag the p element";
-      }
-      
-       dragEnd(ev) {
-        document.getElementById("demo").innerHTML = "Finished dragging the p element.";
-      }
-      
-       allowDrop(ev) {
-        ev.preventDefault();
-      }
-      
-       drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("Text");
-        ev.target.appendChild(document.getElementById(data));
-        document.getElementById("demo").innerHTML = "The p element was dropped";
-        alert('Usted a seleccionado a un jugador. ');
-      }
-
-
-  Edit(val) {
-    this.EditRowID = val;
-}
-      
-calcular(fechaAux : string) {
-  console.log(fechaAux);
-  this.searchTerms.next(fechaAux);
-}
-
-myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
+getResultadosI() {
+  this.resultadoIService.getJugadores().subscribe(
+    resultadoI2 => this.resultadosI = resultadoI2
+  );
 }
 
 
 
-asd(a)
-{
-    if(a==1)
-    document.getElementById("asd").style.display="none";
-    else
-    document.getElementById("asd").style.display="block";
+
+
+
+
+
+cambioAbandono() {
+if(this.abandono == 0){
+  this.abandono = 1;
+  console.log("El valor de Abandono es: " +this.abandono);
+}
+else {
+  this.abandono = 0;
+  console.log("El valor de Abandono es: " +this.abandono);
 }
 
-clickMethod(name: string) {
-  if(confirm("¿Deseas continuar?")) {
-    console.log("Implement delete functionality here" + this.newTorneo1);
-  }
 }
 
-addTorneo(newTorneo1 : String, newTorneo2 : String ){
-  if(newTorneo1 && newTorneo2){
-      this.torneos.push(newTorneo1,newTorneo2);
-      console.log(newTorneo1,newTorneo2);
-  }
-}
+guardarResultado(){
+  let resultadoI = new ResultadoI("Rael Nafal","Rael Nafal2", 4,
+    6, 7,8 ,10 , 1, 2, 3, 5, 6, 1, 0," ");
+  this.resultadoIService.addResultadoI(resultadoI).subscribe(
+    resultadoI => this.resultadosI.push(resultadoI)
+  )
 
+}
 
 
 }

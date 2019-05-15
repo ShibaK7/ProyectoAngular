@@ -1,120 +1,133 @@
-<app-navbar></app-navbar>
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
-  integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
-
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-
-<div class="aux">
-    <!--  <a routerLink="#" class="btn">Enfrentamientos</a> -->
-
-    <div class="input-group space" style="width: 18%;">
-            <input type="date" #tres id="start" name="trip-start" value="2019-05-22" min="2018-01-01" max="2019-12-31" class="form-control"   />
-            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-    
-    </div>
+<app-userbar [usuario]='"Admin"'></app-userbar>
 
 
 
 
 
 
-
-
-</div>
-
-
-
-
-
-<div class="row removeDiv">
+<div class="row ">
 
     <div *ngFor="let torneo of torneos; let i = index;" class="column">
-        
-            <!-- <div *ngIf="i > 1 && i < 3" > -->
-            <div *ngIf="torneo.fechaCompetencia == tres.value"> 
+        <div *ngIf="i > 0 && i < 2">
                 <div class="card">
-                        <h3>{{torneo.nombreTorneo}}</h3>
-                
+
+
+                        <thead class="bg-dark text-white" style="margin-left: 160px; padding-left: 12px; margin-right: 90px; letter-spacing: 60px;">
+                                <tr>
+                                  <th scope="col">1</th>
+                                  <th scope="col">2</th>
+                                  <th scope="col">3</th>
+                                  <th scope="col">4</th>
+                                  <th scope="col">5</th>
+                                  <th scope="col">6</th>
+                                </tr>
+                        </thead>
+
                         <table class="table table-sm ">
                                 <thead class="bg-dark text-white">
                                   <tr>
-                                    <th scope="col"> </th>
-                                    <th scope="col"> </th>
-                                    <th scope="col">1</th>
-                                    <th scope="col">2</th>
-                                    <th scope="col">3</th>
-                                    <th scope="col">4</th>
-                                    <th scope="col">5</th>
-                                    <th scope="col">6</th>
+
                                   </tr>
                                 </thead>
                                 <tbody>
                                     <tr  class="text-dark" >
                                         <td>
-                                                Rafel Nadal
+                                                Rafael Nadal
                                         </td>
-                                        <td *ngFor="let torneo of torneos;let i = index;">
-                                                <div *ngIf="i > 0 && i < 7" >
-                                                    <input #newTorneo1 type="number" id="primero" name="primero" class="content" min="0" max="25" >
-                                                </div> 
+                                        <td>
+
+                                                <table class="table table-sm ">
+                                                        <thead class="bg-dark text-white">
+                                                          <tr>
+                                                              
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr  class="text-dark" >
+                                                                <td>
+                                                                        <input #newTorneo1 type="number" id="primeroA" name="primeroA" class="content" min="0" max="25">
+                                                                </td>
+                                                                <td>
+                                                                        <input #newTorneo1 type="number" id="segundoA" name="segundoA" class="content" min="0" max="25">
+                                                                </td>
+                                                                <td>
+                                                                        <input #newTorneo1 type="number" id="terceroA" name="terceroA" class="content" min="0" max="25">
+                                                                </td>
+                                                                <td>
+                                                                        <input #newTorneo1 type="number" id="cuartoA" name="cuartoA" class="content" min="0" max="25">
+                                                                </td>
+                                                                <td>
+                                                                        <input #newTorneo1 type="number" id="quintoA" name="quintoA" class="content" min="0" max="25">
+                                                                </td>
+                                                                <td>
+                                                                        <input #newTorneo1 type="number" id="sextoA" name="sextoA" class="content" min="0" max="25">
+                                                                </td>
+                                                            </tr>   
+                                     
+                                          
+                                                        </tbody>
+                                                </table>
+                                            
                                         </td>
                                     </tr>   
                 
                                     <tr  class="text-dark" >
                                             <td>
-                                                    Kobe Bryant
+                                                    Djovotsh Federer
                                             </td>
-                                            <td *ngFor="let torneo of torneos;let i = index;">
-                                                <div *ngIf="i > 0 && i < 7" >
-                                                    <input #newTorneo2 type="number" id="segundo" name="segundo" class="content" min="0" max="25" >
-                                                </div> 
+                                            <td>
+                                                    <table class="table table-sm ">
+                                                            <thead class="bg-dark text-white">
+                                                              <tr>
+                                                              </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr  class="text-dark" >
+                                                                    <td>
+                                                                            <input #newTorneo1 type="number" id="primeroB" name="primeroB" class="content" min="0" max="25">
+                                                                    </td>
+                                                                    <td>
+                                                                            <input #newTorneo1 type="number" id="segundoB" name="segundoB" class="content" min="0" max="25">
+                                                                    </td>
+                                                                    <td>
+                                                                            <input #newTorneo1 type="number" id="terceroB" name="terceroB" class="content" min="0" max="25">
+                                                                    </td>
+                                                                    <td>
+                                                                            <input #newTorneo1 type="number" id="cuartoB" name="cuartoB" class="content" min="0" max="25">
+                                                                    </td>
+                                                                    <td>
+                                                                            <input #newTorneo1 type="number" id="quintoB" name="quintoB" class="content" min="0" max="25">
+                                                                    </td>
+                                                                    <td>
+                                                                            <input #newTorneo1 type="number" id="sextoB" name="sextoB" class="content" min="0" max="25">
+                                                                    </td>
+                                                                </tr>   
+                                         
+                                              
+                                                            </tbody>
+                                                    </table>
                                             </td>
-                                    </tr>    
+                                    </tr>  
                   
                                 </tbody>
                         </table>
                 
-                
-                
                         <div class="abandono">
-                            
-                
-                <!-- 
-                              <input type="checkbox" [disabled]="false" name="abandono" >Abandono<br>
-                              <textarea rows="1" cols="20" [disabled]="true" > </textarea>
-                
-                -->
                 
                               
                                   <div>
-                                      <input  type="checkbox" [disabled]="false" name="option-2" id="option-2">Abandono
+                                      <input  type="checkbox" name="option-2" id="option-2" (change)="cambioAbandono()">Abandono
                                   </div>
                                   <div>
-                                      <textarea  rows="1" cols="11" value="Motivo">Motivo </textarea>
+                                      <textarea  rows="1" cols="11" value="Motivo" [disabled]="abandono==0">Motivo </textarea>
                                   </div>
                                   <div>
-                                      <input type="submit" class="btn-generico close-div" (click)="clickMethod('name'); addTorneo(newTorneo1.value, newTorneo2.value); "   value="Enviar">
+                                      <input type="submit" class="btn-generico close-div" value="Enviar" data-toggle="modal" data-target="#exampleModal">
                                   </div>
-                              
-                              
-                
                         </div>
-                
-                
-                        
                 </div>
-            </div>
-
-        
-
+        </div>
     </div>
-
 </div>
 
 
@@ -122,9 +135,28 @@
 
 
 
-<div class="mt-5">
-    <app-footer></app-footer>
-  </div>
-  
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Confirmacion registro</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ¿Desea realizar el registro de este enfrentamiento?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button routerLink="/crear-competencia-test1/:id" type="button" class="btn btn-primary" (click)="guardarResultado()">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
 
 

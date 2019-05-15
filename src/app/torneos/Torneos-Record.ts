@@ -52,6 +52,9 @@ export class Torneo {
     }
 
     resultados: string;
+
+    newTorneo1: number;
+    newTorneo2: number;
 }
 
 

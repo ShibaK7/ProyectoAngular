@@ -3,6 +3,11 @@ import { ResultadoI } from './resultadosI';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Type } from '@angular/compiler';
+
+const httpOptions={
+  headers : new HttpHeaders ({ 'Content-Type' : 'application/json' })
+};
 
 @Injectable({providedIn: 'root'})
 
@@ -67,5 +72,11 @@ export class ResultadoIService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  addResultadoI(resultadoI : ResultadoI){
+    return this.http.post<ResultadoI>(this.heroesUrl, resultadoI, httpOptions).pipe(
+      catchError(this.handleError<ResultadoI>('addResultadoI'))
+    )
   }
 }

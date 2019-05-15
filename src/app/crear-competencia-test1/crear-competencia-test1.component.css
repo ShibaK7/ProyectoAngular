@@ -47,23 +47,7 @@
     height: 230px;
   }
   
-  .btn {
-    background-color: #48B48F;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    font-size: 16px;
-    margin: 4px 2px;
-    opacity: 0.6;
-    transition: 0.3s;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .btn:hover {opacity: 1}
-
+ 
   .aux{
       margin-left: 56px;
       margin-top: 10px;
@@ -168,21 +152,4 @@ input[type=date] {
 
 
 
-#myDIV {
-  width: 100%;
-  padding: 50px 0;
-  text-align: center;
-  background-color: lightblue;
-  margin-top: 20px;
-}
-
-
-.o-hide {
-  opacity: 0;
-  transition: all ease 0.8s;
-}
-
-.o-hide:hover {
-  opacity: 1;
-}
 

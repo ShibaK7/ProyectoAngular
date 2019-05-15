@@ -21,4 +21,8 @@ export class ResultadoD
     e2s4: number;
     e1s5: number;
     e2s5: number;
+    verificacion : number;
+    abandono : number;
+    motivo : string;
+    fechaCompetencia: string;
 }
