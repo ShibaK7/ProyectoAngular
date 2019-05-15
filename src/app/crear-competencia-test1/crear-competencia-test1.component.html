@@ -61,7 +61,7 @@
                                         </td>
                                         <td *ngFor="let torneo of torneos;let i = index;">
                                                 <div *ngIf="i > 0 && i < 7" >
-                                                    <input type="number" id="primero" name="primero" class="content" min="0" max="25">
+                                                    <input #newTorneo1 type="number" id="primero" name="primero" class="content" min="0" max="25" >
                                                 </div> 
                                         </td>
                                     </tr>   
@@ -72,7 +72,7 @@
                                             </td>
                                             <td *ngFor="let torneo of torneos;let i = index;">
                                                 <div *ngIf="i > 0 && i < 7" >
-                                                    <input type="number" id="segundo" name="segundo" class="content" min="0" max="25">
+                                                    <input #newTorneo2 type="number" id="segundo" name="segundo" class="content" min="0" max="25" >
                                                 </div> 
                                             </td>
                                     </tr>    
@@ -99,7 +99,7 @@
                                       <textarea  rows="1" cols="11" value="Motivo">Motivo </textarea>
                                   </div>
                                   <div>
-                                      <input type="submit" class="btn-generico close-div" (click)="clickMethod('name'); removeDiv(this); "   value="Enviar">
+                                      <input type="submit" class="btn-generico close-div" (click)="clickMethod('name'); addTorneo(newTorneo1.value, newTorneo2.value); "   value="Enviar">
                                   </div>
                               
                               

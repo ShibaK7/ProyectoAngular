@@ -37,6 +37,9 @@ export class CrearCompetenciaTest1Component implements OnInit {
 
   private setNombre: string = " ";
 
+   newTorneo1 : String[] = data[i].getData();
+   newTorneo2 : String[];
+
   private searchTerms = new Subject<string>();
 
 
@@ -365,14 +368,16 @@ asd(a)
 
 clickMethod(name: string) {
   if(confirm("¿Deseas continuar?")) {
-    console.log("Implement delete functionality here");
+    console.log("Implement delete functionality here" + this.newTorneo1);
   }
 }
 
-
-
-
-
+addTorneo(newTorneo1 : String, newTorneo2 : String ){
+  if(newTorneo1 && newTorneo2){
+      this.torneos.push(newTorneo1,newTorneo2);
+      console.log(newTorneo1,newTorneo2);
+  }
+}
 
 
 
