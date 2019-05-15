@@ -141,8 +141,8 @@
     <div class="col-5">   
 <br><br>
 
-<label align="justify">A continuación se presentan las especificaciones del enfrentamiento, selecciona la fecha y la hora en la que
-  desees que se lleve a cabo el encuentro recuerda que una vez asignada la informacion se presentara en las llaves de competencia.
+<label align="justify"><strong>Nota:</strong> A continuación se presentan las especificaciones para realizar los encuentros de la primera ronda selecciona la hora y la fecha 
+  en que se desee que se efectue, los participantes inscritos se presentan en la tabla de la izquierda.
 </label>
 <br><br>
         <table>
@@ -196,10 +196,9 @@
             </th>
           </tr>
         </table>
-        <p align="right"><button class="btn btn-generico mt-5" align="right" (click)="agregarEnfrentamiento(tres.value, cuatro.value);">Generar</button>&nbsp; &nbsp;&nbsp;<a  *ngIf="cont == 8" class="nav-link" routerLink="/llave" class="btn btn-generico mt-5">Visualizar</a></p>
+        <p align="right"><button class="btn btn-generico mt-5" align="right" (click)="agregarEnfrentamiento(tres.value, cuatro.value);">Generar</button>&nbsp; &nbsp;&nbsp;<a  *ngIf="cont > -1" class="nav-link" routerLink="/llave" class="btn btn-generico mt-5">Visualizar</a></p>
         <p align="right"></p>
     </div>
-  
   </div>
 </div>
 <br>

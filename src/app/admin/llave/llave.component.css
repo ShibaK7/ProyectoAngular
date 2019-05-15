@@ -1,11 +1,16 @@
 
 .card{
-    width: 150px;
+    width: 300px;
     border-color: #48B48F;
     background-color: #FAFAFA;
     border-width: 3.5px;
     align-content: center;
     padding: 0%;
+}
+
+.ren{
+  width: 130px;
+  height: 52px;
 }
 
 .card:hover {
