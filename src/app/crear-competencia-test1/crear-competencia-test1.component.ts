@@ -49,7 +49,7 @@ export class CrearCompetenciaTest1Component implements OnInit {
   public ngOnInit() {
 
 
-    jQuery(function($) {
+    jQuery(function() {
       $('.removeDiv').on('click', function() {
         $(this).parent('div').remove();
       });
