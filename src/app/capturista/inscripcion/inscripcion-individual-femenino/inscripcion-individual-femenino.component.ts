@@ -92,7 +92,18 @@ export class InscripcionIndividualFemeninoComponent implements OnInit {
     this.competencia.lugaresOcupados = this.competencia.lugaresOcupados + 1;
 
     this.competenciaService.updateCompetencia(this.competencia).subscribe(
-      () => this.goBack()
+      () =>  {
+        if(this.competencia.lugaresOcupados == this.competencia.cupo)
+        {
+          this.goBack();
+        }
+        else
+        {
+          this.todoForm.reset();
+          this.jugadoraEncontrada = new Jugadora();
+          this.errorIndicado = 3;
+        }
+      }
     )
   }
 

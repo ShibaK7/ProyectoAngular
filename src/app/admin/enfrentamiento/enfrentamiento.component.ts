@@ -63,7 +63,7 @@ export class EnfrentamientoComponent implements OnInit {
         this.listaAux = encuentros.filter(encuentro => this.competencia.id == encuentro.idCompetencia))
     }
 
-    agregarEnfrentamiento(fechax:any, horax:any):void{
+    agregarEnfrentamiento():void{
       console.log("Se ha clickeado");
       let content1 = document.getElementById('uno').lastElementChild;
       let content2 = document.getElementById('dos').lastElementChild;
@@ -73,9 +73,9 @@ export class EnfrentamientoComponent implements OnInit {
       document.getElementById('uno').removeChild(content1);
       document.getElementById('dos').removeChild(content2);
       this.idCompetencia = +this.route.snapshot.paramMap.get('id');
-      this.fecha = fechax;
+      /*this.fecha = fechax;
       this.hora = horax;
-      console.log(fechax+" "+horax);
+      console.log(fechax+" "+horax);*/
       this.agregarEnf();
       this.cont = this.cont + 1;
       console.log(this.cont);

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 
@@ -93,14 +93,25 @@ export class CrearCompetenciaTest1Component implements OnInit {
     this.t6B = 0 ;
 
 
-    
+  
     this.getTorneos();
     this.torneoSeleccionado = null;
     this.genero = "femenino";
     this.torneoSeleccionado = null;    
   }
 
-
+  ngAfterViewInit() {
+ 
+    
+  }
+/*
+  recuperar(){
+    this.jug1 =  localStorage.getItem('jugador1');
+    this.jug2 =  localStorage.getItem('jugador2');
+    this.fecha =  localStorage.getItem('fecha');
+    console.log(this.jug1,this.jug2,this.fecha);
+  }
+  */
 
   getTorneos(): void {
     if(!this.filtradoPais)

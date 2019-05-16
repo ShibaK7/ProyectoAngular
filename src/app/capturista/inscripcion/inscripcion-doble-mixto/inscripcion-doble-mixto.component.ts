@@ -149,7 +149,20 @@ export class InscripcionDobleMixtoComponent implements OnInit {
     this.competencia.lugaresOcupados = this.competencia.lugaresOcupados + 1;
 
     this.competenciaService.updateCompetencia(this.competencia).subscribe(
-      () => this.goBack()
+      () =>  {
+        if(this.competencia.lugaresOcupados == this.competencia.cupo)
+        {
+          this.goBack();
+        }
+        else
+        {
+          this.todoForm.reset();
+          this.jugadoraEncontrada = new Jugadora();
+          this.errorIndicado1 = 3;
+          this.jugadorEncontrado = new Jugador();
+          this.errorIndicado2= 3;
+        }
+      }
     )
   }
 

@@ -153,7 +153,20 @@ export class InscripcionDobleFemeninoComponent implements OnInit {
     this.competencia.lugaresOcupados = this.competencia.lugaresOcupados + 1;
 
     this.competenciaService.updateCompetencia(this.competencia).subscribe(
-      () => this.goBack()
+      () =>  {
+        if(this.competencia.lugaresOcupados == this.competencia.cupo)
+        {
+          this.goBack();
+        }
+        else
+        {
+          this.todoForm.reset();
+          this.jugadoraEncontrada1 = new Jugadora();
+          this.errorIndicado1 = 4;
+          this.jugadoraEncontrada2 = new Jugadora();
+          this.errorIndicado2= 4;
+        }
+      }
     )
   }
 

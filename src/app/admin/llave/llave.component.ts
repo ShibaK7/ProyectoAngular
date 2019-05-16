@@ -8,8 +8,10 @@ import { Versus } from 'src/app/versus';
 })
 export class LlaveComponent implements OnInit {
   listaAux: Versus[] = [];
+  nombre: any;
+  constructor() { 
 
-  constructor() { }
+  }
 
   ngOnInit() {
     this.getEncuentros();
@@ -22,6 +24,8 @@ export class LlaveComponent implements OnInit {
   getEncuentros(): void{
     let aux = localStorage.getItem('listaEncuentros');  
     this.listaAux = (JSON.parse(aux));
+    let uno = "hola";
+    localStorage.setItem('aux', uno);
   }
 
   consultar(): void{

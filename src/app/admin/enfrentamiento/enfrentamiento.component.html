@@ -141,16 +141,17 @@
     <div class="col-5">   
 <br><br>
 
-<label align="justify">A continuación se presentan las especificaciones del enfrentamiento, selecciona la fecha y la hora en la que
-  desees que se lleve a cabo el encuentro recuerda que una vez asignada la informacion se presentara en las llaves de competencia.
+<label align="justify">A continuación se presentan las especificaciones del enfrentamiento, lee cuidadosamente las intrucciones, recuerda
+  que para visualizar los enfrentamientos todos los jugadores deben tener asignado un oponente.
 </label>
 <br><br>
+<!--
         <table>
           <tr>
             <th>
                 <label >Fecha:</label><br>
                 <div class="input-group" style="width: 100%;">
-                  <input #tres type="date" value="2019-05-13" min="2018-01-01" max="2019-12-31" class="form-control fas fa-calendar-alt"/>
+                  <input #tres type="date" value="2019-05-16" min="2019-05-16" max="2019-05-31" class="form-control fas fa-calendar-alt"/>
                   
                 </div>
               </th>
@@ -166,8 +167,7 @@
             </th>
           </tr>
         </table>
-
-        <br><br>
+-->
         <label><strong>Instrucciones: </strong>Arrastra el nombre de los jugadores que se enfrentaran a las casillas siguientes.</label>
         <table>
           <tr align="center">
@@ -196,7 +196,7 @@
             </th>
           </tr>
         </table>
-        <p align="right"><button class="btn btn-generico mt-5" align="right" (click)="agregarEnfrentamiento(tres.value, cuatro.value);">Generar</button>&nbsp; &nbsp;&nbsp;<a  *ngIf="cont == 8" class="nav-link" routerLink="/llave" class="btn btn-generico mt-5">Visualizar</a></p>
+        <p align="right"><button class="btn btn-generico mt-5" align="right" (click)="agregarEnfrentamiento();">Generar</button>&nbsp; &nbsp;&nbsp;<a  *ngIf="cont >= -1" class="nav-link" routerLink="/prueba" class="btn btn-generico mt-5">Visualizar</a></p>
         <p align="right"></p>
     </div>
   
