@@ -13,33 +13,26 @@
 <div class="aux">
     <!--  <a routerLink="#" class="btn">Enfrentamientos</a> -->
 
-    <div class="input-group space" style="width: 18%;">
-            <input type="date" #tres id="start" name="trip-start" value="2019-05-22" min="2018-01-01" max="2019-12-31" class="form-control"   />
+ <!--   <div class="input-group space" style="width: 18%;">
+            <input type="date" #tres id="start" name="trip-start" value="2019-05-16" min="2019-05-31" max="2019-12-31" class="form-control"   />
             <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
     
     </div>
-
-
-
-
-
-
-
+-->
 
 </div>
 
+<h5 align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A continuación se presenta la tarjeta para registrar los resultados del encuentro. (En caso de un abandono se debe especificar el motivo en la sección correspondiente).
+</h5>
 
-
-
-
-<div class="row removeDiv">
+<div class="row removeDiv" style="position: relative; left:25%">
 
     <div *ngFor="let torneo of torneos; let i = index;" class="column">
         
             <!-- <div *ngIf="i > 1 && i < 3" > -->
-            <div *ngIf="torneo.fechaCompetencia == tres.value"> 
+            <div *ngIf="i < 1"> 
                 <div class="card">
-                        <h3>{{torneo.nombreTorneo}}</h3>
+                        <h3>Roland Garros {{ fecha }}</h3>
                 
                         <table class="table table-sm ">
                                 <thead class="bg-dark text-white">
@@ -57,7 +50,7 @@
                                 <tbody>
                                     <tr  class="text-dark" >
                                         <td>
-                                                Rafel Nadal
+                                                {{ jug1 }}
                                         </td>
                                         <td *ngFor="let torneo of torneos;let i = index;">
                                                 <div *ngIf="i > 0 && i < 7" >
@@ -68,7 +61,7 @@
                 
                                     <tr  class="text-dark" >
                                             <td>
-                                                    Kobe Bryant
+                                                   {{ jug2 }} 
                                             </td>
                                             <td *ngFor="let torneo of torneos;let i = index;">
                                                 <div *ngIf="i > 0 && i < 7" >
@@ -99,7 +92,7 @@
                                       <textarea  rows="1" cols="11" value="Motivo">Motivo </textarea>
                                   </div>
                                   <div>
-                                      <input type="submit" class="btn-generico close-div" (click)="clickMethod('name'); removeDiv(this); "   value="Enviar">
+                                      <input type="submit" class="btn-generico close-div" (click)="clickMethod('name'); removeDiv(this);" value="Enviar" routerLink="/prueba">
                                   </div>
                               
                               

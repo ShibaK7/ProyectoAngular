@@ -22,25 +22,25 @@
           <div class="round-details">Primer ronda<br/><input #uno type="date" value="2019-05-16" min="2019-05-16" max="2019-05-31"><button style="position:absolute;" (click)="imprimeHora(uno.value);">+</button></div>
 
           <ul class="matchup">
-              <button (click)="imprime('1','2');">Resultados</button>
+              <button (click)="imprime('1','2');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="1" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[0].nombreJugador1}}</li>
               <li id="2" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[0].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <button (click)="imprime('3','4');">Resultados</button>
+              <button (click)="imprime('3','4');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="3" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[1].nombreJugador1}}</li>
               <li id="4" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[1].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <button (click)="imprime('5','6');">Resultados</button>
+              <button (click)="imprime('5','6');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="5" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[2].nombreJugador1}}</li>
               <li id="6" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[2].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <button (click)="imprime('7','8');">Resultados</button>
+              <button (click)="imprime('7','8');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="7" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[3].nombreJugador1}}</li>
               <li id="8" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[3].nombreJugador2}}</li>
           </ul>           
@@ -50,13 +50,13 @@
       <div class="round round-two">      
           <ul class="matchup">
               <div class="round-details">Segunda ronda<br/><input #dos type="date" value="2019-05-17" min="2019-05-16" max="2019-05-31"><button style="position:absolute;" (click)="imprimeHora(dos.value);">+</button></div>   
-              <button (click)="imprime2('R1E1','R1E2');">Resultados</button>
+              <button (click)="imprime2('R1E1','R1E2');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="R1E1" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
               <li id="R1E2" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>   
           <br><br><br><br>
           <ul class="matchup">
-              <button (click)="imprime2('R2E3','R2E4');">Resultados</button>
+              <button (click)="imprime2('R2E3','R2E4');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="R2E3" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
               <li id="R2E4" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>   
@@ -66,7 +66,7 @@
       <div class="round round-three" >      
           <ul class="matchup"  > 
               <div class="round-details" >Tercera ronda<br/><input #tres type="date" value="2019-05-18" min="2019-05-16" max="2019-05-31"><button style="position:absolute;" (click)="imprimeHora(tres.value);">+</button></div>  
-              <button (click)="imprime2('R3E1','R3E2');">Resultados</button>
+              <button (click)="imprime2('R3E1','R3E2');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="R3E1" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
               <li id="R3E2" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>   
@@ -79,7 +79,7 @@
           <i class="fa fa-trophy"></i>
           <div class="round-details">Finales <br/><input #cuatro type="date" value="2019-05-19" min="2019-05-16" max="2019-05-31"><button style="position:absolute;" (click)="imprimeHora(cuatro.value);">+</button></div>     
           <ul class ="matchup championship">
-              <button (click)="imprime2('RF1','RF2');">Resultados</button>
+              <button (click)="imprime2('RF1','RF2');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="RF1" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="vote-count">&nbsp;</span></li>
               <li id="RF2" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="vote-count">&nbsp;</span></li>
           </ul>
@@ -95,7 +95,7 @@
                 
           <ul class="matchup">
               <div class="round-details">Tercera ronda<br/><input #cinco type="date" value="2019-05-18" min="2019-05-16" max="2019-05-31"><button style="position:absolute;" (click)="imprimeHora(cinco.value);">+</button></div>   
-              <button (click)="imprime2('R3E3','R3E4');">Resultados</button> 
+              <button (click)="imprime2('R3E3','R3E4');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button> 
               <li id="R3E3" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
               <li id="R3E4" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>                                       
@@ -104,13 +104,13 @@
       <div class="round round-two">                     
           <ul class="matchup">
               <div class="round-details">Segunda ronda<br/><input #seis type="date" value="2019-05-17" min="2019-05-16" max="2019-05-31"><button style="position:absolute;" (click)="imprimeHora(seis.value);">+</button></div>
-              <button (click)="imprime2('R2E5','R2E6');">Resultados</button>
+              <button (click)="imprime2('R2E5','R2E6');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="R2E5" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
               <li id="R2E6" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>   
           <br><br><br><br>
           <ul class="matchup">
-              <button (click)="imprime2('R2E7','R2E8');">Resultados</button>
+              <button (click)="imprime2('R2E7','R2E8');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="R2E7" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
               <li id="R2E8" (drop)="drop($event)" (dragover)="allowDrop($event)" class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
           </ul>                                       
@@ -118,25 +118,25 @@
       <div class="round round-one current">
           <div class="round-details">Primer ronda<br/><input #siete type="date" value="2019-05-16" min="2019-05-16" max="2019-05-31"><button style="position:absolute;" (click)="imprimeHora(siete.value);">+</button></div>
           <ul class="matchup">
-              <button (click)="imprime('9','10');">Resultados</button>
+              <button (click)="imprime('9','10');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="9" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[4].nombreJugador1}}</li>
               <li id="10" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[4].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup" >
-              <button (click)="imprime('11','12');">Resultados</button>
+              <button (click)="imprime('11','12');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="11" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[5].nombreJugador1}}</li>
               <li id="12" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[5].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <button (click)="imprime('13','14');">Resultados</button>
+              <button (click)="imprime('13','14');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="13" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[6].nombreJugador1}}</li>
               <li id="14" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[6].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
           <ul class="matchup">
-              <button (click)="imprime('15','16');">Resultados</button>
+              <button (click)="imprime('15','16');"><a routerLink="/crear-competencia-test1/1">Resultados</a></button>
               <li id="15" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[7].nombreJugador1}}</li>
               <li id="16" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[7].nombreJugador2}}</li>
           </ul>           

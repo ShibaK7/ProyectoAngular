@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 
@@ -44,12 +44,17 @@ export class CrearCompetenciaTest1Component implements OnInit {
 
 
 
-  constructor(private torneosRecordService: TorneosRecordService, private fechaCompetenciaService :FechaCompetenciaService , private route: ActivatedRoute, private location: Location) { }
+  constructor(private torneosRecordService: TorneosRecordService, private fechaCompetenciaService :FechaCompetenciaService , private route: ActivatedRoute, private location: Location) {
+    this.recuperar();
+   }
+
+  jug1:any;
+  jug2:any;
+  fecha:any;
 
   public ngOnInit() {
-  
 
-    
+  
     this.getTorneos();
     this.torneoSeleccionado = null;
     this.getPaginas();
@@ -83,7 +88,17 @@ export class CrearCompetenciaTest1Component implements OnInit {
     
   }
 
+  ngAfterViewInit() {
+ 
+    
+  }
 
+  recuperar(){
+    this.jug1 =  localStorage.getItem('jugador1');
+    this.jug2 =  localStorage.getItem('jugador2');
+    this.fecha =  localStorage.getItem('fecha');
+    console.log(this.jug1,this.jug2,this.fecha);
+  }
 
   getTorneos(): void {
     if(!this.filtradoPais)
