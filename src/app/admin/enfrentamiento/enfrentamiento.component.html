@@ -145,6 +145,7 @@
   que para visualizar los enfrentamientos todos los jugadores deben tener asignado un oponente.
 </label>
 <br><br>
+<!--
         <table>
           <tr>
             <th>
@@ -166,8 +167,7 @@
             </th>
           </tr>
         </table>
-
-        <br><br>
+-->
         <label><strong>Instrucciones: </strong>Arrastra el nombre de los jugadores que se enfrentaran a las casillas siguientes.</label>
         <table>
           <tr align="center">
@@ -196,7 +196,7 @@
             </th>
           </tr>
         </table>
-        <p align="right"><button class="btn btn-generico mt-5" align="right" (click)="agregarEnfrentamiento(tres.value, cuatro.value);">Generar</button>&nbsp; &nbsp;&nbsp;<a  *ngIf="cont >= -1" class="nav-link" routerLink="/prueba" class="btn btn-generico mt-5">Visualizar</a></p>
+        <p align="right"><button class="btn btn-generico mt-5" align="right" (click)="agregarEnfrentamiento();">Generar</button>&nbsp; &nbsp;&nbsp;<a  *ngIf="cont >= -1" class="nav-link" routerLink="/prueba" class="btn btn-generico mt-5">Visualizar</a></p>
         <p align="right"></p>
     </div>
   
