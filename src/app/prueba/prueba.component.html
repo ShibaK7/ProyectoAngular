@@ -115,14 +115,14 @@
           </ul>                                       
       </div>  <!-- END ROUND TWO -->
       <div class="round round-one current">
-          <div class="round-details">Primer ronda<br/><input type="date"></div>
+          <div class="round-details">Primer ronda<br/><input type="dates"></div>
           <ul class="matchup">
               <button (click)="imprime('9','10');">Resultados</button><button>Adios</button>
               <li id="9" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[4].nombreJugador1}}</li>
               <li id="10" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[4].nombreJugador2}}</li>
           </ul>
           <br><br><br><br>
-          <ul class="matchup">
+          <ul class="matchup" >
               <button (click)="imprime('11','12');">Resultados</button><button>Adios</button>
               <li id="11" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-top">{{listaAux[5].nombreJugador1}}</li>
               <li id="12" (dragstart)="dragStart($event)" (dragend)="dragEnd($event)" draggable="true" class="team team-bottom">{{listaAux[5].nombreJugador2}}</li>
