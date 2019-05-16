@@ -175,12 +175,102 @@ t6B : number;
 */
 
 cambioEstado1A(){
+  if(this.t1A == 0 && this.t1B == 0)
+    {
+        this.t2A = 1;
+        this.t2B =1;
+  console.log("El valor de  t2A es: " +this.t2A + "-"+this.t2B);
+    }
+  
+  }
+  
+  cambioEstado1B(){
+    if(this.t1B == 0 && this.t1A == 0)
+    {
+        this.t2B = 1;
+        this.t2A =1;
+  console.log("El valor de  t2A es: " +this.t2B + "-"+this.t2A);
+    }
+  }
+  
+  
+  
+  cambioEstado2A(){
+  if(this.t2A == 1 && this.t2B == 1)
+    {
+        this.t3A = 1;
+        this.t3B =1;
+  console.log("El valor de  t3A es: " +this.t3A + "-"+this.t3B);
+    }
+  
+  }
+  
+  cambioEstado2B(){
+    if(this.t2B == 0 && this.t2A == 0)
+    {
+        this.t3B = 1;
+        this.t3A =1;
+  console.log("El valor de  t3A es: " +this.t3B + "-"+this.t3A);
+    }
+  }
+  
+  cambioEstado3A(){
+  if(this.t3A == 1 && this.t3B == 1)
+    {
+        this.t4A = 1;
+        this.t4B =1;
+  console.log("El valor de  t4A es: " +this.t4A + "-"+this.t4B);
+    }
+  
+  }
+  
+  cambioEstado3B(){
+    if(this.t3B == 0 && this.t3A == 0)
+    {
+        this.t4B = 1;
+        this.t4A =1;
+  console.log("El valor de  t4A es: " +this.t4B + "-"+this.t4A);
+    }
+  }
+  
+  
+  cambioEstado4A(){
+  if(this.t4A == 1 && this.t4B == 1)
+    {
+        this.t5A = 1;
+        this.t5B =1;
+  console.log("El valor de  t5A es: " +this.t5A + "-"+this.t5B);
+    }
+  
+  }
+  
+  cambioEstado4B(){
+    if(this.t4B == 0 && this.t4A == 0)
+    {
+        this.t5B = 1;
+        this.t5A =1;
+  console.log("El valor de  t5A es: " +this.t5B + "-"+this.t5A);
+    }
+  }
 
-}
-
-cambioEstado1B(){
-
-}
+  cambioEstado5A(){
+    if(this.t5A == 1 && this.t5B == 1)
+      {
+          this.t6A = 1;
+          this.t6B =1;
+    console.log("El valor de  t5A es: " +this.t6A + "-"+this.t6B);
+      }
+    
+    }
+    
+    cambioEstado5B(){
+      if(this.t5B == 0 && this.t5A == 0)
+      {
+          this.t6B = 1;
+          this.t6A =1;
+    console.log("El valor de  t5A es: " +this.t6B + "-"+this.t6A);
+      }
+    }
 
 
 }
