@@ -34,6 +34,20 @@ export class CrearCompetenciaTest1Component implements OnInit {
   abandono : number;
   resultadosI : ResultadoI[];
 
+  t1A : number;
+  t2A : number;
+  t3A : number;
+  t4A : number;
+  t5A : number;
+  t6A : number;
+
+  t1B : number;
+  t2B : number;
+  t3B : number;
+  t4B : number;
+  t5B : number;
+  t6B : number;
+
   torneos : Torneo[] ;
   //torn: Observable<Torneo[]>;
   //EditRowID: any = ' ';
@@ -62,6 +76,21 @@ export class CrearCompetenciaTest1Component implements OnInit {
     this.verificado = 0;
     this.abandono = 0;
     this.getResultadosI();
+
+    this.t1A = 0 ;
+    this.t2A = 0 ;
+    this.t3A = 0 ;
+    this.t4A = 0 ;
+    this.t5A = 0 ;
+    this.t6A = 0 ;
+
+  
+    this.t1B = 0 ;
+    this.t2B = 0 ;
+    this.t3B = 0 ;
+    this.t4B = 0 ;
+    this.t5B = 0 ;
+    this.t6B = 0 ;
 
 
     
@@ -123,6 +152,33 @@ guardarResultado(){
   this.resultadoIService.addResultadoI(resultadoI).subscribe(
     resultadoI => this.resultadosI.push(resultadoI)
   )
+
+}
+
+
+/*
+
+t1A : number;
+t2A : number;
+t3A : number;
+t4A : number;
+t5A : number;
+t6A : number;
+
+t1B : number;
+t2B : number;
+t3B : number;
+t4B : number;
+t5B : number;
+t6B : number;
+
+*/
+
+cambioEstado1A(){
+
+}
+
+cambioEstado1B(){
 
 }
 

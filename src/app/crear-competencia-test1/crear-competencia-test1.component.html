@@ -12,7 +12,7 @@
                 <div class="card">
 
 
-                        <thead class="bg-dark text-white" style="margin-left: 160px; padding-left: 12px; margin-right: 90px; letter-spacing: 60px;">
+                        <thead class="bg-dark text-white claseHead" >
                                 <tr>
                                   <th scope="col">1</th>
                                   <th scope="col">2</th>
@@ -45,22 +45,22 @@
                                                         <tbody>
                                                             <tr  class="text-dark" >
                                                                 <td>
-                                                                        <input #newTorneo1 type="number" id="primeroA" name="primeroA" class="content" min="0" max="25">
+                                                                        <input #newTorneo1A type="number" id="primeroA" name="primeroA" class="content" min="0" max="25" (change)="cambioEstado1A()">
                                                                 </td>
                                                                 <td>
-                                                                        <input #newTorneo1 type="number" id="segundoA" name="segundoA" class="content" min="0" max="25">
+                                                                        <input #newTorneo2A type="number" id="segundoA" name="segundoA" class="content" min="0" max="25">
                                                                 </td>
                                                                 <td>
-                                                                        <input #newTorneo1 type="number" id="terceroA" name="terceroA" class="content" min="0" max="25">
+                                                                        <input #newTorneo3A type="number" id="terceroA" name="terceroA" class="content" min="0" max="25">
                                                                 </td>
                                                                 <td>
-                                                                        <input #newTorneo1 type="number" id="cuartoA" name="cuartoA" class="content" min="0" max="25">
+                                                                        <input #newTorneo4A type="number" id="cuartoA" name="cuartoA" class="content" min="0" max="25">
                                                                 </td>
                                                                 <td>
-                                                                        <input #newTorneo1 type="number" id="quintoA" name="quintoA" class="content" min="0" max="25">
+                                                                        <input #newTorneo5A type="number" id="quintoA" name="quintoA" class="content" min="0" max="25">
                                                                 </td>
                                                                 <td>
-                                                                        <input #newTorneo1 type="number" id="sextoA" name="sextoA" class="content" min="0" max="25">
+                                                                        <input #newTorneo6A type="number" id="sextoA" name="sextoA" class="content" min="0" max="25">
                                                                 </td>
                                                             </tr>   
                                      
@@ -84,22 +84,22 @@
                                                             <tbody>
                                                                 <tr  class="text-dark" >
                                                                     <td>
-                                                                            <input #newTorneo1 type="number" id="primeroB" name="primeroB" class="content" min="0" max="25">
+                                                                            <input #newTorneo1B type="number" id="primeroB" name="primeroB" class="content" min="0" max="25" (change)="cambioEstado1B()">
                                                                     </td>
                                                                     <td>
-                                                                            <input #newTorneo1 type="number" id="segundoB" name="segundoB" class="content" min="0" max="25">
+                                                                            <input #newTorneo2B type="number" id="segundoB" name="segundoB" class="content" min="0" max="25">
                                                                     </td>
                                                                     <td>
-                                                                            <input #newTorneo1 type="number" id="terceroB" name="terceroB" class="content" min="0" max="25">
+                                                                            <input #newTorneo3B type="number" id="terceroB" name="terceroB" class="content" min="0" max="25">
                                                                     </td>
                                                                     <td>
-                                                                            <input #newTorneo1 type="number" id="cuartoB" name="cuartoB" class="content" min="0" max="25">
+                                                                            <input #newTorneo4B type="number" id="cuartoB" name="cuartoB" class="content" min="0" max="25">
                                                                     </td>
                                                                     <td>
-                                                                            <input #newTorneo1 type="number" id="quintoB" name="quintoB" class="content" min="0" max="25">
+                                                                            <input #newTorneo5B type="number" id="quintoB" name="quintoB" class="content" min="0" max="25">
                                                                     </td>
                                                                     <td>
-                                                                            <input #newTorneo1 type="number" id="sextoB" name="sextoB" class="content" min="0" max="25">
+                                                                            <input #newTorneo6B type="number" id="sextoB" name="sextoB" class="content" min="0" max="25">
                                                                     </td>
                                                                 </tr>   
                                          
@@ -116,13 +116,14 @@
                 
                               
                                   <div>
-                                      <input  type="checkbox" name="option-2" id="option-2" (change)="cambioAbandono()">Abandono
+                                      <input class="checkLeBox" type="checkbox" name="option-2" id="option-2" (change)="cambioAbandono()">
+                                      <div class="checkLeBoxText">Abandono</div>
+                                  </div>
+                                  <div class="textBoxSixe">
+                                      <textarea  rows="1" cols="70" value="Motivo" [disabled]="abandono==0">Motivo </textarea>
                                   </div>
                                   <div>
-                                      <textarea  rows="1" cols="11" value="Motivo" [disabled]="abandono==0">Motivo </textarea>
-                                  </div>
-                                  <div>
-                                      <input type="submit" class="btn-generico close-div" value="Enviar" data-toggle="modal" data-target="#exampleModal">
+                                      <input type="submit" class="btn-generico botonDeEnviar" value="Enviar" data-toggle="modal" data-target="#exampleModal">
                                   </div>
                         </div>
                 </div>
