@@ -11,6 +11,7 @@ export class PruebaComponent implements OnInit {
   listaAux: Versus[] = [];
   jugador1:any;
   jugador2:any;
+  fecha:any;
 
 
   constructor() { }
@@ -21,7 +22,7 @@ export class PruebaComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.consultar();
+    //this.consultar();
   }
     getEncuentros(): void{
       let aux = localStorage.getItem('listaEncuentros');
@@ -51,6 +52,11 @@ export class PruebaComponent implements OnInit {
       console.log(this.jugador1, this.jugador2);
       localStorage.setItem("jugador1",this.jugador1);
       localStorage.setItem("jugador2",this.jugador2);
+    }
+
+    imprimeHora(hora:any){
+      this.fecha = hora;
+      localStorage.setItem("fecha",this.fecha);
     }
 
       // Drag and Drop
